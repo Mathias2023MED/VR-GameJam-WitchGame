@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3614fec8df4314a3e8401b19c8d3f6fb, type: 3}
+  m_Name: Level of Violence Elevated
+  m_EditorClassIdentifier: 
+  potionName: Level of Violence Elevated
+  potionPrefab: {fileID: 1447961676559800191, guid: 51ce53f582870418ab9f2d9ad0ed1dd7, type: 3}
+  ingredientsSO:
+  - {fileID: 11400000, guid: 307fef718b745430b996da7769ccf06e, type: 2}
+  - {fileID: 11400000, guid: ed9f9c4febffc46daa093961648a13c1, type: 2}
+  - {fileID: 11400000, guid: 5dae81cf410e0460ca3dfea4ce21cfbe, type: 2}

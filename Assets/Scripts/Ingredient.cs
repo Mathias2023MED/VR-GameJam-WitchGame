@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Ingredient", menuName = "Potion/Ingredient")]
-public class Ingredient : ScriptableObject
+public class Ingredient : MonoBehaviour
 {
-    public string ingredientName;
+    public IngredientSO ingredientSO; // Drag the ScriptableObject here in Inspector
 }

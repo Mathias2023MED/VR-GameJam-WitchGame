@@ -4,39 +4,106 @@ using System.Collections.Generic;
 
 public class Cauldron : MonoBehaviour
 {
+    public ColorChanger colorChanger;
+
+    public string failedPotion = "FailedPotion";
+    public PotionRecipeSO failedPotionRecipe; // Drag your “Failed Potion” SO here
+
+    public Transform tempSpawnPoint;
+
     [Header("Recipes")]
-    public PotionRecipe[] allRecipes;      
-    public Transform spawnPoint;          
+    public PotionRecipeSO[] allRecipes;      
+    public PotionRecipeSO brewedPotion;
 
-    private List<Ingredient> currentIngredients = new List<Ingredient>();
+    private List<IngredientSO> currentIngredients = new List<IngredientSO>();
 
-    public void AddIngredient(Ingredient ingredient)
+    public void AddIngredient(IngredientSO ingredientSO)
     {
-        currentIngredients.Add(ingredient);
+        currentIngredients.Add(ingredientSO);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the object has an IngredientObject script
+        Ingredient ingredient = other.GetComponent<Ingredient>();
+        if (ingredient != null)
+        {
+            // Add the ingredient to the Cauldron
+            AddIngredient(ingredient.ingredientSO);
+
+            // Optionally destroy the ingredient object (simulate it dissolving)
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("Spoon"))
+        {
+            // Call your mix function, or trigger some effect
+            BrewPotion();
+            Debug.Log("Spoon used to mix potion!");
+        }
+        else if (other.CompareTag("EmptyBottle"))
+        {
+            // Call your mix function, or trigger some effect
+            FillBottle(other);
+            Debug.Log("Bottled Filled");
+        }
+        else
+        {
+            Destroy(other.gameObject);
+        }
+
     }
 
     public void BrewPotion()
     {
         foreach (var recipe in allRecipes) // Loop through all available potion recipes
         {
-            if (IsMatch(recipe.ingredients.ToList(), currentIngredients)) // Check if the cauldron's current ingredients exactly match this recipe
+            if (IsMatch(recipe.ingredientsSO.ToList(), currentIngredients)) // Check if the cauldron's current ingredients exactly match this recipe
             {
-                Instantiate(recipe.potionPrefab, spawnPoint.position, spawnPoint.rotation);// Spawn potion prefab if match is found
-                currentIngredients.Clear(); //Clear the cauldron's ingredient list for the next brew
+                brewedPotion = recipe; //Save it as the brewed result
+                currentIngredients.Clear();
+                colorChanger.ChangeColor(recipe.potionName);
                 return;
             }
         }
-
-        Debug.Log("No matching recipe...");
+        brewedPotion = failedPotionRecipe; //Failed potion, if nothing fits.
         currentIngredients.Clear();// Clear the cauldron's ingredient list even if no potion was brewed
-        //TODO: TIlføj at en underlig potion bliver tilføjet eller måske en eksplosion i gryden?
+        colorChanger.ChangeColor(failedPotionRecipe.name);
     }
 
-    private bool IsMatch(List<Ingredient> recipeIngredients, List<Ingredient> cauldronIngredients) // Helper function to check if the cauldron ingredients match the recipe
+    public void FillBottle(Collider emptyBottle)
     {
-        if (recipeIngredients.Count != cauldronIngredients.Count) return false; // If the number of ingredients is different, no match
+        if (brewedPotion == null || brewedPotion.potionPrefab == null)
+        {
+            Debug.LogWarning("No potion to fill!");
+            return;
+        }
 
-        foreach (var ing in recipeIngredients) // Loop through each ingredient in the recipe
+        // Store the bottle's position and rotation
+        Vector3 bottlePos = emptyBottle.transform.position;
+        Quaternion bottleRot = emptyBottle.transform.rotation;
+
+        // Destroy the empty bottle
+        Destroy(emptyBottle.gameObject);
+
+        // Spawn the brewed potion prefab at the same position
+        //GameObject spawnedPotion = Instantiate(brewedPotion.potionPrefab, bottlePos, bottleRot);
+        GameObject spawnedPotion = Instantiate(brewedPotion.potionPrefab, tempSpawnPoint.position, tempSpawnPoint.rotation);
+
+        // Optional: Parent it to the player's hand if using XR Toolkit
+        // spawnedPotion.transform.SetParent(playerHandTransform, true);
+    }
+
+    public void ResetCauldron()
+    {
+        currentIngredients.Clear();
+        brewedPotion = null;
+    }
+
+    private bool IsMatch(List<IngredientSO> recipeIngredientsSO, List<IngredientSO> cauldronIngredients) // Helper function to check if the cauldron ingredients match the recipe
+    {
+        if (recipeIngredientsSO.Count != cauldronIngredients.Count) return false; // If the number of ingredients is different, no match
+
+        foreach (var ing in recipeIngredientsSO) // Loop through each ingredient in the recipe
         {
             if (!cauldronIngredients.Contains(ing)) // If the cauldron does not contain this ingredient, it's not a match
                 return false;

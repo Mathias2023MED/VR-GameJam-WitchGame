@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3614fec8df4314a3e8401b19c8d3f6fb, type: 3}
+  m_Name: Enlargement
+  m_EditorClassIdentifier: 
+  potionName: Enlargement
+  potionPrefab: {fileID: 5523223384688699726, guid: bb72645415013466ba53b782b4f329d8, type: 3}
+  ingredientsSO:
+  - {fileID: 11400000, guid: 83db2086b09004df6b5a216afe17a02b, type: 2}
+  - {fileID: 11400000, guid: c0edf48e66c9043abadc4a0bd3fdee0d, type: 2}
+  - {fileID: 11400000, guid: a57e0c4fdbaf64b439d63757051591cb, type: 2}
