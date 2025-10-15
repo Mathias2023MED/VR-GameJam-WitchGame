@@ -1294,7 +1294,7 @@ MonoBehaviour:
   redColor: {r: 1, g: 0.015686275, b: 0.015686275, a: 0.4745098}
   greenColor: {r: 0.15294118, g: 0.39607844, b: 0.1764706, a: 0.4745098}
   blackColor: {r: 0, g: 0, b: 0, a: 0}
-  whiteColor: {r: 1, g: 1, b: 1, a: 0}
+  whiteColor: {r: 0.9843398, g: 0.25943398, b: 1, a: 0}
   blendDuration: 5
   waterRenderer: {fileID: 412549380}
 --- !u!136 &412549379
@@ -2364,8 +2364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterAnimation: {fileID: 412549382}
-  colorChangerWater: {fileID: 0}
-  colorChangerBubbles: {fileID: 0}
+  colorChangerWater: {fileID: 412549378}
   failedPotion: FailedPotion
   failedPotionRecipe: {fileID: 11400000, guid: cca3d044fca2f4be1b9da61e5d52954d, type: 2}
   tempSpawnPoint: {fileID: 275676328}

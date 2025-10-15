@@ -6,7 +6,7 @@ public class Cauldron : MonoBehaviour
 {
     public WaterAnimation waterAnimation;
     public ColorChanger colorChangerWater;
-    public ColorChanger colorChangerBubbles;
+    //public ColorChanger colorChangerBubbles;
 
     public string failedPotion = "FailedPotion";
     public PotionRecipeSO failedPotionRecipe; // Drag your “Failed Potion” SO here
@@ -86,14 +86,14 @@ public class Cauldron : MonoBehaviour
                 brewedPotion = recipe; //Save it as the brewed result
                 currentIngredients.Clear();
                 colorChangerWater.ChangeColor(recipe.potionName);
-                colorChangerBubbles.ChangeColor(recipe.potionName);
+                //colorChangerBubbles.ChangeColor(recipe.potionName);
                 return;
             }
         }
         brewedPotion = failedPotionRecipe; //Failed potion, if nothing fits.
         currentIngredients.Clear();// Clear the cauldron's ingredient list even if no potion was brewed
         colorChangerWater.ChangeColor(failedPotionRecipe.name);
-        colorChangerBubbles.ChangeColor(failedPotionRecipe.name);
+        //colorChangerBubbles.ChangeColor(failedPotionRecipe.name);
         canAddIngredient = false;
     }
 
