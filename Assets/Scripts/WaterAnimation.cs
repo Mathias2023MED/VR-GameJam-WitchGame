@@ -11,6 +11,8 @@ public class WaterAnimation : MonoBehaviour
     private bool isAnimating = false;
     private bool rising = false;
 
+    public ParticleSystem waterParticles; // Drag your particle system here
+
     void Start()
     {
         // Set start point to current position
@@ -18,6 +20,8 @@ public class WaterAnimation : MonoBehaviour
 
         // Set end point by adding riseHeight to Y
         endPoint = startPoint + new Vector3(0f, riseHeight, 0f);
+        if (waterParticles != null && waterParticles.isPlaying)
+            waterParticles.Stop(); // Stop particles when lowering
     }
 
     // Call this to start the water rising animation
@@ -25,6 +29,8 @@ public class WaterAnimation : MonoBehaviour
     {
         isAnimating = true;
         rising = true;
+        if (waterParticles != null && !waterParticles.isPlaying)
+            waterParticles.Play(); // Start particles when rising
     }
 
     // Call this to start the water lowering animation
@@ -32,6 +38,8 @@ public class WaterAnimation : MonoBehaviour
     {
         isAnimating = true;
         rising = false;
+        if (waterParticles != null && waterParticles.isPlaying)
+            waterParticles.Stop(); // Stop particles when lowering
     }
 
     void Update()
