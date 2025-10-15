@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Cauldron : MonoBehaviour
 {
+    public WaterAnimation waterAnimation;
     public ColorChanger colorChanger;
 
     public string failedPotion = "FailedPotion";
@@ -14,19 +15,22 @@ public class Cauldron : MonoBehaviour
     [Header("Recipes")]
     public PotionRecipeSO[] allRecipes;      
     public PotionRecipeSO brewedPotion;
+    public bool canAddIngredient = false;
 
-    private List<IngredientSO> currentIngredients = new List<IngredientSO>();
+
+    public List<IngredientSO> currentIngredients = new List<IngredientSO>();
 
     public void AddIngredient(IngredientSO ingredientSO)
     {
         currentIngredients.Add(ingredientSO);
+        Debug.Log("Ingredient added");
     }
 
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object has an IngredientObject script
         Ingredient ingredient = other.GetComponent<Ingredient>();
-        if (ingredient != null)
+        if (ingredient != null & canAddIngredient)
         {
             // Add the ingredient to the Cauldron
             AddIngredient(ingredient.ingredientSO);
@@ -34,7 +38,7 @@ public class Cauldron : MonoBehaviour
             // Optionally destroy the ingredient object (simulate it dissolving)
             Destroy(other.gameObject);
         }
-        else if (other.CompareTag("Spoon"))
+        else if (other.CompareTag("Spoon") && canAddIngredient)
         {
             // Call your mix function, or trigger some effect
             BrewPotion();
@@ -45,6 +49,25 @@ public class Cauldron : MonoBehaviour
             // Call your mix function, or trigger some effect
             FillBottle(other);
             Debug.Log("Bottled Filled");
+        }
+        else if (other.CompareTag("Wand"))
+        {
+            if (waterAnimation != null)
+            {
+                waterAnimation.WaterRising(); // Trigger the rising animation
+                canAddIngredient = true;
+                Debug.Log("Water is rising!");
+            }
+        }
+        else if (other.CompareTag("Cat"))
+        {
+            if (waterAnimation != null)
+            {
+                waterAnimation.WaterLowering(); // Trigger the rising animation
+                currentIngredients.Clear();
+                canAddIngredient = false;
+                Debug.Log("Water is lowering!");
+            }
         }
         else
         {
@@ -68,6 +91,7 @@ public class Cauldron : MonoBehaviour
         brewedPotion = failedPotionRecipe; //Failed potion, if nothing fits.
         currentIngredients.Clear();// Clear the cauldron's ingredient list even if no potion was brewed
         colorChanger.ChangeColor(failedPotionRecipe.name);
+        canAddIngredient = false;
     }
 
     public void FillBottle(Collider emptyBottle)
