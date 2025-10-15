@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Spoon
   - EmptyBottle
+  - Wand
+  - Cat
   layers:
   - Default
   - TransparentFX

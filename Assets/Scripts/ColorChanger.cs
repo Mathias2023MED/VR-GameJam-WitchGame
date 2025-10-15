@@ -9,7 +9,7 @@ public class ColorChanger : MonoBehaviour
     public Color redColor;
     public Color greenColor;
     public Color blackColor;
-    public Color pinkColor;
+    public Color whiteColor;
     [SerializeField] private float blendDuration = 15f;
     [SerializeField] private Renderer waterRenderer;
 
@@ -30,7 +30,7 @@ public class ColorChanger : MonoBehaviour
                 break;
 
             case "Failed Potion":
-                StartCoroutine(BlendColor(pinkColor));
+                StartCoroutine(BlendColor(whiteColor));
                 break;
 
             default:
