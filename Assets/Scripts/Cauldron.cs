@@ -9,6 +9,7 @@ public class Cauldron : MonoBehaviour
     //public ColorChanger colorChangerBubbles;
 
     public string failedPotion = "FailedPotion";
+    public string basePotionName = "BasePotion";
     public PotionRecipeSO failedPotionRecipe; // Drag your “Failed Potion” SO here
 
     public Transform tempSpawnPoint;
@@ -64,6 +65,7 @@ public class Cauldron : MonoBehaviour
         {
             if (waterAnimation != null)
             {
+                colorChangerWater.ChangeColor(basePotionName);
                 waterAnimation.WaterLowering(); // Trigger the rising animation
                 currentIngredients.Clear();
                 canAddIngredient = false;

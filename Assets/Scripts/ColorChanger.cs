@@ -11,7 +11,7 @@ public class ColorChanger : MonoBehaviour
     public Color blackColor;
     public Color whiteColor;
     [SerializeField] private float blendDuration = 15f;
-    [SerializeField] private Renderer waterRenderer;
+    [SerializeField] private Renderer Renderer;
 
     public void ChangeColor(string potionName)
     {
@@ -41,7 +41,7 @@ public class ColorChanger : MonoBehaviour
 
     private IEnumerator BlendColor(Color targetColor)
     {
-        Color startColor = waterRenderer.material.color;
+        Color startColor = Renderer.material.color;
         float elapsedTime = 0f;
 
         while (elapsedTime < blendDuration)
@@ -49,10 +49,10 @@ public class ColorChanger : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / blendDuration;
 
-            waterRenderer.material.color = Color.Lerp(startColor, targetColor, t);
+            Renderer.material.color = Color.Lerp(startColor, targetColor, t);
             yield return null;
         }
 
-        waterRenderer.material.color = targetColor;
+        Renderer.material.color = targetColor;
     }
 }

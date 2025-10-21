@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 2355520196263671877}
   - component: {fileID: 5106166157196523870}
   - component: {fileID: 1160671626262928716}
+  - component: {fileID: 5592212936422596415}
   m_Layer: 0
   m_Name: Level of Elevated Violence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3951588322549889811
 Transform:
@@ -138,3 +139,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5592212936422596415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447961676559800191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b1648f874f54fa78495d056727f0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 0.29803923, g: 0.49019608, b: 0.5568628, a: 0.4745098}
+  redColor: {r: 1, g: 0.015686275, b: 0.015686275, a: 0.4745098}
+  greenColor: {r: 0.15294118, g: 0.39607844, b: 0.1764706, a: 0.4745098}
+  blackColor: {r: 0, g: 0, b: 0, a: 0}
+  whiteColor: {r: 0.9843398, g: 0.25943398, b: 1, a: 0}
+  blendDuration: 1
+  Renderer: {fileID: 2355520196263671877}
