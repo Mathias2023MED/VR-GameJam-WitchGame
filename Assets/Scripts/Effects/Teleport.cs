@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation;
 
 
 public class Teleport : MonoBehaviour
 {
     public GameObject player;
-    public UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation.TeleportationProvider teleportationProvider;
+    public TeleportationProvider teleportationProvider;
     public Transform spawnPoint;
     public GameObject backrooms;
 
