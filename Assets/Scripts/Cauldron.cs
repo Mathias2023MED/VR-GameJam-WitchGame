@@ -41,7 +41,7 @@ public class Cauldron : MonoBehaviour
             // Optionally destroy the ingredient object (simulate it dissolving)
             Destroy(other.gameObject);
         }
-        else if (other.CompareTag("Spoon") && canAddIngredient)
+        if (other.CompareTag("Spoon") && canAddIngredient)
         {
             // Call your mix function, or trigger some effect
             BrewPotion();
@@ -51,7 +51,7 @@ public class Cauldron : MonoBehaviour
         {
             return;
         }
-        else if (other.CompareTag("EmptyBottle"))
+        if (other.CompareTag("EmptyBottle"))
         {
             // Call your mix function, or trigger some effect
             FillBottle(other);

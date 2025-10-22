@@ -17,7 +17,7 @@ public class ColorChanger : MonoBehaviour
     {
         switch (potionName)
         {
-            case "Level of Elevated Violence":
+            case "Level of Violence Elevated":
                 StartCoroutine(BlendColor(redColor));
                 break;
 
