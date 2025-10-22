@@ -3,60 +3,62 @@ using UnityEngine;
 public class WaterAnimation : MonoBehaviour
 {
     [Header("Animation Settings")]
-    public float riseHeight = 5f; // How much the water should rise
-    public float speed = 1f;       // Speed of water movement
+    public float riseHeight = 5f;
+    public float speed = 1f;
 
     private Vector3 startPoint;
     private Vector3 endPoint;
-    private bool isAnimating = false;
-    private bool rising = false;
 
     public ParticleSystem waterParticles; // Drag your particle system here
+    private Coroutine animationCoroutine;
+
+    public Cat catScript;  // Drag your Cat script object here in the Inspector
 
     void Start()
     {
-        // Set start point to current position
         startPoint = transform.position;
-
-        // Set end point by adding riseHeight to Y
         endPoint = startPoint + new Vector3(0f, riseHeight, 0f);
+
         if (waterParticles != null && waterParticles.isPlaying)
-            waterParticles.Stop(); // Stop particles when lowering
+            waterParticles.Stop();
     }
 
-    // Call this to start the water rising animation
     public void WaterRising()
     {
-        isAnimating = true;
-        rising = true;
+        if (animationCoroutine != null)
+            StopCoroutine(animationCoroutine);
+
         if (waterParticles != null && !waterParticles.isPlaying)
-            waterParticles.Play(); // Start particles when rising
+            waterParticles.Play();
+
+        animationCoroutine = StartCoroutine(MoveWater(endPoint));
     }
 
-    // Call this to start the water lowering animation
     public void WaterLowering()
     {
-        isAnimating = true;
-        rising = false;
+        if (animationCoroutine != null)
+            StopCoroutine(animationCoroutine);
+
         if (waterParticles != null && waterParticles.isPlaying)
-            waterParticles.Stop(); // Stop particles when lowering
+            waterParticles.Stop();
+
+        animationCoroutine = StartCoroutine(MoveWater(startPoint, true));
     }
 
-    void Update()
+    private System.Collections.IEnumerator MoveWater(Vector3 target, bool isLowering = false)
     {
-        if (!isAnimating) return;
-
-        // Determine target position
-        Vector3 target = rising ? endPoint : startPoint;
-
-        // Move water towards target
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
-        // Stop animating when we reach the target
-        if (Vector3.Distance(transform.position, target) < 0.01f)
+        while (Vector3.Distance(transform.position, target) > 0.01f)
         {
-            transform.position = target;
-            isAnimating = false;
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            yield return null;
+        }
+
+        transform.position = target;
+        animationCoroutine = null;
+
+        if (isLowering && catScript != null)
+        {
+            catScript.Respawn();
         }
     }
 }
