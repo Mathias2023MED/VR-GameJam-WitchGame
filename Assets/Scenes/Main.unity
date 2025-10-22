@@ -2712,7 +2712,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -2927,6 +2927,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1301978540}
     m_Modifications:
+    - target: {fileID: 1732790382568488847, guid: a72b3bd419cfe504da737010026199aa, type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6153597953861506881, guid: a72b3bd419cfe504da737010026199aa, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.039999995
@@ -4452,6 +4456,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1301978540}
     m_Modifications:
+    - target: {fileID: 610318931350717217, guid: 831b1f83af875784b9f739f595330757, type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3882509943935298773, guid: 831b1f83af875784b9f739f595330757, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.88
@@ -5557,7 +5565,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2442306273320644280, guid: 3df3e1220f2164f448701a6de8084f92, type: 3}
       propertyPath: m_EnableFarCasting
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2442306273320644280, guid: 3df3e1220f2164f448701a6de8084f92, type: 3}
       propertyPath: m_InteractionManager
@@ -7009,6 +7017,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1194939760}
     m_Modifications:
+    - target: {fileID: 1676604796837089, guid: faf856e81598b4b2a8513a578c0ab9cd, type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2843470670665147265, guid: faf856e81598b4b2a8513a578c0ab9cd, type: 3}
       propertyPath: m_Name
       value: Satyr Horn V2
@@ -7071,6 +7083,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1194939760}
     m_Modifications:
+    - target: {fileID: 1852943640663660400, guid: 9f14b17e19590524f8001babe52191c3, type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1852943640663660400, guid: 9f14b17e19590524f8001babe52191c3, type: 3}
       propertyPath: m_AttachTransform
       value: 
@@ -7220,6 +7236,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8594022527558934233, guid: ecaa7662f4a0944569bbb4727360dc8e, type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7240,7 +7260,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3928971831859242297, guid: 214ddbcff36c47545a4f42c0a4f1216f, type: 3}
       propertyPath: m_MovementType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3928971831859242297, guid: 214ddbcff36c47545a4f42c0a4f1216f, type: 3}
       propertyPath: m_InteractionManager
@@ -7335,6 +7355,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1194939760}
     m_Modifications:
     - target: {fileID: 815859146213212021, guid: 1b35141ba18baf34186494ed277a0e60, type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 815859146213212021, guid: 1b35141ba18baf34186494ed277a0e60, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 866708647}
@@ -7426,6 +7450,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1194939760}
     m_Modifications:
+    - target: {fileID: 1399542714606024640, guid: 13986d5d9e99a54488f75aed2be862a3, type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1399542714606024640, guid: 13986d5d9e99a54488f75aed2be862a3, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -7522,6 +7550,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crow Foot V2
       objectReference: {fileID: 0}
+    - target: {fileID: 1963531733126298497, guid: 37484626ed16a4de6ad06304c67b734c, type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1985469786492910179, guid: 37484626ed16a4de6ad06304c67b734c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.934007
@@ -7580,6 +7612,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1194939760}
     m_Modifications:
+    - target: {fileID: 3205852784296356815, guid: 804178252fe4c82418dec3a39c4bc5ea, type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3205852784296356815, guid: 804178252fe4c82418dec3a39c4bc5ea, type: 3}
       propertyPath: m_InteractionManager
       value: 
