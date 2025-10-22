@@ -567,7 +567,7 @@ PrefabInstance:
     - target: {fileID: 6265308656622887111, guid: c7446514e141d5e4199aacbaff7ecf62, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 7ba9d880c890ec2458471e5eacb12848, type: 3}
+      objectReference: {fileID: 32900000, guid: 36bbee4ec22c55a41b89bc212cd3f41c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
