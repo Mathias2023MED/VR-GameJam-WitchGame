@@ -4,6 +4,7 @@ public abstract class PotionEffect : MonoBehaviour //Blueprint abstract class fo
 {
     public float duration = 10f;
     public bool hasBeenUsed = false;
+    public PotionRecipeSO potion;
     
     public abstract void ActivateEffect();
     public abstract void DeactivateEffect();
