@@ -63,7 +63,7 @@ public class Cauldron : MonoBehaviour
         }
         else if (other.CompareTag("Cat"))
         {
-            if (waterAnimation != null)
+            if (waterAnimation != null && canAddIngredient)
             {
                 colorChangerWater.ChangeColor(basePotionName);
                 waterAnimation.WaterLowering(); // Trigger the rising animation
@@ -95,7 +95,6 @@ public class Cauldron : MonoBehaviour
         brewedPotion = failedPotionRecipe; //Failed potion, if nothing fits.
         currentIngredients.Clear();// Clear the cauldron's ingredient list even if no potion was brewed
         colorChangerWater.ChangeColor(failedPotionRecipe.name);
-        //colorChangerBubbles.ChangeColor(failedPotionRecipe.name);
         canAddIngredient = false;
     }
 
