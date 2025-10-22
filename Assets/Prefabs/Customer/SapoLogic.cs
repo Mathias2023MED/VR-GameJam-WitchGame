@@ -4,31 +4,43 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class SapoLogic : MonoBehaviour
 {
-    [Header("Animator state names (match your Animator)")]
+    // ---------- State names (must match your Animator) ----------
+    [Header("Animator state names")]
     [SerializeField] string IdleState = "Idle";
     [SerializeField] string Walk1State = "Walk1";
+    [SerializeField] string Walk2State = "Walk2";
+    [SerializeField] string Walk3State = "Walk3";
     [SerializeField] string DrinkState = "Drink";
+    [SerializeField] string BackOutState = "WalkingOut";
+    [SerializeField] string DropKickState = "DropKick";
+    [SerializeField] string HurricaneKickState = "HurricaneKick";
+    [SerializeField] string RunningState = "Running";
+    [SerializeField] string ShakingHeadState = "ShakingHead";
 
-    [Header("Distance walking")]
-    [Tooltip("Meters to move forward when Walk1 is played.")]
-    public float walkDistance = 3f;
+    [Header("Crossfade")]
+    [SerializeField, Min(0f)] float crossfade = 0.1f;
 
-    [Tooltip("If your Walk1 is IN-PLACE, we move the transform at this speed.")]
+    // ---------- Distance settings ----------
+    [Header("Distance movement (manual/in-place)")]
+    [Tooltip("Default meters/second when moving manually (not using root motion).")]
     public float moveSpeed = 1.6f;
 
-    [Tooltip("Use root motion for Walk1 (clip drives motion). If off, we move manually.")]
-    public bool useRootMotion = false;
+    [Tooltip("Manual speeds for specific moves (used only when NOT using root motion).")]
+    public float runningSpeed = 3.5f;
+    public float hurricaneKickSpeed = 2.2f;
 
-    [Tooltip("Optional: which way is 'forward' for walking. Defaults to this transform.")]
+    [Tooltip("Which +Z should count as forward for manual movement. If null, uses this transform.")]
     public Transform forwardReference;
 
-    [Header("Motion / Teleport")]
-    public float crossfade = 0.1f;
+    // ---------- Drink / Teleport ----------
+    [Header("Drink -> Teleport")]
+    public bool teleportAfterDrink = false;
     public bool disableCharacterControllerOnTeleport = true;
 
+    // ---------- Internals ----------
     Animator anim;
-    Coroutine routine;
     CharacterController cc;
+    Coroutine routine;
 
     Vector3 spawnPos;
     Quaternion spawnRot;
@@ -42,106 +54,155 @@ public class SapoLogic : MonoBehaviour
         spawnPos = transform.position;
         spawnRot = transform.rotation;
 
-        // Default: keep root motion off unless we opt-in during Walk1
+        // Default off: opt-in per action if needed
         anim.applyRootMotion = false;
+
+        // Optional: warn if a state name is missing
+        string[] expected = {
+            IdleState, Walk1State, Walk2State, Walk3State, DrinkState, BackOutState,
+            DropKickState, HurricaneKickState, RunningState, ShakingHeadState
+        };
+        foreach (var s in expected)
+        {
+            if (!string.IsNullOrEmpty(s) &&
+                !anim.HasState(0, Animator.StringToHash("Base Layer." + s)))
+            {
+                Debug.LogWarning("[SapoLogic] Animator is missing state: " + s);
+            }
+        }
     }
 
-    void Update()
+    // ===================== PUBLIC API =====================
+
+    // Distance-based walks (pass meters; choose root motion)
+    public void Walk1_Distance(float meters, bool useRootMotion = false)
+        => StartRoutine(Co_MoveDistance(Walk1State, meters, useRootMotion, moveSpeed));
+
+    public void Walk2_Distance(float meters, bool useRootMotion = false)
+        => StartRoutine(Co_MoveDistance(Walk2State, meters, useRootMotion, moveSpeed));
+
+    public void Walk3_Distance(float meters, bool useRootMotion = false)
+        => StartRoutine(Co_MoveDistance(Walk3State, meters, useRootMotion, moveSpeed));
+
+    // Distance-based actions
+    public void HurricaneKick_Distance(float meters, bool useRootMotion = false)
+        => StartRoutine(Co_MoveDistance(HurricaneKickState, meters, useRootMotion, hurricaneKickSpeed));
+
+    public void Running_Distance(float meters, bool useRootMotion = false)
+        => StartRoutine(Co_MoveDistance(RunningState, meters, useRootMotion, runningSpeed));
+
+    // One-shot actions (play once then return to Idle)
+    public void PlayDrink()
+        => StartRoutine(Co_PlayOnceReturn(DrinkState, MaybeTeleportHome));
+
+    public void PlayWalkingOut()
+        => StartRoutine(Co_PlayOnceReturn(BackOutState));
+
+    public void PlayDropKick()
+        => StartRoutine(Co_PlayOnceReturn(DropKickState));
+
+    public void PlayShakingHeadOnce()
+        => StartRoutine(Co_PlayOnceReturn(ShakingHeadState));
+
+    // Generic helpers
+    public void PlayOnce(string stateName)
+        => StartRoutine(Co_PlayOnceReturn(stateName));
+
+    public void PlayForSeconds(string stateName, float seconds)
+        => StartRoutine(Co_PlayForSeconds(stateName, seconds));
+
+    public void GoIdle()
+        => CrossFade(IdleState);
+
+    // ===================== COROUTINES =====================
+
+    // Play a locomotion/action state until we moved "meters" on XZ plane, then Idle.
+    IEnumerator Co_MoveDistance(string stateName, float meters, bool useRoot, float manualSpeed)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            StartWalk1Distance();
+        if (string.IsNullOrEmpty(stateName)) yield break;
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            StartDrinkThenTeleport();
-    }
+        anim.applyRootMotion = useRoot;
+        CrossFade(stateName);
 
-    // ---------------- Public-style commands ----------------
-
-    public void StartWalk1Distance()
-    {
-        StartRoutine(Co_Walk1_Distance_ThenIdle());
-    }
-
-    public void StartDrinkThenTeleport()
-    {
-        StartRoutine(Co_Drink_ThenTeleport());
-    }
-
-    // ---------------- Coroutines ----------------
-
-    IEnumerator Co_Walk1_Distance_ThenIdle()
-    {
-        // Enter Walk1
-        anim.applyRootMotion = useRootMotion;
-        CrossFade(Walk1State);
-
-        // Wait until we're actually in Walk1
+        // Wait to actually enter the state
         yield return null;
-        while (!IsIn(Walk1State)) yield return null;
+        float safety = 2f;
+        while (!IsIn(stateName) && (safety -= Time.deltaTime) > 0f) yield return null;
 
-        float walked = 0f;
         Vector3 startPlanar = Planar(transform.position);
+        float movedManual = 0f;
 
         while (true)
         {
-            if (useRootMotion)
+            if (useRoot)
             {
-                // Let animation drive; we just measure planar distance.
                 float planar = Vector3.Distance(Planar(transform.position), startPlanar);
-                if (planar >= walkDistance) break;
+                if (planar >= meters) break;
             }
             else
             {
-                // Manual in-place movement.
                 Vector3 dir = forwardReference.forward; dir.y = 0f; dir.Normalize();
-                float step = moveSpeed * Time.deltaTime;
-                if (cc && cc.enabled)
-                    cc.Move(dir * step);
-                else
-                    transform.position += dir * step;
+                float step = manualSpeed * Time.deltaTime;
+                if (cc && cc.enabled) cc.Move(dir * step);
+                else transform.position += dir * step;
 
-                walked += step;
-                if (walked >= walkDistance) break;
+                movedManual += step;
+                if (movedManual >= meters) break;
             }
             yield return null;
         }
 
-        // Return to Idle
         anim.applyRootMotion = false;
         CrossFade(IdleState);
-
-        // Done – now idle for an 'uncertain' time until you press 2
         routine = null;
     }
 
-    IEnumerator Co_Drink_ThenTeleport()
+    // Play a non-looping state; when nearly finished, run "after" and go Idle.
+    IEnumerator Co_PlayOnceReturn(string stateName, System.Action after = null)
     {
-        // If we're not in Idle yet (maybe mid-walk fade), wait
-        while (!IsIn(IdleState) || anim.IsInTransition(0)) yield return null;
+        if (string.IsNullOrEmpty(stateName)) yield break;
 
-        CrossFade(DrinkState);
+        CrossFade(stateName);
 
-        // Wait until we are in Drink
+        // Wait until we enter the state
         yield return null;
-        while (!IsIn(DrinkState)) yield return null;
+        while (!IsIn(stateName)) yield return null;
 
-        // Wait until nearly finished (works for one-shot clip)
-        while (IsIn(DrinkState) &&
+        // Wait until nearly finished
+        while (IsIn(stateName) &&
                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.98f)
+        {
             yield return null;
+        }
 
-        // Teleport back to spawn
-        if (disableCharacterControllerOnTeleport && cc) cc.enabled = false;
-        transform.SetPositionAndRotation(spawnPos, spawnRot);
-        if (disableCharacterControllerOnTeleport && cc) cc.enabled = true;
+        if (after != null) after();
+        CrossFade(IdleState);
+        routine = null;
+    }
+
+    // Play for a fixed number of seconds; then Idle.
+    IEnumerator Co_PlayForSeconds(string stateName, float seconds)
+    {
+        if (string.IsNullOrEmpty(stateName)) yield break;
+
+        CrossFade(stateName);
+
+        // Wait until we enter the state
+        yield return null;
+        while (!IsIn(stateName)) yield return null;
+
+        float t = 0f;
+        while (t < seconds)
+        {
+            t += Time.deltaTime;
+            yield return null;
+        }
 
         CrossFade(IdleState);
         routine = null;
     }
 
-    // ---------------- Helpers ----------------
-
-    Vector3 Planar(Vector3 v) => new Vector3(v.x, 0f, v.z);
+    // ===================== HELPERS =====================
 
     void StartRoutine(IEnumerator co)
     {
@@ -157,5 +218,19 @@ public class SapoLogic : MonoBehaviour
     bool IsIn(string stateName)
     {
         return anim.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+    }
+
+    static Vector3 Planar(Vector3 v)
+    {
+        return new Vector3(v.x, 0f, v.z);
+    }
+
+    void MaybeTeleportHome()
+    {
+        if (!teleportAfterDrink) return;
+
+        if (disableCharacterControllerOnTeleport && cc) cc.enabled = false;
+        transform.SetPositionAndRotation(spawnPos, spawnRot);
+        if (disableCharacterControllerOnTeleport && cc) cc.enabled = true;
     }
 }
