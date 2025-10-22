@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 255128500935543325}
   - component: {fileID: 8334079633232839718}
   - component: {fileID: 7719649271986307547}
+  - component: {fileID: 1328233140654319280}
   m_Layer: 0
   m_Name: Failed Potion
   m_TagString: Untagged
@@ -297,3 +298,18 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &1328233140654319280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716899875506863153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b2ba181dc38bb47981436e46f04262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  hasBeenUsed: 0
+  potion: {fileID: 11400000, guid: cca3d044fca2f4be1b9da61e5d52954d, type: 2}

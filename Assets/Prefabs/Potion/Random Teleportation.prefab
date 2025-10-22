@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -8494620479734168562}
   - component: {fileID: 1930679345030973812}
   - component: {fileID: 5988161448988115211}
+  - component: {fileID: 3797362892365461126}
   m_Layer: 0
   m_Name: Random Teleportation
   m_TagString: Untagged
@@ -281,3 +282,18 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &3797362892365461126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716899875506863153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b2ba181dc38bb47981436e46f04262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  hasBeenUsed: 0
+  potion: {fileID: 11400000, guid: b437cfd77ad6348b4af03fd779d49b1d, type: 2}

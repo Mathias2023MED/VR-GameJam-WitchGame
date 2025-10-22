@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1160671626262928716}
   - component: {fileID: 5592212936422596415}
   - component: {fileID: 4448446637795646288}
+  - component: {fileID: 6001735970871615669}
   m_Layer: 0
   m_Name: Level of Elevated Violence
   m_TagString: Untagged
@@ -281,3 +282,18 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &6001735970871615669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447961676559800191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b2ba181dc38bb47981436e46f04262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  hasBeenUsed: 0
+  potion: {fileID: 11400000, guid: b4b7c186bd22b41aeaa8d182536f8f68, type: 2}

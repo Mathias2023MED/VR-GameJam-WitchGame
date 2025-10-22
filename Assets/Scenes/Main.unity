@@ -3911,7 +3911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2447424620550846319, guid: b200f6587d118224eba8467281481800, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3234853630605623997, guid: b200f6587d118224eba8467281481800, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3954,8 +3954,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4808866746549998793, guid: b200f6587d118224eba8467281481800, type: 3}
-      propertyPath: m_EnableFarCasting
+      propertyPath: m_FarAttachMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808866746549998793, guid: b200f6587d118224eba8467281481800, type: 3}
+      propertyPath: m_EnableFarCasting
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4808866746549998793, guid: b200f6587d118224eba8467281481800, type: 3}
       propertyPath: m_InteractionManager
@@ -5564,6 +5568,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1834860433}
     m_Modifications:
     - target: {fileID: 2442306273320644280, guid: 3df3e1220f2164f448701a6de8084f92, type: 3}
+      propertyPath: m_FarAttachMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442306273320644280, guid: 3df3e1220f2164f448701a6de8084f92, type: 3}
       propertyPath: m_EnableFarCasting
       value: 1
       objectReference: {fileID: 0}
@@ -5671,8 +5679,6 @@ MonoBehaviour:
   runningSpeed: 3.5
   hurricaneKickSpeed: 2.2
   forwardReference: {fileID: 0}
-  teleportAfterDrink: 0
-  disableCharacterControllerOnTeleport: 1
 --- !u!1 &2040053613 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 264a51b6507e57442994cd8a794092df, type: 3}
