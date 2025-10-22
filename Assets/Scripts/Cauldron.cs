@@ -31,62 +31,59 @@ public class Cauldron : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the object has an IngredientObject script
         Ingredient ingredient = other.GetComponent<Ingredient>();
-        if (ingredient != null & canAddIngredient)
+        if (ingredient != null && canAddIngredient)
         {
-            // Add the ingredient to the Cauldron
             AddIngredient(ingredient.ingredientSO);
-
-            // Optionally destroy the ingredient object (simulate it dissolving)
             Destroy(other.gameObject);
+            return; // stop further checks
         }
-        if (other.CompareTag("Spoon") && canAddIngredient)
+
+        if (other.CompareTag("Spoon"))
         {
-            // Call your mix function, or trigger some effect
-            BrewPotion();
-            Debug.Log("Spoon used to mix potion!");
+            if (canAddIngredient)
+            {
+                BrewPotion();
+                Debug.Log("Spoon used to mix potion!");
+            }
+            return; // always return, spoon never destroyed
         }
-        else if (other.CompareTag("Spoon"))
-        {
-            return;
-        }
+
         if (other.CompareTag("EmptyBottle"))
         {
-            // Call your mix function, or trigger some effect
             FillBottle(other);
-            Debug.Log("Bottled Filled");
+            Debug.Log("Bottle Filled");
+            return;
         }
-        else if (other.CompareTag("Wand"))
+
+        if (other.CompareTag("Wand"))
         {
             if (waterAnimation != null)
             {
-                waterAnimation.WaterRising(); // Trigger the rising animation
+                waterAnimation.WaterRising();
                 waterInCauldron = true;
                 canAddIngredient = true;
                 Debug.Log("Water is rising!");
             }
+            return;
         }
-        else if (other.CompareTag("Cat"))
+
+        if (other.CompareTag("Cat"))
         {
             if (waterAnimation != null && waterInCauldron)
             {
                 colorChangerWater.ChangeColor(basePotionName);
-                waterAnimation.WaterLowering(); // Trigger the rising animation
+                waterAnimation.WaterLowering();
                 currentIngredients.Clear();
                 canAddIngredient = false;
-                Debug.Log("Water is lowering!");
                 waterInCauldron = false;
+                Debug.Log("Water is lowering!");
             }
-        }
-        else if (other.CompareTag("Cat"))
-        {
             return;
         }
-        else
-        {
-            Destroy(other.gameObject);
-        }
+
+        // Any other object
+        Destroy(other.gameObject);
 
     }
 

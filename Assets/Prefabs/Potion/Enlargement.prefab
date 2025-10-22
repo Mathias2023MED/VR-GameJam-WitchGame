@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3755910964683406616}
   - component: {fileID: 4088773359466718511}
   - component: {fileID: 5851836538746521758}
+  - component: {fileID: 3951169634518257452}
   m_Layer: 0
   m_Name: Enlargement
   m_TagString: Untagged
@@ -281,3 +282,18 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &3951169634518257452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5523223384688699726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b2ba181dc38bb47981436e46f04262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  hasBeenUsed: 0
+  potion: {fileID: 11400000, guid: 3b7661627179d421c8e9ffa60188b66e, type: 2}
