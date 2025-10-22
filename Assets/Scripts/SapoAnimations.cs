@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class SapoLogic : MonoBehaviour
+public class SapoAnimations : MonoBehaviour
 {
     // ---------- State names (must match your Animator) ----------
     [Header("Animator state names")]
@@ -101,7 +101,7 @@ public class SapoLogic : MonoBehaviour
     public void PlayDropKick()
         => StartRoutine(Co_PlayOnceReturn(DropKickState));
 
-    public void PlayShakingHeadOnce()
+    public void PlayShakingHead()
         => StartRoutine(Co_PlayOnceReturn(ShakingHeadState));
 
     // Generic helpers
