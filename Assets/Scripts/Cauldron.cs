@@ -18,6 +18,7 @@ public class Cauldron : MonoBehaviour
     public PotionRecipeSO[] allRecipes;      
     public PotionRecipeSO brewedPotion;
     public bool canAddIngredient = false;
+    public bool waterInCauldron = false;
 
 
     public List<IngredientSO> currentIngredients = new List<IngredientSO>();
@@ -46,6 +47,10 @@ public class Cauldron : MonoBehaviour
             BrewPotion();
             Debug.Log("Spoon used to mix potion!");
         }
+        else if (other.CompareTag("Spoon"))
+        {
+            return;
+        }
         else if (other.CompareTag("EmptyBottle"))
         {
             // Call your mix function, or trigger some effect
@@ -57,20 +62,26 @@ public class Cauldron : MonoBehaviour
             if (waterAnimation != null)
             {
                 waterAnimation.WaterRising(); // Trigger the rising animation
+                waterInCauldron = true;
                 canAddIngredient = true;
                 Debug.Log("Water is rising!");
             }
         }
         else if (other.CompareTag("Cat"))
         {
-            if (waterAnimation != null && canAddIngredient)
+            if (waterAnimation != null && waterInCauldron)
             {
                 colorChangerWater.ChangeColor(basePotionName);
                 waterAnimation.WaterLowering(); // Trigger the rising animation
                 currentIngredients.Clear();
                 canAddIngredient = false;
                 Debug.Log("Water is lowering!");
+                waterInCauldron = false;
             }
+        }
+        else if (other.CompareTag("Cat"))
+        {
+            return;
         }
         else
         {
