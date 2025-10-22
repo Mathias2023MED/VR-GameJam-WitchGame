@@ -5,7 +5,7 @@ public class Costumer : MonoBehaviour
 {
     [Header("Requested Potion")]
     public PotionRecipeSO requestedPotion;
-    public SapoLogic sapoAnimations;
+    public SapoAnimations sapoAnimations;
 
     public bool CheckPotion(PotionEffect deliveredPotion)
     {
