@@ -44,6 +44,7 @@ public class Cauldron : MonoBehaviour
             if (canAddIngredient)
             {
                 BrewPotion();
+                canAddIngredient = false;
                 Debug.Log("Spoon used to mix potion!");
             }
             return; // always return, spoon never destroyed
