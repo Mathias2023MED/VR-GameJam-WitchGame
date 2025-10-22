@@ -93,7 +93,7 @@ public class SapoAnimations : MonoBehaviour
 
     // One-shot actions (play once then return to Idle)
     public void PlayDrink()
-        => StartRoutine(Co_PlayOnceReturn(DrinkState, MaybeTeleportHome));
+        => StartRoutine(Co_PlayOnceReturn(DrinkState));
 
     public void PlayWalkingOut()
         => StartRoutine(Co_PlayOnceReturn(BackOutState));
@@ -223,14 +223,5 @@ public class SapoAnimations : MonoBehaviour
     static Vector3 Planar(Vector3 v)
     {
         return new Vector3(v.x, 0f, v.z);
-    }
-
-    void MaybeTeleportHome()
-    {
-        if (!teleportAfterDrink) return;
-
-        if (disableCharacterControllerOnTeleport && cc) cc.enabled = false;
-        transform.SetPositionAndRotation(spawnPos, spawnRot);
-        if (disableCharacterControllerOnTeleport && cc) cc.enabled = true;
     }
 }
