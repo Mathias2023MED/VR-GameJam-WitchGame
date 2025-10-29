@@ -8,6 +8,7 @@ TagManager:
   - EmptyBottle
   - Wand
   - Cat
+  - Costumer
   layers:
   - Default
   - TransparentFX

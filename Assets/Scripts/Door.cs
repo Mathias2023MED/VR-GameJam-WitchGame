@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Door : MonoBehaviour
 {
-    public float openYRotation = 100f;
-    public float closedYRotation = 0f;
-    public float rotationDuration = 1f; // Hvor lang tid det tager at åbne/lukke
+    public float openYRotation = 100f;    // One direction
+    public float closedYRotation = 0f;    // Closed rotation
+    public float rotationDuration = 1f;   // How long it takes to open/close
 
+    private bool openPositive = true;     // Tracks which direction to open next
     private Coroutine currentCoroutine;
 
     private void OnTriggerEnter(Collider other)
@@ -14,20 +15,26 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Costumer"))
         {
             Debug.Log("Hello");
-            // Stop evt. igangværende rotation og start åbning
             if (currentCoroutine != null) StopCoroutine(currentCoroutine);
-            currentCoroutine = StartCoroutine(RotateDoor(openYRotation));
+
+            // Determine which direction to open
+            float targetY = openPositive ? openYRotation : -openYRotation;
+            currentCoroutine = StartCoroutine(RotateDoor(targetY));
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Goodbye");
         if (other.CompareTag("Costumer"))
         {
-            // Stop evt. igangværende rotation og start lukning
+            Debug.Log("Goodbye");
             if (currentCoroutine != null) StopCoroutine(currentCoroutine);
+
+            // Close the door
             currentCoroutine = StartCoroutine(RotateDoor(closedYRotation));
+
+            // Flip the direction for next time
+            openPositive = !openPositive;
         }
     }
 
@@ -46,7 +53,6 @@ public class Door : MonoBehaviour
             yield return null;
         }
 
-        // Sørg for at nå præcis target
         transform.eulerAngles = targetRotation;
     }
 
