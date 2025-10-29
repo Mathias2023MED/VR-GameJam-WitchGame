@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Ingredient : MonoBehaviour
 {
@@ -25,6 +26,13 @@ public class Ingredient : MonoBehaviour
             Debug.LogWarning("Prefab not set on Ingredient!");
             return;
         }
+        float delay = 1f;
+        StartCoroutine(SpawnAfterDelay(delay)); // Wait 1 second before spawning
+    }
+
+    private IEnumerator SpawnAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
         // Spawn a new copy at the saved original position
         Instantiate(prefab, spawnPosition, spawnRotation);
