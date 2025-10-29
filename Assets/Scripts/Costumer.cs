@@ -31,4 +31,6 @@ public class Costumer : MonoBehaviour
         yield return new WaitForSeconds(delay);
         sapoAnimations.PlayDropKick(); // Call your "no" animation here
     }
+
+
 }
