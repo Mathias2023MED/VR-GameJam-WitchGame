@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 6144982401109814274}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5863034, y: 0.00080870825, z: -0.029917061, w: 0.8095385}
-  m_LocalPosition: {x: -2.21, y: 1.62, z: 0.95}
+  m_LocalPosition: {x: 2.23, y: 1.62, z: 0.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f590282a098d5904c9b27cdd00edfba4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.861
+      value: 5.909
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f590282a098d5904c9b27cdd00edfba4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f590282a098d5904c9b27cdd00edfba4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -71.609116
+      value: -71.638
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f590282a098d5904c9b27cdd00edfba4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -118,6 +118,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f590282a098d5904c9b27cdd00edfba4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5459124927909943979}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f590282a098d5904c9b27cdd00edfba4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6757911803562657475}
   m_SourcePrefab: {fileID: 100100000, guid: f590282a098d5904c9b27cdd00edfba4, type: 3}
 --- !u!4 &1620478611790095712 stripped
 Transform:
@@ -225,7 +228,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5459124927909943979}
+      - m_Target: {fileID: 6757911803562657475}
         m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
         m_MethodName: SpawnNewIngredient
         m_Mode: 1
@@ -312,6 +315,20 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
 --- !u!114 &5459124927909943979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105089892780195802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927cf34f2402947199ff72fb534bdef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: c0edf48e66c9043abadc4a0bd3fdee0d, type: 2}
+  prefab: {fileID: 2105089892780195802}
+--- !u!114 &6757911803562657475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

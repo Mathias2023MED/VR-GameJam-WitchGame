@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5569891755853214268}
   - component: {fileID: 8594022527558934233}
   - component: {fileID: 496017060957304337}
+  - component: {fileID: 1065160893170712199}
   m_Layer: 0
   m_Name: Blue Mushroom (1)
   m_TagString: Untagged
@@ -29,13 +30,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323872562103007584}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7178448, y: 0.09509504, z: -0.10003666, w: 0.6823845}
+  m_LocalRotation: {x: -0.71784437, y: 0.09508945, z: -0.100038454, w: 0.6823854}
   m_LocalPosition: {x: 0.63, y: 0.184, z: 0.376}
   m_LocalScale: {x: 4.7, y: 4.551187, z: 4.551187}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 5130651329916671380}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -106.123, y: -79.903015, z: 79.498}
 --- !u!33 &9118718178557655382
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -200,7 +202,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 5130651329916671380}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -264,3 +266,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientSO: {fileID: 11400000, guid: 822f7694b96e44acd8563330d140c3db, type: 2}
   prefab: {fileID: 323872562103007584}
+--- !u!64 &1065160893170712199
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323872562103007584}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9082460378300633120, guid: eea99c46f6b7d984ba6708a9502fdf08, type: 3}
+--- !u!1 &3717084851682501285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5130651329916671380}
+  m_Layer: 0
+  m_Name: GrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5130651329916671380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717084851682501285}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.21555398, y: -0.10983022, z: 0.44050497, w: 0.8645399}
+  m_LocalPosition: {x: 0.01, y: 0.01, z: 0.012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4929817939965699575}
+  m_LocalEulerAnglesHint: {x: 28, y: 0, z: 54}

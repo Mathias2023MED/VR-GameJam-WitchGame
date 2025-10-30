@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 6947751116823800851}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.7, y: -3, z: 16.9}
+  m_LocalPosition: {x: 16.71, y: -3, z: 16.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 2630183760809120474}
   - component: {fileID: 3928971831859242297}
   - component: {fileID: 622138312864230184}
+  - component: {fileID: 4038511495183186019}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -231,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8225395634644114736}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.36744183, y: -0, z: -0, w: 0.93004656}
+  m_LocalRotation: {x: -0.36744288, y: 0, z: 0, w: 0.93004614}
   m_LocalPosition: {x: 5.3088, y: 21.262, z: -71.642}
   m_LocalScale: {x: 0.0041177026, y: 0.0041177026, z: 0.0041177026}
   m_ConstrainProportionsScale: 1
@@ -337,7 +338,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 622138312864230184}
+      - m_Target: {fileID: 4038511495183186019}
         m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
         m_MethodName: SpawnNewIngredient
         m_Mode: 1
@@ -424,6 +425,20 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
 --- !u!114 &622138312864230184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8225395634644114736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927cf34f2402947199ff72fb534bdef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: 5dae81cf410e0460ca3dfea4ce21cfbe, type: 2}
+  prefab: {fileID: 8225395634644114736}
+--- !u!114 &4038511495183186019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
