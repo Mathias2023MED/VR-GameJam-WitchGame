@@ -216,7 +216,6 @@ GameObject:
   - component: {fileID: 2630183760809120474}
   - component: {fileID: 3928971831859242297}
   - component: {fileID: 622138312864230184}
-  - component: {fileID: 4038511495183186019}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -338,7 +337,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4038511495183186019}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
         m_MethodName: SpawnNewIngredient
         m_Mode: 1
@@ -418,27 +417,13 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 1
-  m_ForceGravityOnDetach: 0
+  m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
 --- !u!114 &622138312864230184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8225395634644114736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 927cf34f2402947199ff72fb534bdef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientSO: {fileID: 11400000, guid: 5dae81cf410e0460ca3dfea4ce21cfbe, type: 2}
-  prefab: {fileID: 8225395634644114736}
---- !u!114 &4038511495183186019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
