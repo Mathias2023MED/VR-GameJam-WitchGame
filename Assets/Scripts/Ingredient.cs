@@ -45,6 +45,13 @@ public class Ingredient : MonoBehaviour
         {
             grab.interactionManager = FindObjectOfType<XRInteractionManager>();
         }
+        var rb = newIngredient.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.useGravity = true;
+            rb.isKinematic = false; // optional, depends on your setup
+        }
+
 
         hasBeenGrabbed = true; // Mark this ingredient as already grabbed
     }
