@@ -47,7 +47,7 @@ public class SapoAnimations : MonoBehaviour
                 Debug.LogWarning("[SapoAnimations] Animator is missing state: " + s);
     }
 
-    // ---------- Public API ----------
+    // ---------- Play Anmimation methods ----------
     public void Walk1_Distance(float m, bool useRoot = false)
         => StartRoutine(Co_MoveDistance(Walk1State, m, useRoot, moveSpeed));
     public void Walk2_Distance(float m, bool useRoot = false)
@@ -58,9 +58,11 @@ public class SapoAnimations : MonoBehaviour
         => StartRoutine(Co_MoveDistance(HurricaneKickState, m, useRoot, hurricaneKickSpeed));
     public void Running_Distance(float m, bool useRoot = false)
         => StartRoutine(Co_MoveDistance(RunningState, m, useRoot, runningSpeed));
+    public void WalkingOut_Distance(float m, bool useRoot = true)
+    => StartRoutine(Co_MoveDistance(BackOutState, m, useRoot, moveSpeed, backwards: true));
+
 
     public void PlayDrink() => StartRoutine(Co_PlayOnceReturn(DrinkState));
-    public void PlayWalkingOut() => StartRoutine(Co_PlayOnceReturn(BackOutState));
     public void PlayDropKick() => StartRoutine(Co_PlayOnceReturn(DropKickState));
     public void PlayShakingHead() => StartRoutine(Co_PlayOnceReturn(ShakingHeadState));
 
@@ -69,7 +71,7 @@ public class SapoAnimations : MonoBehaviour
     public void GoIdle() => CrossFade(IdleState);
 
     // ---------- Coroutines ----------
-    IEnumerator Co_MoveDistance(string stateName, float meters, bool useRoot, float manualSpeed)
+    IEnumerator Co_MoveDistance(string stateName, float meters, bool useRoot, float manualSpeed, bool backwards = false)
     {
         if (string.IsNullOrEmpty(stateName)) yield break;
 
@@ -92,7 +94,10 @@ public class SapoAnimations : MonoBehaviour
             }
             else
             {
-                Vector3 dir = forwardReference.forward; dir.y = 0f; dir.Normalize();
+                Vector3 dir = forwardReference ? forwardReference.forward : transform.forward;
+                if (backwards) dir = -dir;   // <<— go backwards for WalkingOut
+                dir.y = 0f; dir.Normalize();
+
                 float step = manualSpeed * Time.deltaTime;
                 transform.position += dir * step;
 
@@ -106,6 +111,7 @@ public class SapoAnimations : MonoBehaviour
         CrossFade(IdleState);
         routine = null;
     }
+
 
     IEnumerator Co_PlayOnceReturn(string stateName, System.Action after = null)
     {

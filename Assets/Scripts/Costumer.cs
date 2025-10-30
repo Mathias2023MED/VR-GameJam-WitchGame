@@ -50,7 +50,8 @@ public class Costumer : MonoBehaviour
     private IEnumerator delay()
     {
         yield return new WaitForSeconds(5f);
-        sapoAnimations.PlayWalkingOut(); // Call your "no" animation here
+        float walkDistance = 4f;
+        sapoAnimations.WalkingOut_Distance(walkDistance); // Call your "no" animation here
     }
 
 }
