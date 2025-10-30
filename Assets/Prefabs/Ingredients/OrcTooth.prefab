@@ -118,9 +118,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8968487452731022144}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7444578303312045765}
   m_SourcePrefab: {fileID: 100100000, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
 --- !u!4 &5795349335730551033 stripped
 Transform:
@@ -229,7 +226,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7444578303312045765}
+      - m_Target: {fileID: 8968487452731022144}
         m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
         m_MethodName: SpawnNewIngredient
         m_Mode: 1
@@ -316,20 +313,6 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
 --- !u!114 &8968487452731022144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6568191268020789827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 927cf34f2402947199ff72fb534bdef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientSO: {fileID: 11400000, guid: a57e0c4fdbaf64b439d63757051591cb, type: 2}
-  prefab: {fileID: 6568191268020789827}
---- !u!114 &7444578303312045765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

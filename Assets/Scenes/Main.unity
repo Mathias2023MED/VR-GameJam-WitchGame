@@ -7842,6 +7842,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1194939760}
     m_Modifications:
+    - target: {fileID: 1676604796837089, guid: faf856e81598b4b2a8513a578c0ab9cd, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2843470670665147265, guid: faf856e81598b4b2a8513a578c0ab9cd, type: 3}
       propertyPath: m_Name
       value: Satyr Horn
@@ -7908,6 +7912,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 866708647}
+    - target: {fileID: 1852943640663660400, guid: 9f14b17e19590524f8001babe52191c3, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2856303279447584560, guid: 9f14b17e19590524f8001babe52191c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.892
@@ -8009,6 +8017,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8594022527558934233, guid: ecaa7662f4a0944569bbb4727360dc8e, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8031,6 +8043,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 866708647}
+    - target: {fileID: 3928971831859242297, guid: 214ddbcff36c47545a4f42c0a4f1216f, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4186450600479146545, guid: 214ddbcff36c47545a4f42c0a4f1216f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.678
@@ -8092,6 +8108,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 866708647}
+    - target: {fileID: 815859146213212021, guid: 1b35141ba18baf34186494ed277a0e60, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1620478611790095712, guid: 1b35141ba18baf34186494ed277a0e60, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.909
@@ -8153,6 +8173,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 866708647}
+    - target: {fileID: 1399542714606024640, guid: 13986d5d9e99a54488f75aed2be862a3, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5795349335730551033, guid: 13986d5d9e99a54488f75aed2be862a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.531
@@ -8213,6 +8237,10 @@ PrefabInstance:
     - target: {fileID: 1208687552221831385, guid: 37484626ed16a4de6ad06304c67b734c, type: 3}
       propertyPath: m_Name
       value: Crow Foot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963531733126298497, guid: 37484626ed16a4de6ad06304c67b734c, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1985469786492910179, guid: 37484626ed16a4de6ad06304c67b734c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8276,6 +8304,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 866708647}
+    - target: {fileID: 3205852784296356815, guid: 804178252fe4c82418dec3a39c4bc5ea, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5077627402900285986, guid: 804178252fe4c82418dec3a39c4bc5ea, type: 3}
       propertyPath: m_Name
       value: PhoenixFeather
