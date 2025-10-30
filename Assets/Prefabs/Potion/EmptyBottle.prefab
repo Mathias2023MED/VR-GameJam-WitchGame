@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1507004641797456298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 986924956637999652}
+  m_Layer: 0
+  m_Name: GrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &986924956637999652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507004641797456298}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.08, y: 0.17, z: 0.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3422506227350325400}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1855562879975870437
 GameObject:
   m_ObjectHideFlags: 0
@@ -16,6 +47,7 @@ GameObject:
   - component: {fileID: 6852518204881969668}
   - component: {fileID: 8323060732291047557}
   - component: {fileID: 6967278316462619047}
+  - component: {fileID: 4524963745777795044}
   m_Layer: 0
   m_Name: EmptyBottle
   m_TagString: EmptyBottle
@@ -35,9 +67,10 @@ Transform:
   m_LocalPosition: {x: 0.832, y: 1.182, z: 0.293}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 986924956637999652}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5321080797442247666
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -213,7 +246,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 986924956637999652}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -297,3 +330,17 @@ MonoBehaviour:
   duration: 10
   hasBeenUsed: 0
   potion: {fileID: 11400000, guid: cca3d044fca2f4be1b9da61e5d52954d, type: 2}
+--- !u!114 &4524963745777795044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855562879975870437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27bca81d8a9f478c9ac984f5d39add6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenVersion: {fileID: 7279525290967565775, guid: fb13a753bedca461296d0ec8c8375a8e, type: 3}
+  breakForce: 2

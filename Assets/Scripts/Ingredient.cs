@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Ingredient : MonoBehaviour
 {
@@ -34,8 +36,23 @@ public class Ingredient : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        // Spawn a new copy at the saved original position
-        Instantiate(prefab, spawnPosition, spawnRotation);
+        // Instantiate the prefab and store a reference
+        GameObject newIngredient = Instantiate(prefab, spawnPosition, spawnRotation);
+
+        // Make sure it has a connection to the XR Interaction Manager
+        var grab = newIngredient.GetComponent<XRGrabInteractable>();
+        if (grab != null && grab.interactionManager == null)
+        {
+            grab.interactionManager = FindObjectOfType<XRInteractionManager>();
+        }
+        var rb = newIngredient.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.useGravity = true;
+            rb.isKinematic = false; // optional, depends on your setup
+        }
+
+
         hasBeenGrabbed = true; // Mark this ingredient as already grabbed
     }
 }

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 291494765821319781}
   serializedVersion: 2
   m_LocalRotation: {x: 0.58842325, y: -0.14248835, z: -0.18731551, w: 0.7735425}
-  m_LocalPosition: {x: -65.4, y: -18.3, z: -2.8}
+  m_LocalPosition: {x: 17.42, y: -58.8, z: -2.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53,19 +53,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.4678235
+      value: 5.531
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.274998
+      value: 21.2546
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -71.61057
+      value: -71.554
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.95042723
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
       propertyPath: m_LocalRotation.x
@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.31094712
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 36.233
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 127d8a9845206aa469e70a342ea28ebf, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -306,7 +306,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 1
-  m_ForceGravityOnDetach: 0
+  m_ForceGravityOnDetach: 1
   m_RetainTransformParent: 1
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
