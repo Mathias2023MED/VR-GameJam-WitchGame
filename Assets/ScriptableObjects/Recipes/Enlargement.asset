@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3614fec8df4314a3e8401b19c8d3f6fb, type: 3}
   m_Name: Enlargement
   m_EditorClassIdentifier: 
+  potionType: 1
   potionName: Enlargement
   potionPrefab: {fileID: 5523223384688699726, guid: bb72645415013466ba53b782b4f329d8, type: 3}
   ingredientsSO:

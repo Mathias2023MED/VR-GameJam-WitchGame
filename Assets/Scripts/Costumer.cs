@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Costumer : MonoBehaviour
 {
@@ -22,13 +23,19 @@ public class Costumer : MonoBehaviour
     public SapoAnimations sapoAnimations;
     public DeliverySpot deliverySpot;
 
+    [Header("Speech Bubble")]
+    public GameObject speechBubble;
+    public GameObject speechBubbleTeleport;
+    public GameObject speechBubbleLOVE;
+    public GameObject speechBubbleEnlargement;
+
+
     public bool CheckPotion(PotionEffect deliveredPotion)
     {
         if (deliveredPotion.potion == requestedPotion)
         {
             Debug.Log("Correct potion delivered!");
             return true;
-            // Add drink animation
         }
         else
         {
@@ -37,7 +44,6 @@ public class Costumer : MonoBehaviour
             StartCoroutine(PlayNoAnimationAfterDelay(delay));
             //Make no sound
             return false;
-            // Add "no" animation
         }
     }
 
@@ -49,23 +55,51 @@ public class Costumer : MonoBehaviour
 
     private void Start()
     {
+        DisableSpeechBubble();
+        WalkIn();
+    }
+
+    private void WalkIn()
+    {
         // Check if this customer is the current one for its delivery spot
         if (deliverySpot != null && deliverySpot.currentCustomer == this)
-        {
-            // Start walk animation
-            Debug.Log("This is the costumer");
-            float walkDistance = 4f;
-            sapoAnimations.Walk1_Distance(walkDistance);
-            StartCoroutine(delay());
-        }
-        else Debug.Log("No");
+            {
+                // Start walk animation
+                Debug.Log("This is the costumer");
+                float walkDistance = 4f;
+                sapoAnimations.Walk1_Distance(walkDistance, false, EnableSpeechBubble);
+            }
+            else Debug.Log("No");
     }
 
-    private IEnumerator delay()
+    private void EnableSpeechBubble()
     {
-        yield return new WaitForSeconds(4f);
-        sapoAnimations.WalkingOut_Distance(6f, useRoot: true, preTurnYawDeg: 40f, preTurnTime: 0.15f, restoreRotation: true, restoreTime: 0.15f);
+        speechBubble.SetActive(true);
+
+        switch (requestedPotion.potionType)
+        {
+            case PotionRecipeSO.PotionType.love:
+                speechBubbleLOVE.SetActive(true);
+                break;
+            case PotionRecipeSO.PotionType.enlargement:
+                speechBubbleEnlargement.SetActive(true);
+                break;
+            case PotionRecipeSO.PotionType.teleportation:
+                speechBubbleTeleport.SetActive(true);
+                break;
+            default:
+                Debug.LogWarning("Nothing fits"); // ✅ log a warning
+                break;
+        }
+    }
+    private void DisableSpeechBubble()
+    {
+        speechBubble.SetActive(false);
+        speechBubbleLOVE.SetActive(false);
+        speechBubbleTeleport.SetActive(false);
+        speechBubbleEnlargement.SetActive(false);
 
     }
+
 
 }
