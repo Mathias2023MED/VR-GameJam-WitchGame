@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Animator))]
 public class SapoAnimations : MonoBehaviour
@@ -32,9 +33,11 @@ public class SapoAnimations : MonoBehaviour
 
     // ---------------- PUBLIC API (generic) ----------------
 
-    public void PlayOnce(string state, bool useRoot = false)
-        => StartRoutine(Co_PlayOnceReturn(state, useRoot));
+    // Play a single clip/state once and optionally call `after` when finished.
+    public void PlayOnce(string state, bool useRoot = false, Action after = null)
+        => StartRoutine(Co_PlayOnceReturn(state, useRoot, after));
 
+    // MoveDistance public wrapper: starts the internal coroutine and accepts an optional callback `after`.
     // useRoot true  -> distance from clip root motion (invertRoot flips it)
     // useRoot false -> manual movement at manualSpeed (backwards flips it)
     // preTurnYawDeg / preTurnTime -> smooth rotate before moving
@@ -43,49 +46,55 @@ public class SapoAnimations : MonoBehaviour
         string state, float meters, bool useRoot, float manualSpeed,
         bool backwards = false, bool invertRoot = false,
         float preTurnYawDeg = 0f, float preTurnTime = 0f,
-        bool restoreRotation = true, float restoreTime = 0f)
+        bool restoreRotation = true, float restoreTime = 0f,
+        Action after = null)
         => StartRoutine(Co_MoveDistance(
             state, meters, useRoot, manualSpeed, backwards, invertRoot,
-            preTurnYawDeg, preTurnTime, restoreRotation, restoreTime));
+            preTurnYawDeg, preTurnTime, restoreRotation, restoreTime, after));
 
     public void GoIdle() => CrossFade("Idle");
 
     // ---------------- CONVENIENCE WRAPPERS ----------------
 
-    public void PlayDrink() => PlayOnce("Drink", useRoot: false);
-    public void PlayShakingHead() => PlayOnce("ShakingHead", useRoot: false);
-    public void PlayDropKick() => PlayOnce("DropKick", useRoot: true); // uses clip root motion
+    public void PlayDrink(Action after = null) => PlayOnce("Drink", useRoot: false, after);
+    public void PlayShakingHead(Action after = null) => PlayOnce("ShakingHead", useRoot: false, after);
+    public void PlayDropKick(Action after = null) => PlayOnce("DropKick", useRoot: true, after); // uses clip root motion
 
-    public void Walk1_Distance(float meters, bool useRoot = false)
-        => MoveDistance("Walk1", meters, useRoot, walkSpeed);
-    public void Walk2_Distance(float meters, bool useRoot = false)
-        => MoveDistance("Walk2", meters, useRoot, walkSpeed);
-    public void Walk3_Distance(float meters, bool useRoot = false)
-        => MoveDistance("Walk3", meters, useRoot, walkSpeed);
-    public void Running_Distance(float meters, bool useRoot = false)
-        => MoveDistance("Running", meters, useRoot, runSpeed);
+    public void Walk1_Distance(float meters, bool useRoot = false, Action after = null)
+        => MoveDistance("Walk1", meters, useRoot, walkSpeed, false, false, 0f, 0f, true, 0f, after);
+
+    public void Walk2_Distance(float meters, bool useRoot = false, Action after = null)
+        => MoveDistance("Walk2", meters, useRoot, walkSpeed, false, false, 0f, 0f, true, 0f, after);
+
+    public void Walk3_Distance(float meters, bool useRoot = false, Action after = null)
+        => MoveDistance("Walk3", meters, useRoot, walkSpeed, false, false, 0f, 0f, true, 0f, after);
+
+    public void Running_Distance(float meters, bool useRoot = false, Action after = null)
+        => MoveDistance("Running", meters, useRoot, runSpeed, false, false, 0f, 0f, true, 0f, after);
 
     // Smooth pre-turn for WalkingOut: default 40 deg over 0.15s, restore over 0.15s
     public void WalkingOut_Distance(
         float meters, bool useRoot = true,
         float preTurnYawDeg = 40f, float preTurnTime = 0.15f,
-        bool restoreRotation = true, float restoreTime = 0.15f)
+        bool restoreRotation = true, float restoreTime = 0.15f,
+        Action after = null)
         => MoveDistance(
             "WalkingOut", meters, useRoot, walkSpeed,
             backwards: true, invertRoot: false,
             preTurnYawDeg: preTurnYawDeg, preTurnTime: preTurnTime,
-            restoreRotation: restoreRotation, restoreTime: restoreTime);
+            restoreRotation: restoreRotation, restoreTime: restoreTime,
+            after: after);
 
     // Hurricane kick:
     // useRoot = true  -> invert planar root motion (go backward with clip motion)
     // useRoot = false -> manual backward movement
-    public void HurricaneKick_Distance(float meters, bool useRoot = false)
+    public void HurricaneKick_Distance(float meters, bool useRoot = false, Action after = null)
         => MoveDistance("HurricaneKick", meters, useRoot, hurricaneKickSpeed,
-                        backwards: !useRoot, invertRoot: useRoot);
+                        backwards: !useRoot, invertRoot: useRoot, after: after);
 
     // ---------------- COROUTINES ----------------
 
-    IEnumerator Co_PlayOnceReturn(string state, bool useRoot)
+    IEnumerator Co_PlayOnceReturn(string state, bool useRoot, Action after = null)
     {
         if (string.IsNullOrEmpty(state)) yield break;
 
@@ -102,6 +111,10 @@ public class SapoAnimations : MonoBehaviour
             yield return null;
 
         anim.applyRootMotion = false;
+
+        // call the callback (if any) before going idle
+        after?.Invoke();
+
         GoIdle();
         routine = null;
     }
@@ -110,7 +123,8 @@ public class SapoAnimations : MonoBehaviour
         string state, float meters, bool useRoot, float manualSpeed,
         bool backwards, bool invertRoot,
         float preTurnYawDeg, float preTurnTime,
-        bool restoreRotation, float restoreTime)
+        bool restoreRotation, float restoreTime,
+        Action after = null)
     {
         if (string.IsNullOrEmpty(state) || meters <= 0f) { GoIdle(); yield break; }
 
@@ -212,6 +226,9 @@ public class SapoAnimations : MonoBehaviour
             }
             transform.rotation = originalRot;
         }
+
+        // call the callback (if any) before going idle
+        after?.Invoke();
 
         GoIdle();
         routine = null;
