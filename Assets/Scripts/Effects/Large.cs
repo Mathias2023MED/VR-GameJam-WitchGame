@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class Large : MonoBehaviour
+public class Large : PotionEffect
 {
+    private Assigner assigner;
     public GameObject hand;
     private Vector3 originalScale;
     public Vector3 enlargedScale = new Vector3(2f, 2f, 2f);
@@ -10,16 +11,28 @@ public class Large : MonoBehaviour
 
     void Start()
     {
+        // Find the Assigner in the scene(make sure you have one)
+        assigner = FindFirstObjectByType<Assigner>();
+        if (assigner != null)
+        {
+            // Assign all references from the manager
+            hand = assigner.hand;
+        }
+        else
+        {
+            Debug.LogWarning("No Assigner found in the scene!");
+        }
         originalScale = hand.transform.localScale;
+
     }
 
-    private void Activate()
+    public override void ActivateEffect()
     {
         StopAllCoroutines();
         StartCoroutine(ChangeSizeOverTime(enlargedScale));
     }
 
-    private void Deactivate()
+    public override void DeactivateEffect()
     {
         StopAllCoroutines();
         StartCoroutine(ChangeSizeOverTime(originalScale));

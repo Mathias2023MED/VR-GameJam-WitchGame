@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 8077819963199956533}
   - component: {fileID: -48888993731759034}
   - component: {fileID: 255128500935543325}
-  - component: {fileID: 8334079633232839718}
   - component: {fileID: 7719649271986307547}
-  - component: {fileID: 1328233140654319280}
+  - component: {fileID: -7391775482227337022}
   m_Layer: 0
   m_Name: Failed Potion
   m_TagString: Untagged
@@ -33,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 716899875506863153}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.256, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -161,21 +160,6 @@ MonoBehaviour:
   whiteColor: {r: 0.9843398, g: 0.25943398, b: 1, a: 0}
   blendDuration: 1
   Renderer: {fileID: 2496265827387106645}
---- !u!114 &8334079633232839718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 716899875506863153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b2ba181dc38bb47981436e46f04262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 10
-  hasBeenUsed: 0
-  potion: {fileID: 11400000, guid: cca3d044fca2f4be1b9da61e5d52954d, type: 2}
 --- !u!114 &7719649271986307547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +282,7 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
---- !u!114 &1328233140654319280
+--- !u!114 &-7391775482227337022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,9 +291,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 716899875506863153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b2ba181dc38bb47981436e46f04262, type: 3}
+  m_Script: {fileID: 11500000, guid: e27bca81d8a9f478c9ac984f5d39add6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 10
-  hasBeenUsed: 0
-  potion: {fileID: 11400000, guid: cca3d044fca2f4be1b9da61e5d52954d, type: 2}
+  brokenVersion: {fileID: 7279525290967565775, guid: 5b0f42e9fa8cd429092337628205c934, type: 3}
+  breakForce: 2

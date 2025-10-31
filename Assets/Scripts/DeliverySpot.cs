@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using System.Collections; // Needed for IEnumerator
+using System.Collections.Generic;
 
 public class DeliverySpot : MonoBehaviour
 {
-    [Header("Current Customer")]
+    [Header("Customers")]
     public Costumer currentCustomer; // Reference to the customer who will receive the potion
+    private int customerIndex = 0;   // Tracks the index of the current customer
+    public List<Costumer> customers; // Populate in the inspector
 
     [Header("Snap Settings")]
     public Transform snapPoint;         // Empty GameObject on the table where potion should snap
@@ -13,6 +16,13 @@ public class DeliverySpot : MonoBehaviour
     public bool snapInstantly = true;   // If true, it teleports instead of lerping
 
     public PotionEffect currentPotion = null; // Current potion on the delivery spot
+    public GameObject placedPotion;
+
+    private void Start()
+    {
+        customerIndex = 0;
+        currentCustomer = customers[customerIndex];
+    }
 
     private void OnTriggerEnter(Collider other) // Called when a potion enters the delivery spot collider
     {
@@ -25,7 +35,6 @@ public class DeliverySpot : MonoBehaviour
         // Proceed only if it's a valid potion and has a grab component
         if (potionEffect != null && grab != null && !potionEffect.hasBeenUsed)
         {
-            currentPotion = potionEffect; // Lock this potion as the current one
             StartCoroutine(SnapAfterRelease(grab, potionEffect)); // Start coroutine to snap after release
         }
     }
@@ -54,7 +63,21 @@ public class DeliverySpot : MonoBehaviour
         if (correctPotion) // If the potion is correct
         {
             potionEffect.hasBeenUsed = true; // Mark as used
+            currentPotion = potionEffect; // Lock this potion as the current one
+            placedPotion = potionEffect.gameObject; // Save the actual GameObject
             grab.enabled = false;
+            Rigidbody rb = potionEffect.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true;
+            }
+            currentCustomer.DrinkPotion();
+            SwitchCurrentCostumer();
+
+        }
+        else
+        {
+
         }
     }
 
@@ -89,6 +112,27 @@ public class DeliverySpot : MonoBehaviour
 
         potion.position = snapPoint.position; // Ensure final position
         potion.rotation = snapPoint.rotation; // Ensure final rotation
+    }
+
+    private void SwitchCurrentCostumer()
+    {
+        if (customers == null || customers.Count == 0)
+        {
+            Debug.LogWarning("No customers assigned!");
+            return;
+        }
+
+        // Move to the next customer
+        customerIndex++;
+
+        // Loop back to the first if we exceed the list
+        if (customerIndex >= customers.Count)
+        {
+            customerIndex = 0;
+            Debug.Log("All customers served. Looping back to the first.");
+        }
+
+        currentCustomer = customers[customerIndex];
     }
 
 }

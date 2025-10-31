@@ -23,6 +23,9 @@ public class Costumer : MonoBehaviour
     public SapoAnimations sapoAnimations;
     public DeliverySpot deliverySpot;
 
+    [Header("Drink Animation")]
+    [SerializeField] private Transform attachPoint;
+
     [Header("Speech Bubble")]
     public GameObject speechBubble;
     public GameObject speechBubbleTeleport;
@@ -41,16 +44,37 @@ public class Costumer : MonoBehaviour
         {
             Debug.Log("Wrong potion delivered!");
             float delay = 0.5f;
-            StartCoroutine(PlayNoAnimationAfterDelay(delay));
+            StartCoroutine(PlayShakingHeadDelay(delay));
             //Make no sound
             return false;
         }
     }
 
-    private IEnumerator PlayNoAnimationAfterDelay(float delay)
+    public void DrinkPotion()
+    {
+        DisableSpeechBubble(); //Disables the speech bubble when the correct one is delivered
+        float delay = 3f;
+        AttachPotionToHand();
+        StartCoroutine(PlayDrinkDelay(delay));
+    }
+
+    private void AttachPotionToHand()
+    {
+        deliverySpot.placedPotion.transform.SetParent(attachPoint, false); // false means keep localPosition as is
+        deliverySpot.placedPotion.transform.localPosition = Vector3.zero;
+        deliverySpot.placedPotion.transform.localRotation = Quaternion.identity;
+    }
+
+    private IEnumerator PlayShakingHeadDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        sapoAnimations.PlayDropKick(); // Call your "no" animation here
+        sapoAnimations.PlayShakingHead(); // Call your "no" animation here
+    }
+
+    private IEnumerator PlayDrinkDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        sapoAnimations.PlayDrink(); // Call your "no" animation here
     }
 
     private void Start()

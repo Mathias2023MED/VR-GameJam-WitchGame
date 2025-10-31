@@ -16,6 +16,4 @@ MonoBehaviour:
   potionName: Random Teleportation
   potionPrefab: {fileID: 716899875506863153, guid: d83b8e2a4355e4117bdbc52326343dce, type: 3}
   ingredientsSO:
-  - {fileID: 11400000, guid: 6c89c0e01602c4d75b4cfb258b085ae3, type: 2}
-  - {fileID: 11400000, guid: 193a5396d3f0b40b2b56ccb8a3f95753, type: 2}
-  - {fileID: 11400000, guid: 822f7694b96e44acd8563330d140c3db, type: 2}
+  - {fileID: 11400000, guid: 83db2086b09004df6b5a216afe17a02b, type: 2}

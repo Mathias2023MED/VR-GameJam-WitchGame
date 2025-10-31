@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 8926291240929165515}
   - component: {fileID: 6852518204881969668}
   - component: {fileID: 8323060732291047557}
-  - component: {fileID: 6967278316462619047}
   - component: {fileID: 4524963745777795044}
   m_Layer: 0
   m_Name: EmptyBottle
@@ -64,7 +63,7 @@ Transform:
   m_GameObject: {fileID: 1855562879975870437}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.832, y: 1.182, z: 0.293}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -315,21 +314,6 @@ MonoBehaviour:
   whiteColor: {r: 0.9843398, g: 0.25943398, b: 1, a: 0}
   blendDuration: 1
   Renderer: {fileID: 6260453958591617144}
---- !u!114 &6967278316462619047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855562879975870437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b2ba181dc38bb47981436e46f04262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 10
-  hasBeenUsed: 0
-  potion: {fileID: 11400000, guid: cca3d044fca2f4be1b9da61e5d52954d, type: 2}
 --- !u!114 &4524963745777795044
 MonoBehaviour:
   m_ObjectHideFlags: 0
