@@ -18,44 +18,51 @@ public class Costumer : MonoBehaviour
     sapoAnimations.HurricaneKick_Distance(6f, true);  
     */
 
-    [Header("Requested Potion")]
+    [Header("REQUESTED POTION")]
     public PotionRecipeSO requestedPotion;
     public SapoAnimations sapoAnimations;
     public DeliverySpot deliverySpot;
 
-    [Header("Drink Animation")]
+    [Header("DRINK ANIMATION")]
     [SerializeField] private Transform attachPoint;
 
-    [Header("Speech Bubble")]
+    [Header("SPEECH BUBBLE")]
     public GameObject speechBubble;
     public GameObject speechBubbleTeleport;
     public GameObject speechBubbleLOVE;
     public GameObject speechBubbleEnlargement;
 
+    [Header("SOUND")]
+    [SerializeField] private AudioClip noClip;
+    [SerializeField] private AudioSource audioSource;
 
-    public bool CheckPotion(PotionEffect deliveredPotion)
+
+    public bool CheckPotion(PotionEffectCustomer deliveredPotion) //helper function
     {
-        if (deliveredPotion.potion == requestedPotion)
+        if (deliveredPotion.potion == requestedPotion) //Correct potion delivered
         {
             Debug.Log("Correct potion delivered!");
             return true;
         }
-        else
+        else //Wrong potion delivered
         {
             Debug.Log("Wrong potion delivered!");
-            float delay = 0.5f;
-            StartCoroutine(PlayShakingHeadDelay(delay));
-            //Make no sound
             return false;
         }
     }
 
-    public void DrinkPotion()
+    public void ShakeHead()
+    {
+        sapoAnimations.PlayShakingHeadCoroutine();
+        SoundManager.Instance.PlaySound(audioSource, noClip);
+    }
+
+    public void DrinkPotion(PotionEffectCustomer currentPotion)
     {
         DisableSpeechBubble(); //Disables the speech bubble when the correct one is delivered
-        float delay = 3f;
-        AttachPotionToHand();
-        StartCoroutine(PlayDrinkDelay(delay));
+        AttachPotionToHand(); //todo: NOT WORKING
+        //TODO: Make a small coroutine that adds a second delay
+        sapoAnimations.PlayDrink(() => currentPotion.ActivateEffect());
     }
 
     private void AttachPotionToHand()
@@ -65,40 +72,29 @@ public class Costumer : MonoBehaviour
         deliverySpot.placedPotion.transform.localRotation = Quaternion.identity;
     }
 
-    private IEnumerator PlayShakingHeadDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        sapoAnimations.PlayShakingHead(); // Call your "no" animation here
-    }
-
-    private IEnumerator PlayDrinkDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        sapoAnimations.PlayDrink(); // Call your "no" animation here
-    }
-
     private void Start()
     {
         DisableSpeechBubble();
         WalkIn();
     }
 
-    private void WalkIn()
+    private void WalkIn() //Walks the costumer into the shop
     {
         // Check if this customer is the current one for its delivery spot
         if (deliverySpot != null && deliverySpot.currentCustomer == this)
-            {
-                // Start walk animation
-                Debug.Log("This is the costumer");
-                float walkDistance = 4f;
-                sapoAnimations.Walk1_Distance(walkDistance, false, EnableSpeechBubble);
-            }
-            else Debug.Log("No");
+        {
+            // Start walk animation
+            float walkDistance = 4f;
+            sapoAnimations.Walk1_Distance(walkDistance, false, EnableSpeechBubble);
+        }
+        else
+            return;
     }
 
-    private void EnableSpeechBubble()
+    private void EnableSpeechBubble() //Enables the correct speechbubble text
     {
         speechBubble.SetActive(true);
+        //todo: Play a speaking sound?
 
         switch (requestedPotion.potionType)
         {
@@ -112,7 +108,7 @@ public class Costumer : MonoBehaviour
                 speechBubbleTeleport.SetActive(true);
                 break;
             default:
-                Debug.LogWarning("Nothing fits"); // ✅ log a warning
+                Debug.LogWarning("Nothing fits");
                 break;
         }
     }
@@ -122,7 +118,6 @@ public class Costumer : MonoBehaviour
         speechBubbleLOVE.SetActive(false);
         speechBubbleTeleport.SetActive(false);
         speechBubbleEnlargement.SetActive(false);
-
     }
 
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Large : PotionEffect
+public class Large : PotionEffectWitch
 {
     private Assigner assigner;
     public GameObject hand;

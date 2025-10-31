@@ -5,17 +5,18 @@ using System.Collections.Generic;
 
 public class DeliverySpot : MonoBehaviour
 {
-    [Header("Customers")]
+    [Header("CUSTOMERS")]
     public Costumer currentCustomer; // Reference to the customer who will receive the potion
     private int customerIndex = 0;   // Tracks the index of the current customer
     public List<Costumer> customers; // Populate in the inspector
 
-    [Header("Snap Settings")]
+    [Header("SNAP SETTINGS")]
     public Transform snapPoint;         // Empty GameObject on the table where potion should snap
     public float snapSpeed = 10f;       // How fast the potion snaps (higher = faster)
     public bool snapInstantly = true;   // If true, it teleports instead of lerping
 
-    public PotionEffect currentPotion = null; // Current potion on the delivery spot
+    [Header("CURRENT POTION")]
+    public PotionEffectCustomer currentPotion = null; // Current potion on the delivery spot
     public GameObject placedPotion;
 
     private void Start()
@@ -29,17 +30,17 @@ public class DeliverySpot : MonoBehaviour
         // Only allow one potion at a time
         if (currentPotion != null) return; // Exit if a potion is already on the spot
 
-        PotionEffect potionEffect = other.GetComponent<PotionEffect>(); // Try to get PotionEffect component
+        PotionEffectCustomer potionEffectCustomer = other.GetComponent<PotionEffectCustomer>(); // Try to get PotionEffect component
         XRGrabInteractable grab = other.GetComponent<XRGrabInteractable>(); // Try to get XRGrabInteractable component
 
         // Proceed only if it's a valid potion and has a grab component
-        if (potionEffect != null && grab != null && !potionEffect.hasBeenUsed)
+        if (potionEffectCustomer != null && grab != null && !potionEffectCustomer.hasBeenUsed)
         {
-            StartCoroutine(SnapAfterRelease(grab, potionEffect)); // Start coroutine to snap after release
+            StartCoroutine(SnapAfterRelease(grab, potionEffectCustomer)); // Start coroutine to snap after release
         }
     }
 
-    private IEnumerator SnapAfterRelease(XRGrabInteractable grab, PotionEffect potionEffect)
+    private IEnumerator SnapAfterRelease(XRGrabInteractable grab, PotionEffectCustomer potionEffectCustomer)
     {
         // Wait until the potion is no longer being grabbed
         while (grab.isSelected) // Loop while the potion is still held
@@ -58,33 +59,33 @@ public class DeliverySpot : MonoBehaviour
         }
 
         // Run the check for the current customer
-        bool correctPotion = currentCustomer.CheckPotion(potionEffect); // Call CheckPotion on customer
+        bool correctPotion = currentCustomer.CheckPotion(potionEffectCustomer); // Call CheckPotion on customer
 
         if (correctPotion) // If the potion is correct
         {
-            potionEffect.hasBeenUsed = true; // Mark as used
-            currentPotion = potionEffect; // Lock this potion as the current one
-            placedPotion = potionEffect.gameObject; // Save the actual GameObject
+            potionEffectCustomer.hasBeenUsed = true; // Mark as used
+            currentPotion = potionEffectCustomer; // Lock this potion as the current one
+            placedPotion = potionEffectCustomer.gameObject; // Save the actual GameObject
             grab.enabled = false;
-            Rigidbody rb = potionEffect.GetComponent<Rigidbody>();
+            Rigidbody rb = potionEffectCustomer.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 rb.isKinematic = true;
             }
-            currentCustomer.DrinkPotion();
+            currentCustomer.DrinkPotion(currentPotion);
             SwitchCurrentCostumer();
 
         }
-        else
+        else //Make his head shake no
         {
-
+            currentCustomer.ShakeHead();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         // If the potion leaves the spot, allow a new one to be placed again
-        if (currentPotion != null && other.GetComponent<PotionEffect>() == currentPotion)
+        if (currentPotion != null && other.GetComponent<PotionEffectWitch>() == currentPotion)
         {
             currentPotion = null; // Unlock spot
         }

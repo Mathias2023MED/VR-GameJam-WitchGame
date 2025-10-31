@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5851836538746521758}
   - component: {fileID: 7752206811130330672}
   - component: {fileID: 2695161925342819188}
+  - component: {fileID: 2444784585510633973}
   m_Layer: 0
   m_Name: Enlargement
   m_TagString: Untagged
@@ -314,3 +315,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brokenVersion: {fileID: 7279525290967565775, guid: e27b331313fb6465bb1f98a64a8174e3, type: 3}
   breakForce: 2
+--- !u!114 &2444784585510633973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5523223384688699726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67fe18440a9164073a54984b2dda4f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  hasBeenUsed: 0
+  potion: {fileID: 11400000, guid: 3b7661627179d421c8e9ffa60188b66e, type: 2}

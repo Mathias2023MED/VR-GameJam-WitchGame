@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Teleportation;
 
 
-public class Teleport : PotionEffect
+public class Teleport : PotionEffectWitch
 {
     private Assigner assigner;
     private GameObject player;

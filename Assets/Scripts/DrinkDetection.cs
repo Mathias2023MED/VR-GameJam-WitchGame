@@ -7,13 +7,13 @@ public class DrinkDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        PotionEffect potionEffect = other.GetComponent<PotionEffect>();
+        PotionEffectWitch potionEffectWitch = other.GetComponent<PotionEffectWitch>();
 
-        if (potionEffect != null && !potionEffect.hasBeenUsed)
+        if (potionEffectWitch != null && !potionEffectWitch.hasBeenUsed)
         {
             // Trigger the potion effect
-            potionEffect.ActivateEffect();
-            potionEffect.hasBeenUsed = true;
+            potionEffectWitch.ActivateEffect();
+            potionEffectWitch.hasBeenUsed = true;
             // Blend the potion bottle's color back to base
             ColorChanger colorChanger = other.GetComponent<ColorChanger>();
             if (colorChanger != null)

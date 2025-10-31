@@ -5,7 +5,7 @@ using System;
 [RequireComponent(typeof(Animator))]
 public class SapoAnimations : MonoBehaviour
 {
-    [Header("Tuning")]
+    [Header("TUNING")]
     [SerializeField, Min(0f)] float crossfade = 0.1f;
     [SerializeField] Transform forwardReference;
 
@@ -297,5 +297,34 @@ public class SapoAnimations : MonoBehaviour
 
         transform.position += delta;
         transform.rotation *= dRot;
+    }
+
+
+    //ANIMATIONS COROUTINES
+    private IEnumerator PlayShakingHead()
+    {
+        float delay = 0.5f;
+        yield return new WaitForSeconds(delay);
+        PlayShakingHead(); // Call your "no" animation here
+    }
+
+    public void PlayShakingHeadCoroutine() //Call this in Customer
+    {
+        StartCoroutine(PlayShakingHead());
+    }
+
+
+    private IEnumerator PlayDrinkAnimation(Action after = null)
+    {
+        float delay = 3f;             // wait 3 seconds
+        yield return new WaitForSeconds(delay);
+
+        // run the callback if it's provided
+        after?.Invoke();
+    }
+
+    public void PlayDrinkCoroutine(Action after) //Call this in Customer
+    {
+        StartCoroutine(PlayDrinkAnimation(after));
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Love : PotionEffect
+public class Love : PotionEffectWitch
 {
     public GameObject violence;
     public Assigner assigner;

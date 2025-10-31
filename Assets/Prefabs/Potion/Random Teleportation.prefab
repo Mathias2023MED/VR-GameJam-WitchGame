@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5988161448988115211}
   - component: {fileID: 3871633198373706722}
   - component: {fileID: 2103004364632436752}
+  - component: {fileID: 8807518899815291347}
   m_Layer: 0
   m_Name: Random Teleportation
   m_TagString: Untagged
@@ -312,3 +313,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brokenVersion: {fileID: 7279525290967565775, guid: 85767b6a3d08d4ae8b7e0e2c5720ca9e, type: 3}
   breakForce: 2
+--- !u!114 &8807518899815291347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716899875506863153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe00cc68336341d2a45533f87eaa99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  hasBeenUsed: 0
+  potion: {fileID: 11400000, guid: b437cfd77ad6348b4af03fd779d49b1d, type: 2}
