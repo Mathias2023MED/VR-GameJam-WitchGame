@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6852518204881969668}
   - component: {fileID: 8323060732291047557}
   - component: {fileID: 6967278316462619047}
+  - component: {fileID: 4524963745777795044}
   m_Layer: 0
   m_Name: EmptyBottle
   m_TagString: EmptyBottle
@@ -329,3 +330,17 @@ MonoBehaviour:
   duration: 10
   hasBeenUsed: 0
   potion: {fileID: 11400000, guid: cca3d044fca2f4be1b9da61e5d52954d, type: 2}
+--- !u!114 &4524963745777795044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855562879975870437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27bca81d8a9f478c9ac984f5d39add6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brokenVersion: {fileID: 7279525290967565775, guid: fb13a753bedca461296d0ec8c8375a8e, type: 3}
+  breakForce: 2

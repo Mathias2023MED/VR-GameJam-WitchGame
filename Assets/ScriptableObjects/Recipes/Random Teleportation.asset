@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3614fec8df4314a3e8401b19c8d3f6fb, type: 3}
   m_Name: Random Teleportation
   m_EditorClassIdentifier: 
+  potionType: 2
   potionName: Random Teleportation
   potionPrefab: {fileID: 716899875506863153, guid: d83b8e2a4355e4117bdbc52326343dce, type: 3}
   ingredientsSO:

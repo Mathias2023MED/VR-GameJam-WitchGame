@@ -54,8 +54,7 @@ public class DeliverySpot : MonoBehaviour
         if (correctPotion) // If the potion is correct
         {
             potionEffect.hasBeenUsed = true; // Mark as used
-            Rigidbody rb = grab.GetComponent<Rigidbody>(); // Get Rigidbody component
-            if (rb != null) Destroy(rb); // Remove Rigidbody so it no longer moves with physics
+            grab.enabled = false;
         }
     }
 

@@ -5646,6 +5646,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b437cfd77ad6348b4af03fd779d49b1d, type: 2}
   brewedPotion: {fileID: 0}
   canAddIngredient: 0
+  waterInCauldron: 0
   currentIngredients: []
 --- !u!1 &1663789869
 GameObject:
@@ -6953,6 +6954,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1906688382540612390, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6747254814818442508, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7451338723314180577, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
       propertyPath: m_Name
       value: sapo
