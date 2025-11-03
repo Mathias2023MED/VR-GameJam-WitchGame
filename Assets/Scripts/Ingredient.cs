@@ -43,7 +43,7 @@ public class Ingredient : MonoBehaviour
         var grab = newIngredient.GetComponent<XRGrabInteractable>();
         if (grab != null && grab.interactionManager == null)
         {
-            grab.interactionManager = FindObjectOfType<XRInteractionManager>();
+            grab.interactionManager = FindFirstObjectByType<XRInteractionManager>();
         }
         var rb = newIngredient.GetComponent<Rigidbody>();
         if (rb != null)

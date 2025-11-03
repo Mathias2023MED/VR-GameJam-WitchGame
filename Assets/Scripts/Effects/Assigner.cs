@@ -14,4 +14,9 @@ public class Assigner : MonoBehaviour
 
     [Header("ENLARGEMENT")]
     public GameObject hand;
+
+    [Header("ENLARGEMENT CUSTOMER")]
+    public SkinnedMeshRenderer skinnedMesh; // assign in inspector
+
+
 }
