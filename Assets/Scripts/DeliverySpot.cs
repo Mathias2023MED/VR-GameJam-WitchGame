@@ -73,7 +73,6 @@ public class DeliverySpot : MonoBehaviour
                 rb.isKinematic = true;
             }
             currentCustomer.DrinkPotion(currentPotion);
-            SwitchCurrentCostumer();
 
         }
         else //Make his head shake no
@@ -115,7 +114,7 @@ public class DeliverySpot : MonoBehaviour
         potion.rotation = snapPoint.rotation; // Ensure final rotation
     }
 
-    private void SwitchCurrentCostumer()
+    public void SwitchCurrentCostumer()
     {
         if (customers == null || customers.Count == 0)
         {
@@ -134,6 +133,11 @@ public class DeliverySpot : MonoBehaviour
         }
 
         currentCustomer = customers[customerIndex];
+    }
+
+    public void SendNewCostumerIn()
+    {
+        currentCustomer.WalkIn();
     }
 
 }

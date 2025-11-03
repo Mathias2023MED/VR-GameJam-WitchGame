@@ -32,6 +32,8 @@ public class Costumer : MonoBehaviour
     public GameObject speechBubbleLOVE;
     public GameObject speechBubbleEnlargement;
 
+    public bool isFirstCustomer = false;
+
     [Header("SOUND")]
     [SerializeField] private AudioClip noClip;
     [SerializeField] private AudioSource audioSource;
@@ -59,9 +61,16 @@ public class Costumer : MonoBehaviour
 
     public void DrinkPotion(PotionEffectCustomer currentPotion)
     {
-        DisableSpeechBubble(); //Disables the speech bubble when the correct one is delivered
-        AttachPotionToHand(); //todo: NOT WORKING
-        //TODO: Make a small coroutine that adds a second delay
+        StartCoroutine(DrinkPotionRoutine(currentPotion));
+    }
+    private IEnumerator DrinkPotionRoutine(PotionEffectCustomer currentPotion)
+    {
+        DisableSpeechBubble(); // Disables the speech bubble when the correct one is delivered
+
+        float delay = 2f; // or whatever delay you want
+        yield return new WaitForSeconds(delay);
+
+        AttachPotionToHand(); // TODO: Fix this if it's not working
         sapoAnimations.PlayDrink(() => currentPotion.ActivateEffect());
     }
 
@@ -75,20 +84,24 @@ public class Costumer : MonoBehaviour
     private void Start()
     {
         DisableSpeechBubble();
-        WalkIn();
+        if (isFirstCustomer) WalkIn();
     }
 
-    private void WalkIn() //Walks the costumer into the shop
+    public void WalkIn() // Walks the customer into the shop
     {
-        // Check if this customer is the current one for its delivery spot
         if (deliverySpot != null && deliverySpot.currentCustomer == this)
         {
-            // Start walk animation
-            float walkDistance = 4f;
-            sapoAnimations.Walk1_Distance(walkDistance, false, EnableSpeechBubble);
+            float delay = 5f;
+            StartCoroutine(WalkInRoutine(delay));
         }
-        else
-            return;
+    }
+
+    private IEnumerator WalkInRoutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        float walkDistance = 4f;
+        sapoAnimations.Walk1_Distance(walkDistance, false, EnableSpeechBubble);
     }
 
     private void EnableSpeechBubble() //Enables the correct speechbubble text

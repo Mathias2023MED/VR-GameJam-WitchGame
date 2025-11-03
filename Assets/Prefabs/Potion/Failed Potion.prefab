@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 255128500935543325}
   - component: {fileID: 7719649271986307547}
   - component: {fileID: -7391775482227337022}
+  - component: {fileID: 6777299191143381313}
   m_Layer: 0
   m_Name: Failed Potion
   m_TagString: Untagged
@@ -296,3 +297,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brokenVersion: {fileID: 7279525290967565775, guid: 5b0f42e9fa8cd429092337628205c934, type: 3}
   breakForce: 2
+--- !u!114 &6777299191143381313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716899875506863153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03be0dff4476c8d4a916febc95d70161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  hasBeenUsed: 0
+  potion: {fileID: 11400000, guid: cca3d044fca2f4be1b9da61e5d52954d, type: 2}

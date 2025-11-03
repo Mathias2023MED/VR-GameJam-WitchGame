@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6852518204881969668}
   - component: {fileID: 8323060732291047557}
   - component: {fileID: 4524963745777795044}
+  - component: {fileID: -2216271122045710562}
   m_Layer: 0
   m_Name: EmptyBottle
   m_TagString: EmptyBottle
@@ -220,7 +221,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -2216271122045710562}
+        m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
+        m_MethodName: SpawnNewIngredient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -328,3 +341,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brokenVersion: {fileID: 7279525290967565775, guid: fb13a753bedca461296d0ec8c8375a8e, type: 3}
   breakForce: 2
+--- !u!114 &-2216271122045710562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855562879975870437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927cf34f2402947199ff72fb534bdef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientSO: {fileID: 11400000, guid: ce0b845560cb34938afab2e0f3c47644, type: 2}
+  prefab: {fileID: 1855562879975870437}
