@@ -24,12 +24,13 @@ public class LargeCustomer : PotionEffectCustomer
         {
             Debug.LogWarning("No Assigner found in the scene!");
         }
+        ActivateEffect();
     }
 
     private IEnumerator ScaleAndMoveEyeCoroutine()
     {
         // Wait for 2 seconds before starting
-        float delay = 2f;
+        float delay = 10f;
         yield return new WaitForSeconds(delay);
 
         Vector3 startScale = eye.transform.localScale;
