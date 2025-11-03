@@ -301,7 +301,7 @@ public class SapoAnimations : MonoBehaviour
 
 
     //ANIMATIONS COROUTINES
-    private IEnumerator PlayShakingHead()
+    private IEnumerator PlayShakingHeadCo()
     {
         float delay = 0.5f;
         yield return new WaitForSeconds(delay);
@@ -310,7 +310,7 @@ public class SapoAnimations : MonoBehaviour
 
     public void PlayShakingHeadCoroutine() //Call this in Customer
     {
-        StartCoroutine(PlayShakingHead());
+        StartCoroutine(PlayShakingHeadCo());
     }
 
 
