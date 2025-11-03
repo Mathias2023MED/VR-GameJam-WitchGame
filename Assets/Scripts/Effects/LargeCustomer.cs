@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class LargeCustomer : PotionEffectCustomer
 {
-    public SkinnedMeshRenderer skinnedMesh; // assign in inspector
-    public string blendShapeName = "BigEye";
-    public float enlargementDuration = 1f;
-
+    public GameObject eye;
     public Assigner assigner;
+    public override void ActivateEffect()
+    {
+        if (eye != null)
+            StartCoroutine(ScaleEyeCoroutine());
+    }
 
     private void Start()
     {
@@ -15,7 +17,7 @@ public class LargeCustomer : PotionEffectCustomer
         assigner = FindFirstObjectByType<Assigner>();
         if (assigner != null)
         {
-            skinnedMesh = assigner.skinnedMesh;
+            eye = assigner.eye;
         }
         else
         {
@@ -23,33 +25,30 @@ public class LargeCustomer : PotionEffectCustomer
         }
     }
 
-    public override void ActivateEffect()
+    private IEnumerator ScaleEyeCoroutine()
     {
-        PlayEnlarge();
+        // Wait for 2 seconds before starting
+        yield return new WaitForSeconds(2f);
+
+        Vector3 startScale = eye.transform.localScale;
+        Vector3 targetScale = new Vector3(2f, 2f, 2f);
+        float duration = 5f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration; // linear interpolation factor
+            eye.transform.localScale = Vector3.Lerp(startScale, targetScale, t);
+            yield return null;
+        }
+
+        // Ensure final scale is exactly the target
+        eye.transform.localScale = targetScale;
     }
 
     public override void DeactivateEffect()
     {
-       
-    }
-
-    public void PlayEnlarge()
-    {
-        int index = skinnedMesh.sharedMesh.GetBlendShapeIndex(blendShapeName);
-        if (index >= 0)
-            StartCoroutine(EnlargeCoroutine(index));
-    }
-
-    IEnumerator EnlargeCoroutine(int index)
-    {
-        float elapsed = 0f;
-        while (elapsed < enlargementDuration)
-        {
-            elapsed += Time.deltaTime;
-            float weight = Mathf.Lerp(0f, 100f, elapsed / enlargementDuration);
-            skinnedMesh.SetBlendShapeWeight(index, weight);
-            yield return null;
-        }
-        skinnedMesh.SetBlendShapeWeight(index, 100f);
+        
     }
 }
