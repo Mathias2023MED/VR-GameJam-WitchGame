@@ -60,6 +60,8 @@ public class SapoAnimations : MonoBehaviour
     public void PlayShakingHead(Action after = null) => PlayOnce("ShakingHead", useRoot: false, after);
     public void PlayDropKick(Action after = null) => PlayOnce("DropKick", useRoot: true, after); // uses clip root motion
 
+    public void PlayHurricaneKick(Action after = null) => PlayOnce("HurricaneKick", useRoot: true, after); // uses clip root motion
+
     public void Walk1_Distance(float meters, bool useRoot = false, Action after = null)
         => MoveDistance("Walk1", meters, useRoot, walkSpeed, false, false, 0f, 0f, true, 0f, after);
 
@@ -88,9 +90,10 @@ public class SapoAnimations : MonoBehaviour
     // Hurricane kick:
     // useRoot = true  -> invert planar root motion (go backward with clip motion)
     // useRoot = false -> manual backward movement
-    public void HurricaneKick_Distance(float meters, bool useRoot = false, Action after = null)
+    /*public void HurricaneKick_Distance(float meters, bool useRoot = false, Action after = null)
         => MoveDistance("HurricaneKick", meters, useRoot, hurricaneKickSpeed,
                         backwards: !useRoot, invertRoot: useRoot, after: after);
+    */
 
     // ---------------- COROUTINES ----------------
 
