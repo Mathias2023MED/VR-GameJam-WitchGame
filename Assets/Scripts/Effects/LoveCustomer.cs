@@ -6,11 +6,6 @@ public class LoveCustomer : PotionEffectCustomer
     private DeliverySpot deliverySpot;
     private SapoAnimations sapoAnimation;
 
-    private void Start()
-    {
-        ActivateEffect();
-    }
-
     public override void ActivateEffect()
     {
         //todo: make Sapo effects
@@ -19,7 +14,6 @@ public class LoveCustomer : PotionEffectCustomer
 
     private IEnumerator ActivateEffectCoroutine()
     {
-        yield return new WaitForSeconds(8f);
         // Get the ColorChangerEffect on the current customer
         // If deliverySpot is not assigned in Inspector, find it in the scene
         if (deliverySpot == null)
@@ -48,12 +42,23 @@ public class LoveCustomer : PotionEffectCustomer
         // Play the kick animation
         deliverySpot.currentCustomer.PlayAngrySound();
         sapoAnimation.PlayHurricaneKick();
+        DeactivateEffect();
     }
 
     public override void DeactivateEffect()
     {
-        // Optional cleanup logic if needed later
+        StartCoroutine(DeactivateEffectCoroutine());
     }
 
+    private IEnumerator DeactivateEffectCoroutine()
+    {
+        // Wait 5 seconds before changing customers
+        float delay = 5f;
+        yield return new WaitForSeconds(delay);
+
+        // Then switch and send in the new customer
+        deliverySpot.SwitchCurrentCostumer();
+        deliverySpot.SendNewCostumerIn();
+    }
 
 }

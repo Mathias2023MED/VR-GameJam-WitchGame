@@ -8,6 +8,10 @@ public class TeleportCustomer : PotionEffectCustomer
 
     public override void ActivateEffect()
     {
+        if (deliverySpot == null)
+        {
+            deliverySpot = FindFirstObjectByType<DeliverySpot>();
+        }
         sapo = deliverySpot.currentCustomer.gameObject;
         StartCoroutine(TeleportRoutine());
     }

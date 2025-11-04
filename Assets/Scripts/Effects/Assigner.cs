@@ -18,6 +18,6 @@ public class Assigner : MonoBehaviour
     [Header("ENLARGEMENT CUSTOMER")]
     public SkinnedMeshRenderer skinnedMesh; // assign in inspector
 
-    public GameObject eye;
+    public GameObject head;
 
 }

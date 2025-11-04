@@ -1707,7 +1707,7 @@ MonoBehaviour:
   backrooms: {fileID: 257502809}
   hand: {fileID: 2094587909}
   skinnedMesh: {fileID: 1959021179}
-  eye: {fileID: 417603167}
+  head: {fileID: 0}
 --- !u!1 &417603167
 GameObject:
   m_ObjectHideFlags: 0
@@ -8397,7 +8397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5303881779838734033, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6543488242729597023, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
       propertyPath: m_LocalPosition.x
