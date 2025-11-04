@@ -25,17 +25,18 @@ public class Love : PotionEffectWitch
     {
         yield return new WaitForSeconds(waitSeconds);
         violence.SetActive(false);
+        Debug.Log("sat falsk");
     }
 
     public override void ActivateEffect()
     {
         violence.SetActive(true);
-        StartCoroutine(Wait());
+        DeactivateEffect();
     }
 
     public override void DeactivateEffect()
     {
-        //Nothing
+        StartCoroutine(Wait());
     }
 
 }

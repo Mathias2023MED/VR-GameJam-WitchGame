@@ -15,14 +15,13 @@ GameObject:
   - component: {fileID: 1160671626262928716}
   - component: {fileID: 5592212936422596415}
   - component: {fileID: 4448446637795646288}
-  - component: {fileID: 4760204070670654264}
   - component: {fileID: 728514965988688344}
   - component: {fileID: 4231402294767849529}
   - component: {fileID: 4657881492870291297}
   - component: {fileID: 8806848610566474587}
   m_Layer: 0
   m_Name: Level of Elevated Violence
-  m_TagString: Untagged
+  m_TagString: LOVE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,23 +297,6 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
---- !u!114 &4760204070670654264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447961676559800191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4912980696c69ad48a5d054150ed5a58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 10
-  hasBeenUsed: 0
-  potion: {fileID: 11400000, guid: b4b7c186bd22b41aeaa8d182536f8f68, type: 2}
-  violence: {fileID: 0}
-  assigner: {fileID: 0}
 --- !u!114 &728514965988688344
 MonoBehaviour:
   m_ObjectHideFlags: 0

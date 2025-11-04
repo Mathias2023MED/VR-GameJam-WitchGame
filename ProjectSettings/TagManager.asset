@@ -9,6 +9,9 @@ TagManager:
   - Wand
   - Cat
   - Costumer
+  - Enlargement
+  - LOVE
+  - Teleport
   layers:
   - Default
   - TransparentFX

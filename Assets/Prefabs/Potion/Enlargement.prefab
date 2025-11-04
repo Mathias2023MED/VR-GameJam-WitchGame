@@ -15,14 +15,13 @@ GameObject:
   - component: {fileID: 3755910964683406616}
   - component: {fileID: 4088773359466718511}
   - component: {fileID: 5851836538746521758}
-  - component: {fileID: 7752206811130330672}
   - component: {fileID: 2695161925342819188}
   - component: {fileID: 2444784585510633973}
   - component: {fileID: 8726842004529957715}
   - component: {fileID: 4365501104232216904}
   m_Layer: 0
   m_Name: Enlargement
-  m_TagString: Untagged
+  m_TagString: Enlargement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,23 +297,6 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
---- !u!114 &7752206811130330672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5523223384688699726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 284cc7a5153ae134cb945bc5570a8e15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 10
-  hasBeenUsed: 0
-  potion: {fileID: 11400000, guid: 3b7661627179d421c8e9ffa60188b66e, type: 2}
-  hand: {fileID: 0}
-  enlargedScale: {x: 2, y: 2, z: 2}
 --- !u!114 &2695161925342819188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,8 +326,9 @@ MonoBehaviour:
   duration: 10
   hasBeenUsed: 0
   potion: {fileID: 11400000, guid: 3b7661627179d421c8e9ffa60188b66e, type: 2}
-  eye: {fileID: 0}
+  head: {fileID: 0}
   assigner: {fileID: 0}
+  deliverySpot: {fileID: 0}
 --- !u!114 &8726842004529957715
 MonoBehaviour:
   m_ObjectHideFlags: 0
