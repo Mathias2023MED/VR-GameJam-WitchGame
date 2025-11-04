@@ -47,7 +47,7 @@ public class LoveCustomer : PotionEffectCustomer
 
         // Play the kick animation
         deliverySpot.currentCustomer.PlayAngrySound();
-        sapoAnimation.HurricaneKick_Distance(6f, true);
+        sapoAnimation.PlayHurricaneKick();
     }
 
     public override void DeactivateEffect()

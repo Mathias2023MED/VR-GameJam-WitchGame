@@ -12,7 +12,6 @@ public class SapoAnimations : MonoBehaviour
     // Speeds for manual movement
     [SerializeField] float walkSpeed = 1.6f;
     [SerializeField] float runSpeed = 3.5f;
-    [SerializeField] float hurricaneKickSpeed = 2.2f;
 
     Animator anim;
     Coroutine routine;
@@ -60,7 +59,15 @@ public class SapoAnimations : MonoBehaviour
     public void PlayShakingHead(Action after = null) => PlayOnce("ShakingHead", useRoot: false, after);
     public void PlayDropKick(Action after = null) => PlayOnce("DropKick", useRoot: true, after); // uses clip root motion
 
-    public void PlayHurricaneKick(Action after = null) => PlayOnce("HurricaneKick", useRoot: true, after); // uses clip root motion
+
+    public void PlayHurricaneKick(Action after = null)
+    {
+        // Rotate 90 degrees around Y axis (for example)
+        transform.Rotate(0, 97f, 0);
+
+        // Then play the animation
+        PlayOnce("HurricaneKick", useRoot: true, after);
+    }
 
     public void Walk1_Distance(float meters, bool useRoot = false, Action after = null)
         => MoveDistance("Walk1", meters, useRoot, walkSpeed, false, false, 0f, 0f, true, 0f, after);
@@ -90,10 +97,7 @@ public class SapoAnimations : MonoBehaviour
     // Hurricane kick:
     // useRoot = true  -> invert planar root motion (go backward with clip motion)
     // useRoot = false -> manual backward movement
-    /*public void HurricaneKick_Distance(float meters, bool useRoot = false, Action after = null)
-        => MoveDistance("HurricaneKick", meters, useRoot, hurricaneKickSpeed,
-                        backwards: !useRoot, invertRoot: useRoot, after: after);
-    */
+ 
 
     // ---------------- COROUTINES ----------------
 
