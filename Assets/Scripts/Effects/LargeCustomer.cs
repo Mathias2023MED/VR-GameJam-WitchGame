@@ -20,6 +20,10 @@ public class LargeCustomer : PotionEffectCustomer
         {
             Debug.LogWarning("No Assigner found in the scene!");
         }
+        if (deliverySpot == null)
+        {
+            deliverySpot = FindFirstObjectByType<DeliverySpot>();
+        }
         if (sapoAnimation == null)
         {
             sapoAnimation = deliverySpot.currentCustomer.sapoAnimations;

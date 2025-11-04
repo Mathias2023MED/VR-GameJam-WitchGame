@@ -87,7 +87,11 @@ public class Costumer : MonoBehaviour
     private void Start()
     {
         DisableSpeechBubble();
-        if (isFirstCustomer) WalkIn();
+        if (isFirstCustomer)
+        {
+            Debug.Log("Hello");
+            WalkIn();
+        }
     }
 
     public void WalkIn() // Walks the customer into the shop

@@ -116,6 +116,7 @@ public class DeliverySpot : MonoBehaviour
 
     public void SwitchCurrentCostumer()
     {
+        currentPotion = null;
         if (customers == null || customers.Count == 0)
         {
             Debug.LogWarning("No customers assigned!");
