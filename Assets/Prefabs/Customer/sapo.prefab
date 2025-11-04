@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5209215232412212674}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.41755986, y: -0.3133058, z: -0.7980713, w: 0.30094087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.056, y: 0.138, z: 0.033}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3953694614072178953}
-  m_LocalEulerAnglesHint: {x: -48.712, y: 46.409, z: -160.644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4061799717878575267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244,7 +244,7 @@ PrefabInstance:
       addedObject: {fileID: 5495605027381832705}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 88293ece2b6a9bc4a8cf37a48aeafacb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8609028286082622332}
+      addedObject: {fileID: 3874670786349052767}
     - targetCorrespondingSourceObject: {fileID: 4374802593876324379, guid: 88293ece2b6a9bc4a8cf37a48aeafacb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 829322835735075242}
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requestedPotion: {fileID: 11400000, guid: 3b7661627179d421c8e9ffa60188b66e, type: 2}
-  sapoAnimations: {fileID: 8609028286082622332}
+  sapoAnimations: {fileID: 3874670786349052767}
   deliverySpot: {fileID: 0}
   attachPoint: {fileID: 6543488242729597023}
   colorChangerEffect: {fileID: 829322835735075242}
@@ -324,7 +324,7 @@ MonoBehaviour:
   speechBubbleEnlargement: {fileID: 1425679169143432478}
   isFirstCustomer: 0
   noClip: {fileID: 8300000, guid: d8f168c198aec44339c7ecb71051c308, type: 3}
-  angryClip: {fileID: 0}
+  angryClip: {fileID: 8300000, guid: 3c19ca447c38b1d4bbb94bf8cf124e4b, type: 3}
   audioSource: {fileID: 5495605027381832705}
 --- !u!65 &6955515463263623249
 BoxCollider:
@@ -471,7 +471,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8609028286082622332
+--- !u!114 &3874670786349052767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -480,14 +480,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7451338723314180577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d82945a5306a8954cb955760aa719163, type: 3}
+  m_Script: {fileID: 11500000, guid: a7ff42dbb73c940eda4b665698a21031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   crossfade: 0.1
   forwardReference: {fileID: 0}
   walkSpeed: 1.6
   runSpeed: 3.5
-  hurricaneKickSpeed: 2.2
 --- !u!4 &7792258403370367835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88293ece2b6a9bc4a8cf37a48aeafacb, type: 3}
