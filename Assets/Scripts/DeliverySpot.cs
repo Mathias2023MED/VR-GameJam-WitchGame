@@ -57,11 +57,10 @@ public class DeliverySpot : MonoBehaviour
         {
             StartCoroutine(SnapSmoothly(grab.transform)); // Smoothly move potion to snap point
         }
-
         // Run the check for the current customer
         bool correctPotion = currentCustomer.CheckPotion(potionEffectCustomer); // Call CheckPotion on customer
 
-        if (correctPotion) // If the potion is correct
+        if (correctPotion & !potionEffectCustomer.CompareTag("EmptyBottle")) // If the potion is correct
         {
             potionEffectCustomer.hasBeenUsed = true; // Mark as used
             currentPotion = potionEffectCustomer; // Lock this potion as the current one

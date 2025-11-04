@@ -39,7 +39,7 @@ public class LargeCustomer : PotionEffectCustomer
     private IEnumerator ScaleAndMoveHeadCoroutine()
     {
         // Wait for 2 seconds before starting
-        float delay = 10f;
+        float delay = 2f;
         yield return new WaitForSeconds(delay);
 
         Vector3 startScale = head.transform.localScale;
@@ -48,7 +48,7 @@ public class LargeCustomer : PotionEffectCustomer
         Vector3 startPosition = head.transform.localPosition;
         Vector3 targetPosition = new Vector3(-0.027f, -0.959f, 0.277f);
 
-        float duration = 5f;
+        float duration = 3f;
         float elapsed = 0f;
 
         while (elapsed < duration)
