@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701aed103030248699a543fa5a8b3df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetMaterial: {fileID: 2100000, guid: 1edec4228b4555b49856e3eb34ddbcb3, type: 2}
+  targetMaterial: {fileID: 2100000, guid: 4bcb7b8c165060c41880008a83512953, type: 2}
   endColor: {r: 1, g: 0, b: 0, a: 1}
   duration: 2
 --- !u!1 &7451338723314180577 stripped
