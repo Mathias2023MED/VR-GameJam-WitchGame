@@ -26,6 +26,8 @@ public class Costumer : MonoBehaviour
     [Header("DRINK ANIMATION")]
     [SerializeField] private Transform attachPoint;
 
+    public ColorChangerEffect colorChangerEffect;
+
     [Header("SPEECH BUBBLE")]
     public GameObject speechBubble;
     public GameObject speechBubbleTeleport;
@@ -36,6 +38,7 @@ public class Costumer : MonoBehaviour
 
     [Header("SOUND")]
     [SerializeField] private AudioClip noClip;
+    [SerializeField] private AudioClip angryClip;
     [SerializeField] private AudioSource audioSource;
 
 
@@ -131,6 +134,11 @@ public class Costumer : MonoBehaviour
         speechBubbleLOVE.SetActive(false);
         speechBubbleTeleport.SetActive(false);
         speechBubbleEnlargement.SetActive(false);
+    }
+
+    public void PlayAngrySound()
+    {
+        SoundManager.Instance.PlaySound(audioSource, angryClip);
     }
 
 

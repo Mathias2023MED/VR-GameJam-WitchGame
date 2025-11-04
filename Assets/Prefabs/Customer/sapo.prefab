@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5209215232412212674}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.001, y: 0.08, z: 0.001}
+  m_LocalRotation: {x: -0.41755986, y: -0.3133058, z: -0.7980713, w: 0.30094087}
+  m_LocalPosition: {x: -0.056, y: 0.138, z: 0.033}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3953694614072178953}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -48.712, y: 46.409, z: -160.644}
 --- !u!1001 &4061799717878575267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -245,12 +245,35 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 88293ece2b6a9bc4a8cf37a48aeafacb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3397808845369868522}
+    - targetCorrespondingSourceObject: {fileID: 4374802593876324379, guid: 88293ece2b6a9bc4a8cf37a48aeafacb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 829322835735075242}
   m_SourcePrefab: {fileID: 100100000, guid: 88293ece2b6a9bc4a8cf37a48aeafacb, type: 3}
 --- !u!4 &3953694614072178953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6734931530170869177, guid: 88293ece2b6a9bc4a8cf37a48aeafacb, type: 3}
   m_PrefabInstance: {fileID: 7757750279676370096}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6277871650444192939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4374802593876324379, guid: 88293ece2b6a9bc4a8cf37a48aeafacb, type: 3}
+  m_PrefabInstance: {fileID: 7757750279676370096}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &829322835735075242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6277871650444192939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701aed103030248699a543fa5a8b3df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMaterial: {fileID: 2100000, guid: 1edec4228b4555b49856e3eb34ddbcb3, type: 2}
+  endColor: {r: 1, g: 0, b: 0, a: 1}
+  duration: 2
 --- !u!1 &7451338723314180577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 88293ece2b6a9bc4a8cf37a48aeafacb, type: 3}
@@ -294,12 +317,14 @@ MonoBehaviour:
   sapoAnimations: {fileID: 3397808845369868522}
   deliverySpot: {fileID: 0}
   attachPoint: {fileID: 6543488242729597023}
+  colorChangerEffect: {fileID: 829322835735075242}
   speechBubble: {fileID: 2109795233144861383}
   speechBubbleTeleport: {fileID: 7415237296781239265}
   speechBubbleLOVE: {fileID: 6385148421371711643}
   speechBubbleEnlargement: {fileID: 1425679169143432478}
   isFirstCustomer: 0
   noClip: {fileID: 8300000, guid: d8f168c198aec44339c7ecb71051c308, type: 3}
+  angryClip: {fileID: 0}
   audioSource: {fileID: 5495605027381832705}
 --- !u!65 &6955515463263623249
 BoxCollider:
