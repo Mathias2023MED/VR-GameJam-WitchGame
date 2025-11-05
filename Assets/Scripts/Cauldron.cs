@@ -8,17 +8,16 @@ public class Cauldron : MonoBehaviour
     public ColorChanger colorChangerWater;
     //public ColorChanger colorChangerBubbles;
 
-    public string failedPotion = "FailedPotion";
-    public string basePotionName = "BasePotion";
-    public PotionRecipeSO failedPotionRecipe; // Drag your “Failed Potion” SO here
-
     public Transform tempSpawnPoint;
 
-    [Header("Recipes")]
+    [Header("RECIPES")]
     public PotionRecipeSO[] allRecipes;      
     public PotionRecipeSO brewedPotion;
     public bool canAddIngredient = false;
     public bool waterInCauldron = false;
+    public string failedPotion = "FailedPotion";
+    public string basePotionName = "BasePotion";
+    public PotionRecipeSO failedPotionRecipe; // Drag your “Failed Potion” SO here
 
 
     public List<IngredientSO> currentIngredients = new List<IngredientSO>();
