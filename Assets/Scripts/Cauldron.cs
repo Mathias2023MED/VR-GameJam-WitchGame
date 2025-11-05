@@ -1,56 +1,44 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
-using System.Collections; // Needed for IEnumerator
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class Cauldron : MonoBehaviour
 {
-    [Header("References")]
     public WaterAnimation waterAnimation;
     public ColorChanger colorChangerWater;
+    //public ColorChanger colorChangerBubbles;
 
-    [Header("Potion Setup")]
     public string failedPotion = "FailedPotion";
     public string basePotionName = "BasePotion";
-    public PotionRecipeSO failedPotionRecipe; // Assign your "Failed Potion" SO here
-    public PotionRecipeSO[] allRecipes;       // All valid potion recipes
-    public PotionRecipeSO brewedPotion;       // Result of brewing
+    public PotionRecipeSO failedPotionRecipe; // Drag your “Failed Potion” SO here
 
-    [Header("Cauldron State")]
+    public Transform tempSpawnPoint;
+
+    [Header("Recipes")]
+    public PotionRecipeSO[] allRecipes;      
+    public PotionRecipeSO brewedPotion;
     public bool canAddIngredient = false;
     public bool waterInCauldron = false;
 
-    [Header("Ingredient Tracking")]
+
     public List<IngredientSO> currentIngredients = new List<IngredientSO>();
 
-    // ==============================
-    // INGREDIENT HANDLING
-    // ==============================
     public void AddIngredient(IngredientSO ingredientSO)
     {
         currentIngredients.Add(ingredientSO);
-        Debug.Log("Ingredient added: " + ingredientSO.name);
+        Debug.Log("Ingredient added");
     }
 
-    // ==============================
-    // COLLISION EVENTS
-    // ==============================
     private void OnTriggerEnter(Collider other)
     {
         Ingredient ingredient = other.GetComponent<Ingredient>();
-
-        // Add ingredients
         if (ingredient != null && canAddIngredient)
         {
             AddIngredient(ingredient.ingredientSO);
             Destroy(other.gameObject);
-            return;
+            return; // stop further checks
         }
 
-        // Stir with spoon
         if (other.CompareTag("Spoon"))
         {
             if (canAddIngredient)
@@ -59,17 +47,16 @@ public class Cauldron : MonoBehaviour
                 canAddIngredient = false;
                 Debug.Log("Spoon used to mix potion!");
             }
-            return;
+            return; // always return, spoon never destroyed
         }
 
-        // Fill bottles
         if (other.CompareTag("EmptyBottle"))
         {
             FillBottle(other);
+            Debug.Log("Bottle Filled");
             return;
         }
 
-        // Add water
         if (other.CompareTag("Wand"))
         {
             if (waterAnimation != null)
@@ -82,7 +69,6 @@ public class Cauldron : MonoBehaviour
             return;
         }
 
-        // Reset with cat
         if (other.CompareTag("Cat"))
         {
             if (waterAnimation != null && waterInCauldron)
@@ -97,120 +83,69 @@ public class Cauldron : MonoBehaviour
             return;
         }
 
-        // Destroy any other object thrown in
+        // Any other object
         Destroy(other.gameObject);
+
     }
 
-    // ==============================
-    // BREWING LOGIC
-    // ==============================
     public void BrewPotion()
     {
-        foreach (var recipe in allRecipes)
+        foreach (var recipe in allRecipes) // Loop through all available potion recipes
         {
-            if (IsMatch(recipe.ingredientsSO.ToList(), currentIngredients))
+            if (IsMatch(recipe.ingredientsSO.ToList(), currentIngredients)) // Check if the cauldron's current ingredients exactly match this recipe
             {
-                brewedPotion = recipe;
+                brewedPotion = recipe; //Save it as the brewed result
                 currentIngredients.Clear();
                 colorChangerWater.ChangeColor(recipe.potionName);
-                Debug.Log($"Brewed potion: {recipe.potionName}");
+                //colorChangerBubbles.ChangeColor(recipe.potionName);
                 return;
             }
         }
-
-        // No match → failed potion
-        brewedPotion = failedPotionRecipe;
-        currentIngredients.Clear();
+        brewedPotion = failedPotionRecipe; //Failed potion, if nothing fits.
+        currentIngredients.Clear();// Clear the cauldron's ingredient list even if no potion was brewed
         colorChangerWater.ChangeColor(failedPotionRecipe.name);
         canAddIngredient = false;
-        Debug.Log("Brew failed! Created FailedPotion.");
     }
 
-    // ==============================
-    // BOTTLE FILLING LOGIC
-    // ==============================
     public void FillBottle(Collider emptyBottle)
     {
-        // Only fill if the player is currently holding it
-        XRGrabInteractable grabInteractable = emptyBottle.GetComponent<XRGrabInteractable>();
-        if (grabInteractable == null || grabInteractable.isSelected == false)
-        {
-            Debug.Log("Bottle not being held — cannot fill.");
-            return;
-        }
-
         if (brewedPotion == null || brewedPotion.potionPrefab == null)
         {
-            Debug.LogWarning("No brewed potion available to fill!");
+            Debug.LogWarning("No potion to fill!");
             return;
         }
 
-        // Store who is holding the bottle
-        UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor currentInteractor = grabInteractable.firstInteractorSelecting;
+        // Store the bottle's position and rotation
+        Vector3 bottlePos = emptyBottle.transform.position;
+        Quaternion bottleRot = emptyBottle.transform.rotation;
 
-        // Destroy the old empty bottle
+        // Destroy the empty bottle
         Destroy(emptyBottle.gameObject);
 
-        // Instantiate the filled potion
-        GameObject newBottle = Instantiate(brewedPotion.potionPrefab);
+        // Spawn the brewed potion prefab at the same position
+        //GameObject spawnedPotion = Instantiate(brewedPotion.potionPrefab, bottlePos, bottleRot);
+        GameObject spawnedPotion = Instantiate(brewedPotion.potionPrefab, tempSpawnPoint.position, tempSpawnPoint.rotation);
 
-        // Get grab component of the new bottle
-        XRGrabInteractable newGrab = newBottle.GetComponent<XRGrabInteractable>();
-
-        // Force player to grab the new bottle immediately
-        if (newGrab != null && currentInteractor != null)
-        {
-            StartCoroutine(RegrabNextFrame(currentInteractor, newGrab));
-        }
-
-        Debug.Log("Bottle filled and handed to player.");
+        // Optional: Parent it to the player's hand if using XR Toolkit
+        // spawnedPotion.transform.SetParent(playerHandTransform, true);
     }
 
-    private IEnumerator RegrabNextFrame(IXRSelectInteractor interactor, XRGrabInteractable newGrab)
-    {
-        yield return null; // wait one frame so the old object is destroyed
-
-        // Get the interaction manager from either the interactor or the grab interactable
-        XRInteractionManager manager = interactor as Component
-            ? ((Component)interactor).GetComponentInParent<XRInteractionManager>()
-            : null;
-
-        if (manager == null)
-        {
-            manager = FindFirstObjectByType<XRInteractionManager>();
-        }
-
-        if (manager != null)
-        {
-            // Force the interactor to grab the new bottle
-            manager.SelectEnter(interactor, newGrab);
-        }
-        else
-        {
-            Debug.LogWarning("No XRInteractionManager found to handle manual grab.");
-        }
-    }
-
-    // ==============================
-    // HELPERS
-    // ==============================
     public void ResetCauldron()
     {
         currentIngredients.Clear();
         brewedPotion = null;
-        Debug.Log("Cauldron reset.");
     }
 
-    private bool IsMatch(List<IngredientSO> recipeIngredientsSO, List<IngredientSO> cauldronIngredients)
+    private bool IsMatch(List<IngredientSO> recipeIngredientsSO, List<IngredientSO> cauldronIngredients) // Helper function to check if the cauldron ingredients match the recipe
     {
-        if (recipeIngredientsSO.Count != cauldronIngredients.Count)
-            return false;
+        if (recipeIngredientsSO.Count != cauldronIngredients.Count) return false; // If the number of ingredients is different, no match
 
-        foreach (var ing in recipeIngredientsSO)
+        foreach (var ing in recipeIngredientsSO) // Loop through each ingredient in the recipe
         {
-            if (!cauldronIngredients.Contains(ing))
+            if (!cauldronIngredients.Contains(ing)) // If the cauldron does not contain this ingredient, it's not a match
                 return false;
         }
-        return true;
+
+        return true; //All ingredients are present in the cauldron, so it's a match
     }
 }
