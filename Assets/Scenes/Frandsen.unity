@@ -207,6 +207,9 @@ MonoBehaviour:
   speed: 1
   waterParticles: {fileID: 1358938827}
   catScript: {fileID: 0}
+  bubblingStartClip: {fileID: 0}
+  bubblingLoopClip: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &46500301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5721,9 +5724,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterAnimation: {fileID: 46500300}
   colorChangerWater: {fileID: 46500301}
-  failedPotion: FailedPotion
-  basePotionName: BasePotion
-  failedPotionRecipe: {fileID: 11400000, guid: cca3d044fca2f4be1b9da61e5d52954d, type: 2}
   tempSpawnPoint: {fileID: 2037370302}
   allRecipes:
   - {fileID: 11400000, guid: 3b7661627179d421c8e9ffa60188b66e, type: 2}
@@ -5732,6 +5732,11 @@ MonoBehaviour:
   brewedPotion: {fileID: 0}
   canAddIngredient: 0
   waterInCauldron: 0
+  failedPotion: FailedPotion
+  basePotionName: BasePotion
+  failedPotionRecipe: {fileID: 11400000, guid: cca3d044fca2f4be1b9da61e5d52954d, type: 2}
+  ingredientDropClip: {fileID: 0}
+  audioSourceDrop: {fileID: 0}
   currentIngredients: []
 --- !u!1 &1663789869
 GameObject:
