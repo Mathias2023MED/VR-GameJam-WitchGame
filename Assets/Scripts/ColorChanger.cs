@@ -8,7 +8,7 @@ public class ColorChanger : MonoBehaviour
     public Color baseColor;
     public Color redColor;
     public Color greenColor;
-    public Color blackColor;
+    public Color purpleColor;
     public Color whiteColor;
     [SerializeField] private float blendDuration = 15f;
     [SerializeField] private Renderer Renderer;
@@ -22,7 +22,7 @@ public class ColorChanger : MonoBehaviour
                 break;
 
             case "Random Teleportation":
-                StartCoroutine(BlendColor(blackColor));
+                StartCoroutine(BlendColor(purpleColor));
                 break;
 
             case "Enlargement":

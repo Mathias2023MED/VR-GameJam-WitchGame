@@ -1069,6 +1069,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2429313581076438986, guid: 1d7c612320d8cd645a4b9d4f9cb27f26, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 866708647}
     - target: {fileID: 8666593152845984015, guid: 1d7c612320d8cd645a4b9d4f9cb27f26, type: 3}
       propertyPath: m_Name
       value: SpawnPoint
@@ -1561,12 +1565,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b1648f874f54fa78495d056727f0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.29803923, g: 0.49019608, b: 0.5568628, a: 0.4745098}
-  redColor: {r: 1, g: 0.015686275, b: 0.015686275, a: 0.4745098}
-  greenColor: {r: 0.15294118, g: 0.39607844, b: 0.1764706, a: 0.4745098}
-  blackColor: {r: 0, g: 0, b: 0, a: 0}
-  whiteColor: {r: 0.9843398, g: 0.25943398, b: 1, a: 0}
-  blendDuration: 5
+  baseColor: {r: 0.29803923, g: 0.49019608, b: 0.5568628, a: 0.8235294}
+  redColor: {r: 1, g: 0.015686275, b: 0.015686275, a: 0.8235294}
+  greenColor: {r: 0.15294118, g: 0.39607844, b: 0.1764706, a: 0.8235294}
+  purpleColor: {r: 0.58431375, g: 0, b: 1, a: 0.8235294}
+  whiteColor: {r: 0, g: 0, b: 0, a: 0.8235294}
+  blendDuration: 1
   Renderer: {fileID: 412549380}
 --- !u!136 &412549379
 CapsuleCollider:
@@ -2196,6 +2200,14 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 866708647}
+    - target: {fileID: 2761784063978902503, guid: c1800acf6366418a9b5f610249000331, type: 3}
+      propertyPath: m_SelectInput.m_InputActionReferenceValue
+      value: 
+      objectReference: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 2761784063978902503, guid: c1800acf6366418a9b5f610249000331, type: 3}
+      propertyPath: m_SelectInput.m_InputActionReferencePerformed
+      value: 
+      objectReference: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     - target: {fileID: 2761784063978902506, guid: c1800acf6366418a9b5f610249000331, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2239,6 +2251,10 @@ PrefabInstance:
     - target: {fileID: 2761784063978902507, guid: c1800acf6366418a9b5f610249000331, type: 3}
       propertyPath: m_Name
       value: Teleport Interactor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2761784063978902507, guid: c1800acf6366418a9b5f610249000331, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2570,7 +2586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Mediator: {fileID: 0}
+  m_Mediator: {fileID: 743647464}
   m_TransformationPriority: 0
   m_DelayTime: 0
 --- !u!1001 &760716085

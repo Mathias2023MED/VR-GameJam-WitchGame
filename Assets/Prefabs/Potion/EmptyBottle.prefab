@@ -334,11 +334,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b1648f874f54fa78495d056727f0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.29803923, g: 0.49019608, b: 0.5568628, a: 0.4745098}
-  redColor: {r: 1, g: 0.015686275, b: 0.015686275, a: 0.4745098}
-  greenColor: {r: 0.15294118, g: 0.39607844, b: 0.1764706, a: 0.4745098}
-  blackColor: {r: 0, g: 0, b: 0, a: 0}
-  whiteColor: {r: 0.9843398, g: 0.25943398, b: 1, a: 0}
+  baseColor: {r: 0.29803923, g: 0.49019608, b: 0.5568628, a: 0.8235294}
+  redColor: {r: 1, g: 0.015686275, b: 0.015686275, a: 0.8235294}
+  greenColor: {r: 0.15294118, g: 0.39607844, b: 0.1764706, a: 0.8235294}
+  purpleColor: {r: 0.58431375, g: 0, b: 1, a: 0.8235294}
+  whiteColor: {r: 0, g: 0, b: 0, a: 0.8235294}
   blendDuration: 1
   Renderer: {fileID: 6260453958591617144}
 --- !u!114 &4524963745777795044
