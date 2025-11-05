@@ -7,36 +7,54 @@ public class Large : PotionEffectWitch
     public GameObject hand;
     private Vector3 originalScale;
     public Vector3 enlargedScale = new Vector3(2f, 2f, 2f);
-    private float speed = 2f;
+    public float speed = 1f;
 
     void Start()
     {
-        // Find the Assigner in the scene(make sure you have one)
         assigner = FindFirstObjectByType<Assigner>();
         if (assigner != null)
         {
-            // Assign all references from the manager
             hand = assigner.hand;
         }
         else
         {
             Debug.LogWarning("No Assigner found in the scene!");
         }
-        originalScale = hand.transform.localScale;
 
+        originalScale = hand.transform.localScale;
     }
 
     public override void ActivateEffect()
     {
         StopAllCoroutines();
-        StartCoroutine(ChangeSizeOverTime(enlargedScale));
+        Debug.Log("BIG HAND");
+        StartCoroutine(Activate());
+        DeactivateEffect();
     }
 
     public override void DeactivateEffect()
     {
-        StopAllCoroutines();
-        StartCoroutine(ChangeSizeOverTime(originalScale));
+        StartCoroutine(Deactivate());
     }
+
+    private IEnumerator Activate()
+    {
+        // Grow the hand
+        float delay = 2f;
+        yield return new WaitForSeconds(delay);
+        StartCoroutine(ChangeSizeOverTime(enlargedScale));
+    }
+
+    private IEnumerator Deactivate()
+    {
+        // Stay large for duration seconds
+        yield return new WaitForSeconds(duration);
+
+        // Shrink back
+        yield return StartCoroutine(ChangeSizeOverTime(originalScale));
+    }
+
+
 
     private IEnumerator ChangeSizeOverTime(Vector3 targetScale)
     {

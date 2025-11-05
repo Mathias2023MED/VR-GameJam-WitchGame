@@ -1709,7 +1709,7 @@ MonoBehaviour:
   teleportationProvider: {fileID: 743647468}
   spawnPoint: {fileID: 257502808}
   backrooms: {fileID: 257502809}
-  hand: {fileID: 2094587909}
+  hand: {fileID: 1886780140}
   skinnedMesh: {fileID: 1959021179}
   head: {fileID: 417603167}
 --- !u!1 &417603167
@@ -2460,7 +2460,7 @@ Transform:
   m_GameObject: {fileID: 743647459}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.92913264, z: -0, w: -0.36974666}
-  m_LocalPosition: {x: 0.237, y: -0.029999971, z: -0.448}
+  m_LocalPosition: {x: 0.726, y: -0.248, z: -1.117}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4970,8 +4970,9 @@ MonoBehaviour:
   duration: 10
   hasBeenUsed: 0
   potion: {fileID: 11400000, guid: 3b7661627179d421c8e9ffa60188b66e, type: 2}
-  hand: {fileID: 2094587906}
+  hand: {fileID: 1886780140}
   enlargedScale: {x: 2, y: 2, z: 2}
+  speed: 0.5
 --- !u!114 &1381741889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6656,6 +6657,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1886780140 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -16709493967455966, guid: 264a51b6507e57442994cd8a794092df, type: 3}
+  m_PrefabInstance: {fileID: 2094587904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1894092381
 GameObject:
   m_ObjectHideFlags: 0
@@ -6985,7 +6991,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2094587905}
   - {fileID: 176761017}
@@ -7762,6 +7768,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.706
       objectReference: {fileID: 0}
+    - target: {fileID: -3095356520838942753, guid: 264a51b6507e57442994cd8a794092df, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -2509889883828498527, guid: 264a51b6507e57442994cd8a794092df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00000032642856
@@ -7801,6 +7811,10 @@ PrefabInstance:
     - target: {fileID: -2509889883828498527, guid: 264a51b6507e57442994cd8a794092df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -4.28
+      objectReference: {fileID: 0}
+    - target: {fileID: -897994662729340238, guid: 264a51b6507e57442994cd8a794092df, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 889199491345694012, guid: 264a51b6507e57442994cd8a794092df, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7929,6 +7943,10 @@ PrefabInstance:
     - target: {fileID: 1791998797331942175, guid: 264a51b6507e57442994cd8a794092df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -1.372
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296393078715663276, guid: 264a51b6507e57442994cd8a794092df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3327101381489277645, guid: 264a51b6507e57442994cd8a794092df, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8253,11 +8271,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &2094587909 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2296393078715663276, guid: 264a51b6507e57442994cd8a794092df, type: 3}
-  m_PrefabInstance: {fileID: 2094587904}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2094587910
 MonoBehaviour:
   m_ObjectHideFlags: 0

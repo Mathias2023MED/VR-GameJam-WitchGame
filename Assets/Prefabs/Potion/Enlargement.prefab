@@ -309,7 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27bca81d8a9f478c9ac984f5d39add6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brokenVersion: {fileID: 7279525290967565775, guid: e27b331313fb6465bb1f98a64a8174e3, type: 3}
+  brokenVersionColored: {fileID: 7279525290967565775, guid: e27b331313fb6465bb1f98a64a8174e3, type: 3}
+  brokenVersionDefault: {fileID: 7279525290967565775, guid: fb13a753bedca461296d0ec8c8375a8e, type: 3}
   breakForce: 2
 --- !u!114 &2444784585510633973
 MonoBehaviour:
