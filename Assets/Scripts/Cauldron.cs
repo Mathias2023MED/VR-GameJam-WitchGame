@@ -131,7 +131,6 @@ public class Cauldron : MonoBehaviour
     // ==============================
     public void FillBottle(Collider emptyBottle)
     {
-        // Only fill if the player is currently holding it
         XRGrabInteractable grabInteractable = emptyBottle.GetComponent<XRGrabInteractable>();
         if (grabInteractable == null || grabInteractable.isSelected == false)
         {
@@ -146,48 +145,61 @@ public class Cauldron : MonoBehaviour
         }
 
         // Store who is holding the bottle
-        UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor currentInteractor = grabInteractable.firstInteractorSelecting;
+        IXRSelectInteractor currentInteractor = grabInteractable.firstInteractorSelecting;
+
+        // Save transform info before destroying
+        Vector3 bottlePos = emptyBottle.transform.position;
+        Quaternion bottleRot = emptyBottle.transform.rotation;
 
         // Destroy the old empty bottle
         Destroy(emptyBottle.gameObject);
 
-        // Instantiate the filled potion
-        GameObject newBottle = Instantiate(brewedPotion.potionPrefab);
+        // Instantiate the filled bottle at the same position
+        GameObject newBottle = Instantiate(brewedPotion.potionPrefab, bottlePos, bottleRot);
 
-        // Get grab component of the new bottle
+        // Temporarily disable physics until it’s fully grabbed
+        Rigidbody rb = newBottle.GetComponent<Rigidbody>();
+        if (rb != null)
+            rb.isKinematic = true;
+
+        // Get its grab component
         XRGrabInteractable newGrab = newBottle.GetComponent<XRGrabInteractable>();
 
-        // Force player to grab the new bottle immediately
+        // Regrab after a short delay to ensure everything’s cleaned up
         if (newGrab != null && currentInteractor != null)
         {
-            StartCoroutine(RegrabNextFrame(currentInteractor, newGrab));
+            StartCoroutine(RegrabNextFrame(currentInteractor, newGrab, rb));
         }
 
-        Debug.Log("Bottle filled and handed to player.");
+        Debug.Log("Bottle filled and will be placed in player's hand.");
     }
 
-    private IEnumerator RegrabNextFrame(IXRSelectInteractor interactor, XRGrabInteractable newGrab)
+    private IEnumerator RegrabNextFrame(IXRSelectInteractor interactor, XRGrabInteractable newGrab, Rigidbody rb)
     {
-        yield return null; // wait one frame so the old object is destroyed
+        // Wait a few frames to ensure Unity has destroyed and updated references
+        yield return new WaitForSeconds(0.1f);
 
-        // Get the interaction manager from either the interactor or the grab interactable
-        XRInteractionManager manager = interactor as Component
+        // Find the XRInteractionManager
+        XRInteractionManager manager = (interactor as Component)
             ? ((Component)interactor).GetComponentInParent<XRInteractionManager>()
             : null;
 
         if (manager == null)
-        {
             manager = FindFirstObjectByType<XRInteractionManager>();
-        }
 
         if (manager != null)
         {
-            // Force the interactor to grab the new bottle
             manager.SelectEnter(interactor, newGrab);
+            Debug.Log("Forced grab on filled bottle.");
+
+            // Wait a moment before restoring physics
+            yield return new WaitForSeconds(0.05f);
+            if (rb != null) rb.isKinematic = false;
         }
         else
         {
             Debug.LogWarning("No XRInteractionManager found to handle manual grab.");
+            if (rb != null) rb.isKinematic = false;
         }
     }
 
