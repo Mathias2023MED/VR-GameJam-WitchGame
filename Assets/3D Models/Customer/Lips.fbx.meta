@@ -1,34 +1,9 @@
 fileFormatVersion: 2
-guid: 74a8fe14f1a8e6c4fa2aee97236c2f4e
+guid: c2de3c2bde5859a4fa5600ff028d6a43
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: blinn2SG.001
-    second: {fileID: 2100000, guid: 1edec4228b4555b49856e3eb34ddbcb3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: blinn3SG.001
-    second: {fileID: 2100000, guid: 1edec4228b4555b49856e3eb34ddbcb3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: blinn4SG.001
-    second: {fileID: 2100000, guid: 1edec4228b4555b49856e3eb34ddbcb3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: default.001
-    second: {fileID: 2100000, guid: a9bd1f2f75c39ec49a13e5284b2d1d4d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: prefix_ojosSG.001
-    second: {fileID: 2100000, guid: 48fc75c4551456c42aa501d2566678c1, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
