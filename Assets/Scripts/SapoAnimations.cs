@@ -74,7 +74,7 @@ public class SapoAnimations : MonoBehaviour
         transform.Rotate(0, 180f, 0);
 
         // Then play the animation
-        PlayOnce("WalkingOut", useRoot: true, after);
+        Walk1_Distance(4f);
     }
 
     public void Walk1_Distance(float meters, bool useRoot = false, Action after = null)
