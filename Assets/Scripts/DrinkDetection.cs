@@ -2,14 +2,23 @@ using UnityEngine;
 
 public class DrinkDetection : MonoBehaviour
 {
-    [Header("Base Potion Settings")]
+    [Header("BASE POTION")]
     public string basePotionName = "BasePotion";
     public string emptyBottleTag = "EmptyBottle";
 
-    [Header("Potion Effect References")]
+    [Header("POTION EFFECT")]
     public PotionEffectWitch loveEffect;
     public PotionEffectWitch teleportEffect;
     public PotionEffectWitch enlargementEffect;
+
+    [Header("SOUND")]
+    [SerializeField] private AudioClip drinkClip;
+    [SerializeField] private AudioSource audioSource;
+
+    public void PlayDrinkingSoundSound()
+    {
+        SoundManager.Instance.PlaySound(audioSource, drinkClip);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,9 +48,10 @@ public class DrinkDetection : MonoBehaviour
         // Hvis vi fandt en gyldig effekt, aktiver den
         if (chosenEffect != null && !chosenEffect.hasBeenUsed)
         {
+
             chosenEffect.ActivateEffect();
             chosenEffect.hasBeenUsed = true;
-
+            PlayDrinkingSoundSound();
             // Skift farve på flasken (valgfrit)
             ColorChanger colorChanger = other.GetComponent<ColorChanger>();
             if (colorChanger != null)
