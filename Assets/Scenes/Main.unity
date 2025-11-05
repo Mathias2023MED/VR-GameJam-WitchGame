@@ -3577,6 +3577,8 @@ MonoBehaviour:
   failedPotion: FailedPotion
   basePotionName: BasePotion
   failedPotionRecipe: {fileID: 11400000, guid: cca3d044fca2f4be1b9da61e5d52954d, type: 2}
+  wandClip: {fileID: 0}
+  audioSourceWand: {fileID: 0}
   currentIngredients: []
 --- !u!82 &917380900
 AudioSource:
@@ -3757,13 +3759,135 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6153597953861506881, guid: a72b3bd419cfe504da737010026199aa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2118725898}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6786405741852626427, guid: a72b3bd419cfe504da737010026199aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 961967874}
+    - targetCorrespondingSourceObject: {fileID: 6786405741852626427, guid: a72b3bd419cfe504da737010026199aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 961967873}
   m_SourcePrefab: {fileID: 100100000, guid: a72b3bd419cfe504da737010026199aa, type: 3}
 --- !u!4 &961967871 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6153597953861506881, guid: a72b3bd419cfe504da737010026199aa, type: 3}
   m_PrefabInstance: {fileID: 961967870}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &961967872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6786405741852626427, guid: a72b3bd419cfe504da737010026199aa, type: 3}
+  m_PrefabInstance: {fileID: 961967870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &961967873
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961967872}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &961967874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961967872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df98c51a1949e44f19afa5e9b7c79b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wandClip: {fileID: 0}
+  audioSource: {fileID: 961967873}
 --- !u!1001 &986768051
 PrefabInstance:
   m_ObjectHideFlags: 0

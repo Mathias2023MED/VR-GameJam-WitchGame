@@ -19,6 +19,10 @@ public class Cauldron : MonoBehaviour
     public string basePotionName = "BasePotion";
     public PotionRecipeSO failedPotionRecipe; // Drag your “Failed Potion” SO here
 
+    [Header("SOUND")]
+    [SerializeField] private AudioClip wandClip;
+    [SerializeField] private AudioSource audioSourceWand;
+
 
     public List<IngredientSO> currentIngredients = new List<IngredientSO>();
 
@@ -64,6 +68,7 @@ public class Cauldron : MonoBehaviour
                 waterInCauldron = true;
                 canAddIngredient = true;
                 Debug.Log("Water is rising!");
+                other.GetComponent<Wand>().PlayWandSound();
             }
             return;
         }
