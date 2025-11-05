@@ -4612,11 +4612,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f079d2c4730c4554afdac100db450a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCustomer: {fileID: 2036324419}
+  currentCustomer: {fileID: 1265711876}
   customers:
-  - {fileID: 2036324419}
   - {fileID: 1265711876}
   - {fileID: 2145903411}
+  - {fileID: 2036324419}
   snapPoint: {fileID: 654565286}
   snapSpeed: 10
   snapInstantly: 0
@@ -5151,7 +5151,7 @@ PrefabInstance:
       objectReference: {fileID: 1333328164}
     - target: {fileID: 7507357581707855856, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
       propertyPath: isFirstCustomer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7507357581707855856, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
       propertyPath: requestedPotion
@@ -8513,7 +8513,7 @@ PrefabInstance:
       objectReference: {fileID: 1333328164}
     - target: {fileID: 7507357581707855856, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
       propertyPath: isFirstCustomer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7507357581707855856, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
       propertyPath: requestedPotion
