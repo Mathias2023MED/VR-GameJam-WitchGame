@@ -28,4 +28,16 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning("Clip or AudioSource missing on " + gameObject.name);
         }
     }
+
+    public void StopSound(AudioSource audioSource)
+    {
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource missing on " + gameObject.name);
+        }
+    }
 }

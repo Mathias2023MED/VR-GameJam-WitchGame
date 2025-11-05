@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WaterAnimation : MonoBehaviour
 {
-    [Header("Animation Settings")]
+    [Header("ANIMATION")]
     public float riseHeight = 5f;
     public float speed = 1f;
 
@@ -13,6 +13,10 @@ public class WaterAnimation : MonoBehaviour
     private Coroutine animationCoroutine;
 
     public Cat catScript;  // Drag your Cat script object here in the Inspector
+
+    [Header("SOUND")]
+    [SerializeField] private AudioClip bubblingClip;
+    [SerializeField] private AudioSource audioSource;
 
     void Start()
     {
@@ -32,6 +36,8 @@ public class WaterAnimation : MonoBehaviour
             waterParticles.Play();
 
         animationCoroutine = StartCoroutine(MoveWater(endPoint));
+
+        SoundManager.Instance.PlaySound(audioSource, bubblingClip);
     }
 
     public void WaterLowering()
@@ -43,6 +49,7 @@ public class WaterAnimation : MonoBehaviour
             waterParticles.Stop();
 
         animationCoroutine = StartCoroutine(MoveWater(startPoint, true));
+        SoundManager.Instance.StopSound(audioSource);
     }
 
     private System.Collections.IEnumerator MoveWater(Vector3 target, bool isLowering = false)
