@@ -244,7 +244,7 @@ PrefabInstance:
       addedObject: {fileID: 5495605027381832705}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 88293ece2b6a9bc4a8cf37a48aeafacb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1861724132879155872}
+      addedObject: {fileID: 167981345258491234}
     - targetCorrespondingSourceObject: {fileID: 4374802593876324379, guid: 88293ece2b6a9bc4a8cf37a48aeafacb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 829322835735075242}
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requestedPotion: {fileID: 11400000, guid: 3b7661627179d421c8e9ffa60188b66e, type: 2}
-  sapoAnimations: {fileID: 1861724132879155872}
+  sapoAnimations: {fileID: 167981345258491234}
   deliverySpot: {fileID: 0}
   attachPoint: {fileID: 6543488242729597023}
   colorChangerEffect: {fileID: 829322835735075242}
@@ -471,7 +471,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1861724132879155872
+--- !u!114 &167981345258491234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7451338723314180577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d82945a5306a8954cb955760aa719163, type: 3}
+  m_Script: {fileID: 11500000, guid: a7ff42dbb73c940eda4b665698a21031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   crossfade: 0.1
