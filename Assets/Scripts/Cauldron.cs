@@ -20,8 +20,8 @@ public class Cauldron : MonoBehaviour
     public PotionRecipeSO failedPotionRecipe; // Drag your “Failed Potion” SO here
 
     [Header("SOUND")]
-    [SerializeField] private AudioClip wandClip;
-    [SerializeField] private AudioSource audioSourceWand;
+    [SerializeField] private AudioClip ingredientDropClip;
+    [SerializeField] private AudioSource audioSourceDrop;
 
 
     public List<IngredientSO> currentIngredients = new List<IngredientSO>();
@@ -38,6 +38,7 @@ public class Cauldron : MonoBehaviour
         if (ingredient != null && canAddIngredient)
         {
             AddIngredient(ingredient.ingredientSO);
+            SoundManager.Instance.PlaySound(audioSourceDrop, ingredientDropClip);
             Destroy(other.gameObject);
             return; // stop further checks
         }
@@ -47,6 +48,7 @@ public class Cauldron : MonoBehaviour
             if (canAddIngredient)
             {
                 BrewPotion();
+                other.GetComponent<Spoon>().PlaySpoonSound();
                 canAddIngredient = false;
                 Debug.Log("Spoon used to mix potion!");
             }
@@ -62,7 +64,7 @@ public class Cauldron : MonoBehaviour
 
         if (other.CompareTag("Wand"))
         {
-            if (waterAnimation != null)
+            if (waterAnimation != null && !waterInCauldron)
             {
                 waterAnimation.WaterRising();
                 waterInCauldron = true;
@@ -72,13 +74,14 @@ public class Cauldron : MonoBehaviour
             }
             return;
         }
-
+        
         if (other.CompareTag("Cat"))
         {
             if (waterAnimation != null && waterInCauldron)
             {
                 colorChangerWater.ChangeColor(basePotionName);
                 waterAnimation.WaterLowering();
+                other.GetComponent<Spoon>().PlaySpoonSound(); //I  know it looks weird, sorry
                 currentIngredients.Clear();
                 canAddIngredient = false;
                 waterInCauldron = false;

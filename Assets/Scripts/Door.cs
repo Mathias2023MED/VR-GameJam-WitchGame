@@ -10,6 +10,15 @@ public class Door : MonoBehaviour
     private bool openPositive = true;     // Tracks which direction to open next
     private Coroutine currentCoroutine;
 
+    [Header("SOUND")]
+    [SerializeField] private AudioClip doorClip;
+    [SerializeField] private AudioSource audioSource;
+
+    public void PlayDoorSound()
+    {
+        SoundManager.Instance.PlaySound(audioSource, doorClip);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Costumer"))
@@ -43,7 +52,7 @@ public class Door : MonoBehaviour
         float elapsed = 0f;
         Vector3 startRotation = transform.eulerAngles;
         Vector3 targetRotation = new Vector3(startRotation.x, targetY, startRotation.z);
-
+        PlayDoorSound();
         while (elapsed < rotationDuration)
         {
             elapsed += Time.deltaTime;
