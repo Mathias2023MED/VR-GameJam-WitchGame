@@ -66,7 +66,7 @@ public class LargeCustomer : PotionEffectCustomer
         // Ensure final scale and position are exact
         head.transform.localScale = targetScale;
         head.transform.localPosition = targetPosition;
-        sapoAnimation.WalkingOut_Distance(5f, useRoot: true, preTurnYawDeg: 40f, preTurnTime: 0.15f, restoreRotation: true, restoreTime: 0.15f);
+        sapoAnimation.PlayWalkingOut();
         DeactivateEffect();
     }
 

@@ -68,6 +68,14 @@ public class SapoAnimations : MonoBehaviour
         // Then play the animation
         PlayOnce("HurricaneKick", useRoot: true, after);
     }
+    public void PlayWalkingOut(Action after = null)
+    {
+        // Rotate 90 degrees around Y axis (for example)
+        transform.Rotate(0, 180f, 0);
+
+        // Then play the animation
+        PlayOnce("WalkingOut", useRoot: true, after);
+    }
 
     public void Walk1_Distance(float meters, bool useRoot = false, Action after = null)
         => MoveDistance("Walk1", meters, useRoot, walkSpeed, false, false, 0f, 0f, true, 0f, after);
@@ -82,6 +90,7 @@ public class SapoAnimations : MonoBehaviour
         => MoveDistance("Running", meters, useRoot, runSpeed, false, false, 0f, 0f, true, 0f, after);
 
     // Smooth pre-turn for WalkingOut: default 40 deg over 0.15s, restore over 0.15s
+    /*
     public void WalkingOut_Distance(
         float meters, bool useRoot = true,
         float preTurnYawDeg = 40f, float preTurnTime = 0.15f,
@@ -93,11 +102,12 @@ public class SapoAnimations : MonoBehaviour
             preTurnYawDeg: preTurnYawDeg, preTurnTime: preTurnTime,
             restoreRotation: restoreRotation, restoreTime: restoreTime,
             after: after);
+    */
 
     // Hurricane kick:
     // useRoot = true  -> invert planar root motion (go backward with clip motion)
     // useRoot = false -> manual backward movement
- 
+
 
     // ---------------- COROUTINES ----------------
 
