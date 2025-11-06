@@ -2058,7 +2058,7 @@ MonoBehaviour:
   nearFarInteractor: {fileID: 129716578}
   spawnPoint: {fileID: 257502808}
   backrooms: {fileID: 257502809}
-  hand: {fileID: 1886780140}
+  hand: {fileID: 1871816439}
   skinnedMesh: {fileID: 1959021179}
   head: {fileID: 417603167}
 --- !u!1 &417603167
@@ -8069,6 +8069,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1871816439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -16709493967455966, guid: 264a51b6507e57442994cd8a794092df, type: 3}
+  m_PrefabInstance: {fileID: 71438563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1886780140 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -16709493967455966, guid: 264a51b6507e57442994cd8a794092df, type: 3}
