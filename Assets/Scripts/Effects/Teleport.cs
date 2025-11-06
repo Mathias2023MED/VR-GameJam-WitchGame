@@ -6,7 +6,7 @@ public class Teleport : PotionEffectWitch
 {
     private Assigner assigner;
     private GameObject player;
-    private TeleportationProvider teleportationProvider;
+    private GameObject teleportationInteractor;
     private Transform spawnPoint;
     private GameObject backrooms;
 
@@ -18,9 +18,11 @@ public class Teleport : PotionEffectWitch
         {
             // Assign all references from the manager
             player = assigner.player;
-            teleportationProvider = assigner.teleportationProvider;
+            teleportationInteractor = assigner.teleportationInteractor;
             spawnPoint = assigner.spawnPoint;
             backrooms = assigner.backrooms;
+
+            teleportationInteractor.SetActive(false);
         }
         else
         {
@@ -33,13 +35,13 @@ public class Teleport : PotionEffectWitch
         backrooms.SetActive(true);
         player.transform.position = spawnPoint.position;
         player.transform.rotation = spawnPoint.rotation;
-        teleportationProvider.enabled = true;
+        teleportationInteractor.SetActive(true);
     }
 
     public override void DeactivateEffect()
     {
         backrooms.SetActive(false);
-        teleportationProvider.enabled = false;
+        teleportationInteractor.SetActive(false);
     }
 
 }

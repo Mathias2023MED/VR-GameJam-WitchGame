@@ -8,7 +8,7 @@ public class Assigner : MonoBehaviour
 
     [Header("TELEPORT")]
     public GameObject player;
-    public TeleportationProvider teleportationProvider;
+    public GameObject teleportationInteractor;
     public Transform spawnPoint;
     public GameObject backrooms;
 
