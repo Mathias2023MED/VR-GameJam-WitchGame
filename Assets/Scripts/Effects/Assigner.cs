@@ -9,6 +9,7 @@ public class Assigner : MonoBehaviour
     [Header("TELEPORT")]
     public GameObject player;
     public GameObject teleportationInteractor;
+    public GameObject nearFarInteractor;
     public Transform spawnPoint;
     public GameObject backrooms;
 

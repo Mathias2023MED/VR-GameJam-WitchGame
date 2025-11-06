@@ -7,6 +7,7 @@ public class Teleport : PotionEffectWitch
     private Assigner assigner;
     private GameObject player;
     private GameObject teleportationInteractor;
+    public GameObject nearFarInteractor;
     private Transform spawnPoint;
     private GameObject backrooms;
 
@@ -19,6 +20,7 @@ public class Teleport : PotionEffectWitch
             // Assign all references from the manager
             player = assigner.player;
             teleportationInteractor = assigner.teleportationInteractor;
+            nearFarInteractor = assigner.nearFarInteractor;
             spawnPoint = assigner.spawnPoint;
             backrooms = assigner.backrooms;
 
@@ -36,12 +38,14 @@ public class Teleport : PotionEffectWitch
         player.transform.position = spawnPoint.position;
         player.transform.rotation = spawnPoint.rotation;
         teleportationInteractor.SetActive(true);
+        nearFarInteractor.SetActive(false);
     }
 
     public override void DeactivateEffect()
     {
-        backrooms.SetActive(false);
         teleportationInteractor.SetActive(false);
+        backrooms.SetActive(false);
+        nearFarInteractor.SetActive(true);
     }
 
 }

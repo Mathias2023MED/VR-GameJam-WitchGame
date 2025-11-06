@@ -968,6 +968,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &129716578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2447424620550846319, guid: b200f6587d118224eba8467281481800, type: 3}
+  m_PrefabInstance: {fileID: 1372332204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &153239386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1124,6 +1129,34 @@ PrefabInstance:
     - target: {fileID: 836226422992600365, guid: 1d7c612320d8cd645a4b9d4f9cb27f26, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774088993117994671, guid: 1d7c612320d8cd645a4b9d4f9cb27f26, type: 3}
+      propertyPath: m_Teleporting.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774088993117994671, guid: 1d7c612320d8cd645a4b9d4f9cb27f26, type: 3}
+      propertyPath: m_Teleporting.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774088993117994671, guid: 1d7c612320d8cd645a4b9d4f9cb27f26, type: 3}
+      propertyPath: m_Teleporting.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1381741887}
+    - target: {fileID: 1774088993117994671, guid: 1d7c612320d8cd645a4b9d4f9cb27f26, type: 3}
+      propertyPath: m_Teleporting.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774088993117994671, guid: 1d7c612320d8cd645a4b9d4f9cb27f26, type: 3}
+      propertyPath: m_Teleporting.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DeactivateEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774088993117994671, guid: 1d7c612320d8cd645a4b9d4f9cb27f26, type: 3}
+      propertyPath: m_Teleporting.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Teleport, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774088993117994671, guid: 1d7c612320d8cd645a4b9d4f9cb27f26, type: 3}
+      propertyPath: m_Teleporting.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2429313581076438986, guid: 1d7c612320d8cd645a4b9d4f9cb27f26, type: 3}
       propertyPath: m_InteractionManager
@@ -2000,12 +2033,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412856289}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.2755685, y: -15.2873745, z: -4.721881}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 723646440}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &412856291
 MonoBehaviour:
@@ -2022,6 +2055,7 @@ MonoBehaviour:
   violence: {fileID: 1389146071}
   player: {fileID: 743647459}
   teleportationInteractor: {fileID: 1853068680}
+  nearFarInteractor: {fileID: 129716578}
   spawnPoint: {fileID: 257502808}
   backrooms: {fileID: 257502809}
   hand: {fileID: 1886780140}
@@ -2748,7 +2782,6 @@ Transform:
   m_Children:
   - {fileID: 257502807}
   - {fileID: 1389146070}
-  - {fileID: 412856290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &743647459
@@ -5889,6 +5922,7 @@ MonoBehaviour:
   duration: 10
   hasBeenUsed: 0
   potion: {fileID: 11400000, guid: b437cfd77ad6348b4af03fd779d49b1d, type: 2}
+  nearFarInteractor: {fileID: 0}
 --- !u!114 &1381741888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10929,6 +10963,7 @@ SceneRoots:
   - {fileID: 1194939760}
   - {fileID: 1301978540}
   - {fileID: 1392510293}
+  - {fileID: 412856290}
   - {fileID: 723646440}
   - {fileID: 723075767}
   - {fileID: 509156807}
