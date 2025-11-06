@@ -41,6 +41,11 @@ public class Costumer : MonoBehaviour
     [SerializeField] private AudioClip angryClip;
     [SerializeField] private AudioSource audioSource;
 
+    [Header("COLLIDER CONTROL")]
+    [SerializeField] private Collider customerCollider;
+    [SerializeField, Min(0f)] private float movementThreshold = 0.01f; // How much movement counts as "moving"
+    private Vector3 lastPosition;
+
 
     public bool CheckPotion(PotionEffectCustomer deliveredPotion) //helper function
     {
@@ -143,6 +148,30 @@ public class Costumer : MonoBehaviour
     public void PlayAngrySound()
     {
         SoundManager.Instance.PlaySound(audioSource, angryClip);
+    }
+
+    private void Update()
+    {
+        if (customerCollider == null) return;
+
+        // Calculate how far the customer has moved since last frame
+        float distanceMoved = Vector3.Distance(transform.position, lastPosition);
+
+        if (distanceMoved > movementThreshold)
+        {
+            // Customer is moving → enable collider
+            if (!customerCollider.enabled)
+                customerCollider.enabled = true;
+        }
+        else
+        {
+            // Customer is standing still → disable collider
+            if (customerCollider.enabled)
+                customerCollider.enabled = false;
+        }
+
+        // Store current position for next frame
+        lastPosition = transform.position;
     }
 
 
