@@ -53,43 +53,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79a513db23e24c64f8671d428db7a7f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.306
+      value: 5.878
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79a513db23e24c64f8671d428db7a7f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.66794
+      value: 21.769
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79a513db23e24c64f8671d428db7a7f3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -71.639366
+      value: -71.65513
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79a513db23e24c64f8671d428db7a7f3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92585343
+      value: -0.2625706
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79a513db23e24c64f8671d428db7a7f3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.11864105
+      value: -0.50383204
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79a513db23e24c64f8671d428db7a7f3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.045601446
+      value: 0.8016178
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79a513db23e24c64f8671d428db7a7f3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.3558654
+      value: -0.18606141
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79a513db23e24c64f8671d428db7a7f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -14.604
+      value: 34.255
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79a513db23e24c64f8671d428db7a7f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 196.408
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79a513db23e24c64f8671d428db7a7f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -42.05
+      value: -59.212
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 79a513db23e24c64f8671d428db7a7f3, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -205,9 +205,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8369105777653962508}
-        m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
-        m_MethodName: SpawnNewIngredient
+      - m_Target: {fileID: 6208034901628636966}
+        m_TargetAssemblyTypeName: GrabSound, Assembly-CSharp
+        m_MethodName: PlayGrabSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -217,9 +217,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6208034901628636966}
-        m_TargetAssemblyTypeName: GrabSound, Assembly-CSharp
-        m_MethodName: PlayGrabSound
+      - m_Target: {fileID: 8369105777653962508}
+        m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
+        m_MethodName: SpawnNewIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1

@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f590282a098d5904c9b27cdd00edfba4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.909
+      value: 5.588
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f590282a098d5904c9b27cdd00edfba4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -231,9 +231,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5459124927909943979}
-        m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
-        m_MethodName: SpawnNewIngredient
+      - m_Target: {fileID: 3184459083982062760}
+        m_TargetAssemblyTypeName: GrabSound, Assembly-CSharp
+        m_MethodName: PlayGrabSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -243,9 +243,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3184459083982062760}
-        m_TargetAssemblyTypeName: GrabSound, Assembly-CSharp
-        m_MethodName: PlayGrabSound
+      - m_Target: {fileID: 5459124927909943979}
+        m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
+        m_MethodName: SpawnNewIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
