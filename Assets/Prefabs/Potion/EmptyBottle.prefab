@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 4524963745777795044}
   - component: {fileID: 5496707002471381890}
   - component: {fileID: 8637817293692588035}
-  - component: {fileID: 6009491043692324788}
+  - component: {fileID: 1218329991534239077}
   m_Layer: 0
   m_Name: EmptyBottle
   m_TagString: EmptyBottle
@@ -236,9 +236,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6009491043692324788}
-        m_TargetAssemblyTypeName: Ingredient, Assembly-CSharp
-        m_MethodName: SpawnNewIngredient
+      - m_Target: {fileID: 1218329991534239077}
+        m_TargetAssemblyTypeName: EmptyBottle, Assembly-CSharp
+        m_MethodName: SpawnNewBottle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -467,7 +467,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6009491043692324788
+--- !u!114 &1218329991534239077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -476,8 +476,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1855562879975870437}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 927cf34f2402947199ff72fb534bdef5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d618281f21c546af994ec42a06210f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientSO: {fileID: 11400000, guid: ce0b845560cb34938afab2e0f3c47644, type: 2}
   prefab: {fileID: 1855562879975870437}
