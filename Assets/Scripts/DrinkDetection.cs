@@ -50,7 +50,6 @@ public class DrinkDetection : MonoBehaviour
         {
 
             chosenEffect.ActivateEffect();
-            chosenEffect.hasBeenUsed = true;
             PlayDrinkingSoundSound();
             // Skift farve på flasken (valgfrit)
             ColorChanger colorChanger = other.GetComponent<ColorChanger>();
