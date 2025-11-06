@@ -3,14 +3,21 @@ using System.Collections;
 
 public class BottleSpawner : MonoBehaviour
 {
-    public void SpawnAfterDelay(GameObject prefab, Vector3 position, Quaternion rotation, float delay)
+    public GameObject prefab;
+    public void SpawnAfterDelay(Vector3 position, Quaternion rotation, float delay)
     {
-        StartCoroutine(SpawnCoroutine(prefab, position, rotation, delay));
+        StartCoroutine(SpawnCoroutine(position, rotation, delay));
     }
 
-    private IEnumerator SpawnCoroutine(GameObject prefab, Vector3 position, Quaternion rotation, float delay)
+    private IEnumerator SpawnCoroutine(Vector3 position, Quaternion rotation, float delay)
     {
         yield return new WaitForSeconds(delay);
-        Instantiate(prefab, position, rotation);
+        GameObject newBottle = Instantiate(prefab, position, rotation);
+        Rigidbody rb = newBottle.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.useGravity = true;
+            rb.isKinematic = false; // optional, depends on your setup
+        }
     }
 }

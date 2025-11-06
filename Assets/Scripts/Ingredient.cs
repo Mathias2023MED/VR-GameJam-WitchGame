@@ -45,7 +45,7 @@ public class Ingredient : MonoBehaviour
         {
             grab.interactionManager = FindFirstObjectByType<XRInteractionManager>();
         }
-        var rb = newIngredient.GetComponent<Rigidbody>();
+        Rigidbody rb = newIngredient.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.useGravity = true;

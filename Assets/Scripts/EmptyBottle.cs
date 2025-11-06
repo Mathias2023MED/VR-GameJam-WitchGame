@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EmptyBottle : MonoBehaviour
 {
-    public GameObject prefab;
 
     private bool hasBeenGrabbed = false;
     private Vector3 spawnPosition;
@@ -21,18 +20,12 @@ public class EmptyBottle : MonoBehaviour
     public void SpawnNewBottle()
     {
         if (hasBeenGrabbed) return;
-        if (prefab == null)
-        {
-            Debug.LogWarning("Prefab not set on Ingredient!");
-            return;
-        }
-
         hasBeenGrabbed = true; // mark before starting
         float delay = 1f;
 
         if (spawner != null)
         {
-            spawner.SpawnAfterDelay(prefab, spawnPosition, spawnRotation, delay);
+            spawner.SpawnAfterDelay(spawnPosition, spawnRotation, delay);
         }
         else
         {
