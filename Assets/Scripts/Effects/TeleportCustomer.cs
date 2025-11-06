@@ -6,6 +6,10 @@ public class TeleportCustomer : PotionEffectCustomer
     [SerializeField] private GameObject sapo;
     [SerializeField] private DeliverySpot deliverySpot;
 
+    [Header("SOUND")]
+    [SerializeField] private AudioClip dissapearClip;
+    [SerializeField] private AudioSource audioSource;
+
     public override void ActivateEffect()
     {
         if (deliverySpot == null)
@@ -18,7 +22,8 @@ public class TeleportCustomer : PotionEffectCustomer
 
     private IEnumerator TeleportRoutine()
     {
-        yield return new WaitForSeconds(2f);
+        PlayDissapearSound();
+        yield return new WaitForSeconds(1f);
         DeactivateEffect();
         Destroy(sapo);
     }
@@ -27,5 +32,10 @@ public class TeleportCustomer : PotionEffectCustomer
     {
         deliverySpot.SwitchCurrentCostumer();
         deliverySpot.SendNewCostumerIn();
+    }
+
+    private void PlayDissapearSound()
+    {
+        SoundManager.Instance.PlaySound(audioSource, dissapearClip);
     }
 }

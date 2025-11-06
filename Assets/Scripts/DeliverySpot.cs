@@ -62,6 +62,7 @@ public class DeliverySpot : MonoBehaviour
 
         if (correctPotion & !potionEffectCustomer.CompareTag("EmptyBottle")) // If the potion is correct
         {
+            currentCustomer.PlayYesSoundAndShakeHead();
             potionEffectCustomer.hasBeenUsed = true; // Mark as used
             currentPotion = potionEffectCustomer; // Lock this potion as the current one
             placedPotion = potionEffectCustomer.gameObject; // Save the actual GameObject

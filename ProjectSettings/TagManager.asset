@@ -13,6 +13,7 @@ TagManager:
   - LOVE
   - Teleport
   - Door
+  - Remove
   layers:
   - Default
   - TransparentFX

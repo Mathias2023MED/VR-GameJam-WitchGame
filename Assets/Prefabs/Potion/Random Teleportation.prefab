@@ -332,6 +332,8 @@ MonoBehaviour:
   potion: {fileID: 11400000, guid: b437cfd77ad6348b4af03fd779d49b1d, type: 2}
   sapo: {fileID: 0}
   deliverySpot: {fileID: 0}
+  dissapearClip: {fileID: 8300000, guid: 29d2faef3148e7d408a72da425a249d6, type: 3}
+  audioSource: {fileID: 2530975038052844442}
 --- !u!114 &7949213707871729700
 MonoBehaviour:
   m_ObjectHideFlags: 0

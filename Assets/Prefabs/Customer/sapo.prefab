@@ -2219,6 +2219,7 @@ GameObject:
   - component: {fileID: 6207912117414582125}
   - component: {fileID: 5495605027381832705}
   - component: {fileID: 4174244410194093164}
+  - component: {fileID: 786716160942810638}
   m_Layer: 0
   m_Name: sapo
   m_TagString: Costumer
@@ -2289,10 +2290,12 @@ MonoBehaviour:
   speechBubbleEnlargement: {fileID: 1425679169143432478}
   isFirstCustomer: 0
   noClip: {fileID: 8300000, guid: d8f168c198aec44339c7ecb71051c308, type: 3}
-  angryClip: {fileID: 8300000, guid: 3c19ca447c38b1d4bbb94bf8cf124e4b, type: 3}
+  yesClip: {fileID: 8300000, guid: bbf87ef6362fdf54caf5da62aa1cd5a8, type: 3}
+  drinkingClip: {fileID: 8300000, guid: e82b41c139b00ae42bdfce4233c07a31, type: 3}
+  angryClip: {fileID: 8300000, guid: dab21f288e59e1a498190936fc2fbfda, type: 3}
+  orderingClip: {fileID: 8300000, guid: c0314fab77341a24b90b54c3538c3b60, type: 3}
   audioSource: {fileID: 5495605027381832705}
-  customerCollider: {fileID: 6955515463263623249}
-  movementThreshold: 0.01
+  colliderToToggle: {fileID: 6955515463263623249}
 --- !u!65 &6955515463263623249
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2454,6 +2457,27 @@ MonoBehaviour:
   forwardReference: {fileID: 0}
   walkSpeed: 1.6
   runSpeed: 3.5
+--- !u!65 &786716160942810638
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451338723314180577}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.39379823, y: 0.22587529, z: 0.34936705}
+  m_Center: {x: 0.0063806474, y: 0.118258074, z: 0.083923385}
 --- !u!1 &7507266363966879601
 GameObject:
   m_ObjectHideFlags: 0

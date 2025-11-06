@@ -38,13 +38,14 @@ public class Costumer : MonoBehaviour
 
     [Header("SOUND")]
     [SerializeField] private AudioClip noClip;
+    [SerializeField] private AudioClip yesClip;
+    [SerializeField] private AudioClip drinkingClip;
     [SerializeField] private AudioClip angryClip;
+    [SerializeField] private AudioClip orderingClip;
     [SerializeField] private AudioSource audioSource;
 
-    [Header("COLLIDER CONTROL")]
-    [SerializeField] private Collider customerCollider;
-    [SerializeField, Min(0f)] private float movementThreshold = 0.01f; // How much movement counts as "moving"
-    private Vector3 lastPosition;
+    [Header("COLLIDER")]
+    [SerializeField] private Collider colliderToToggle; // The collider you want to disable/enable
 
 
     public bool CheckPotion(PotionEffectCustomer deliveredPotion) //helper function
@@ -67,6 +68,14 @@ public class Costumer : MonoBehaviour
         SoundManager.Instance.PlaySound(audioSource, noClip);
     }
 
+    public void PlayYesSoundAndShakeHead()
+    {
+        //PlayShakeHeadYes
+        SoundManager.Instance.PlaySound(audioSource, yesClip);
+    }
+
+
+
     public void DrinkPotion(PotionEffectCustomer currentPotion)
     {
         StartCoroutine(DrinkPotionRoutine(currentPotion));
@@ -78,8 +87,11 @@ public class Costumer : MonoBehaviour
         float delay = 2f; // or whatever delay you want
         yield return new WaitForSeconds(delay);
 
-        AttachPotionToHand(); // TODO: Fix this if it's not working
+        AttachPotionToHand();
         sapoAnimations.PlayDrink(() => currentPotion.ActivateEffect());
+        float delay2 = 2f; // or whatever delay you want
+        yield return new WaitForSeconds(delay2);
+        PlayDrinkingSound();
     }
 
     private void AttachPotionToHand()
@@ -119,7 +131,7 @@ public class Costumer : MonoBehaviour
     private void EnableSpeechBubble() //Enables the correct speechbubble text
     {
         speechBubble.SetActive(true);
-        //todo: Play a speaking sound?
+        PlayOrderingSound();
 
         switch (requestedPotion.potionType)
         {
@@ -150,29 +162,32 @@ public class Costumer : MonoBehaviour
         SoundManager.Instance.PlaySound(audioSource, angryClip);
     }
 
-    private void Update()
+    public void PlayDrinkingSound()
     {
-        if (customerCollider == null) return;
-
-        // Calculate how far the customer has moved since last frame
-        float distanceMoved = Vector3.Distance(transform.position, lastPosition);
-
-        if (distanceMoved > movementThreshold)
-        {
-            // Customer is moving → enable collider
-            if (!customerCollider.enabled)
-                customerCollider.enabled = true;
-        }
-        else
-        {
-            // Customer is standing still → disable collider
-            if (customerCollider.enabled)
-                customerCollider.enabled = false;
-        }
-
-        // Store current position for next frame
-        lastPosition = transform.position;
+        SoundManager.Instance.PlaySound(audioSource, drinkingClip);
     }
 
+    public void PlayOrderingSound()
+    {
+        SoundManager.Instance.PlaySound(audioSource, orderingClip);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Remove") && colliderToToggle != null)
+        {
+            colliderToToggle.enabled = false;
+            Debug.Log("Sapo collider disabled!");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Remove") && colliderToToggle != null)
+        {
+            colliderToToggle.enabled = true;
+            Debug.Log("Sapo collider re-enabled!");
+        }
+    }
 
 }
