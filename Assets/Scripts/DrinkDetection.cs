@@ -46,9 +46,8 @@ public class DrinkDetection : MonoBehaviour
         }
 
         // Hvis vi fandt en gyldig effekt, aktiver den
-        if (chosenEffect != null && !chosenEffect.hasBeenUsed)
+        if (chosenEffect != null)
         {
-
             chosenEffect.ActivateEffect();
             PlayDrinkingSoundSound();
             // Skift farve på flasken (valgfrit)
