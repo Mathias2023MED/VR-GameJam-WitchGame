@@ -356,6 +356,8 @@ MonoBehaviour:
   brokenVersionColored: {fileID: 7279525290967565775, guid: fb13a753bedca461296d0ec8c8375a8e, type: 3}
   brokenVersionDefault: {fileID: 7279525290967565775, guid: fb13a753bedca461296d0ec8c8375a8e, type: 3}
   breakForce: 2
+  clinkClip: {fileID: 8300000, guid: a4360b3ca48dfe544889aa953f5618e8, type: 3}
+  audioSource: {fileID: 8637817293692588035}
 --- !u!114 &5496707002471381890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,4 +481,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d618281f21c546af994ec42a06210f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1855562879975870437}

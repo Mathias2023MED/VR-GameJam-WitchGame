@@ -313,6 +313,8 @@ MonoBehaviour:
   brokenVersionColored: {fileID: 7279525290967565775, guid: e27b331313fb6465bb1f98a64a8174e3, type: 3}
   brokenVersionDefault: {fileID: 7279525290967565775, guid: fb13a753bedca461296d0ec8c8375a8e, type: 3}
   breakForce: 2
+  clinkClip: {fileID: 8300000, guid: a4360b3ca48dfe544889aa953f5618e8, type: 3}
+  audioSource: {fileID: 4365501104232216904}
 --- !u!114 &2444784585510633973
 MonoBehaviour:
   m_ObjectHideFlags: 0
