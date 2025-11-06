@@ -12,6 +12,7 @@ TagManager:
   - Enlargement
   - LOVE
   - Teleport
+  - Door
   layers:
   - Default
   - TransparentFX
