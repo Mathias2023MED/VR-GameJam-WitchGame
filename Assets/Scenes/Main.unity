@@ -258,6 +258,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 866708647}
     - target: {fileID: 6852518204881969668, guid: 4309749becb9e4b398490d5a14432a7a, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852518204881969668, guid: 4309749becb9e4b398490d5a14432a7a, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2004237343}
@@ -3184,6 +3188,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 866708647}
     - target: {fileID: 6852518204881969668, guid: 4309749becb9e4b398490d5a14432a7a, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852518204881969668, guid: 4309749becb9e4b398490d5a14432a7a, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1913923903}
@@ -5593,6 +5601,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 866708647}
     - target: {fileID: 6852518204881969668, guid: 4309749becb9e4b398490d5a14432a7a, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852518204881969668, guid: 4309749becb9e4b398490d5a14432a7a, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1784430336}
@@ -7421,6 +7433,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 866708647}
     - target: {fileID: 6852518204881969668, guid: 4309749becb9e4b398490d5a14432a7a, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852518204881969668, guid: 4309749becb9e4b398490d5a14432a7a, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1613371135}
@@ -7960,6 +7976,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 866708647}
+    - target: {fileID: 6852518204881969668, guid: 4309749becb9e4b398490d5a14432a7a, type: 3}
+      propertyPath: m_ForceGravityOnDetach
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6852518204881969668, guid: 4309749becb9e4b398490d5a14432a7a, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
