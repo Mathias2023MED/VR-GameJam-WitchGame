@@ -8421,12 +8421,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3448641, y: 2.1738923, z: 1.83}
-  m_Center: {x: -0.64469135, y: 1.113196, z: 0.050843418}
+  m_Size: {x: 1.3448641, y: 2.173891, z: 0.330563}
+  m_Center: {x: -0.6446914, y: 1.1131954, z: -0.06292123}
 --- !u!82 &1928925046
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8595,8 +8595,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.2906735, y: 0.46655554, z: 5.1878576}
-  m_Center: {x: -0.08261311, y: -0.26672223, z: -1.8831625}
+  m_Size: {x: 3.2906735, y: 0.53099984, z: 5.1878576}
+  m_Center: {x: -0.08261311, y: -0.2345001, z: -1.8831625}
 --- !u!114 &2004237343 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1218329991534239077, guid: 4309749becb9e4b398490d5a14432a7a, type: 3}
