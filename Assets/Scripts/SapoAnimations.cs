@@ -52,7 +52,22 @@ public class SapoAnimations : MonoBehaviour
     public void PlayDrink(Action after = null) => PlayOnce("Drink", useRoot: false, after);
     public void PlayNodding(Action after = null) => PlayOnce("Nodding", useRoot: false, after);
     public void PlayShakingHead(Action after = null) => PlayOnce("ShakingHead", useRoot: false, after);
+
+
+    // Backrooms-specific animations
     public void PlayDropKick(Action after = null) => PlayOnce("DropKick", useRoot: true, after); // uses clip root motion
+    public void PlayTerrified(Action after = null) => PlayOnce("Terrified", useRoot: true, after); // uses clip root motion
+
+    public void PlaySneaking(Action after = null) => PlayOnce("Sneaking", useRoot: true, after); // uses clip root motion
+
+    public void PlayRunning(Action after = null)
+    {
+        // Rotate 90 degrees around Y axis (for example)
+        transform.Rotate(0, -120f, 0);
+
+        // Then play the animation
+        PlayOnce("Running", useRoot: true, after);
+    }
 
 
     public void PlayHurricaneKick(Action after = null)
