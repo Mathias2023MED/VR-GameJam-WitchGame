@@ -1528,7 +1528,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e299285cec51d4441a3638f67e547a57, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2031846626}
   m_SourcePrefab: {fileID: 100100000, guid: e299285cec51d4441a3638f67e547a57, type: 3}
 --- !u!1001 &300595426
 PrefabInstance:
@@ -1879,6 +1882,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7151812227778941767, guid: 03cc2f8beb4142f4e9ffb868608994d1, type: 3}
   m_PrefabInstance: {fileID: 367907776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &385754340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e299285cec51d4441a3638f67e547a57, type: 3}
+  m_PrefabInstance: {fileID: 295184743}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &399741472
 PrefabInstance:
@@ -5129,7 +5137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1028098684
 Transform:
   m_ObjectHideFlags: 0
@@ -8981,6 +8989,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e299285cec51d4441a3638f67e547a57, type: 3}
   m_PrefabInstance: {fileID: 295184743}
   m_PrefabAsset: {fileID: 0}
+--- !u!328 &2031846626
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385754340}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 230af89205e7a154db9d2a0ce04dc61a, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 3
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1001 &2035401577
 PrefabInstance:
   m_ObjectHideFlags: 0
