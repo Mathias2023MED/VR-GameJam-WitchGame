@@ -70,6 +70,7 @@ public class Costumer : MonoBehaviour
 
     public void PlayYesSoundAndShakeHead()
     {
+        sapoAnimations.PlayNoddingHeadCoroutine();
         //PlayShakeHeadYes
         SoundManager.Instance.PlaySound(audioSource, yesClip);
     }
@@ -84,7 +85,7 @@ public class Costumer : MonoBehaviour
     {
         DisableSpeechBubble(); // Disables the speech bubble when the correct one is delivered
 
-        float delay = 2f; // or whatever delay you want
+        float delay = 3f; // or whatever delay you want
         yield return new WaitForSeconds(delay);
 
         AttachPotionToHand();

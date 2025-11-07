@@ -2218,8 +2218,8 @@ GameObject:
   - component: {fileID: 6955515463263623249}
   - component: {fileID: 6207912117414582125}
   - component: {fileID: 5495605027381832705}
-  - component: {fileID: 4174244410194093164}
   - component: {fileID: 786716160942810638}
+  - component: {fileID: 3043676200018606081}
   m_Layer: 0
   m_Name: sapo
   m_TagString: Costumer
@@ -2280,7 +2280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requestedPotion: {fileID: 11400000, guid: 3b7661627179d421c8e9ffa60188b66e, type: 2}
-  sapoAnimations: {fileID: 4174244410194093164}
+  sapoAnimations: {fileID: 3043676200018606081}
   deliverySpot: {fileID: 0}
   attachPoint: {fileID: 6543488242729597023}
   colorChangerEffect: {fileID: 829322835735075242}
@@ -2441,22 +2441,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4174244410194093164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7451338723314180577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7ff42dbb73c940eda4b665698a21031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crossfade: 0.1
-  forwardReference: {fileID: 0}
-  walkSpeed: 1.6
-  runSpeed: 3.5
 --- !u!65 &786716160942810638
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2478,6 +2462,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.39379823, y: 0.22587529, z: 0.34936705}
   m_Center: {x: 0.0063806474, y: 0.118258074, z: 0.083923385}
+--- !u!114 &3043676200018606081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451338723314180577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d82945a5306a8954cb955760aa719163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossfade: 0.1
+  forwardReference: {fileID: 0}
+  walkSpeed: 1.6
 --- !u!1 &7507266363966879601
 GameObject:
   m_ObjectHideFlags: 0

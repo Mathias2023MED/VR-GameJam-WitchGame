@@ -11,7 +11,6 @@ public class SapoAnimations : MonoBehaviour
 
     // Speeds for manual movement
     [SerializeField] float walkSpeed = 1.6f;
-    [SerializeField] float runSpeed = 3.5f;
 
     Animator anim;
     Coroutine routine;
@@ -36,11 +35,6 @@ public class SapoAnimations : MonoBehaviour
     public void PlayOnce(string state, bool useRoot = false, Action after = null)
         => StartRoutine(Co_PlayOnceReturn(state, useRoot, after));
 
-    // MoveDistance public wrapper: starts the internal coroutine and accepts an optional callback `after`.
-    // useRoot true  -> distance from clip root motion (invertRoot flips it)
-    // useRoot false -> manual movement at manualSpeed (backwards flips it)
-    // preTurnYawDeg / preTurnTime -> smooth rotate before moving
-    // restoreRotation / restoreTime -> smooth rotate back after moving
     public void MoveDistance(
         string state, float meters, bool useRoot, float manualSpeed,
         bool backwards = false, bool invertRoot = false,
@@ -56,6 +50,7 @@ public class SapoAnimations : MonoBehaviour
     // ---------------- CONVENIENCE WRAPPERS ----------------
 
     public void PlayDrink(Action after = null) => PlayOnce("Drink", useRoot: false, after);
+    public void PlayNodding(Action after = null) => PlayOnce("Nodding", useRoot: false, after);
     public void PlayShakingHead(Action after = null) => PlayOnce("ShakingHead", useRoot: false, after);
     public void PlayDropKick(Action after = null) => PlayOnce("DropKick", useRoot: true, after); // uses clip root motion
 
@@ -79,34 +74,6 @@ public class SapoAnimations : MonoBehaviour
 
     public void Walk1_Distance(float meters, bool useRoot = false, Action after = null)
         => MoveDistance("Walk1", meters, useRoot, walkSpeed, false, false, 0f, 0f, true, 0f, after);
-
-    public void Walk2_Distance(float meters, bool useRoot = false, Action after = null)
-        => MoveDistance("Walk2", meters, useRoot, walkSpeed, false, false, 0f, 0f, true, 0f, after);
-
-    public void Walk3_Distance(float meters, bool useRoot = false, Action after = null)
-        => MoveDistance("Walk3", meters, useRoot, walkSpeed, false, false, 0f, 0f, true, 0f, after);
-
-    public void Running_Distance(float meters, bool useRoot = false, Action after = null)
-        => MoveDistance("Running", meters, useRoot, runSpeed, false, false, 0f, 0f, true, 0f, after);
-
-    // Smooth pre-turn for WalkingOut: default 40 deg over 0.15s, restore over 0.15s
-    /*
-    public void WalkingOut_Distance(
-        float meters, bool useRoot = true,
-        float preTurnYawDeg = 40f, float preTurnTime = 0.15f,
-        bool restoreRotation = true, float restoreTime = 0.15f,
-        Action after = null)
-        => MoveDistance(
-            "WalkingOut", meters, useRoot, walkSpeed,
-            backwards: true, invertRoot: false,
-            preTurnYawDeg: preTurnYawDeg, preTurnTime: preTurnTime,
-            restoreRotation: restoreRotation, restoreTime: restoreTime,
-            after: after);
-    */
-
-    // Hurricane kick:
-    // useRoot = true  -> invert planar root motion (go backward with clip motion)
-    // useRoot = false -> manual backward movement
 
 
     // ---------------- COROUTINES ----------------
@@ -325,11 +292,23 @@ public class SapoAnimations : MonoBehaviour
         PlayShakingHead(); // Call your "no" animation here
     }
 
+    private IEnumerator PlayNoddingCo()
+    {
+        float delay = 0.5f;
+        yield return new WaitForSeconds(delay);
+        PlayNodding(); // Call your "yes" animation here
+    }
+
+
     public void PlayShakingHeadCoroutine() //Call this in Customer
     {
         StartCoroutine(PlayShakingHeadCo());
     }
 
+    public void PlayNoddingHeadCoroutine() //Call this in Customer
+    {
+        StartCoroutine(PlayNoddingCo());
+    }
 
     private IEnumerator PlayDrinkAnimation(Action after = null)
     {
