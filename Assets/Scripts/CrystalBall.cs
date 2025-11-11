@@ -72,7 +72,7 @@ public class CrystalBall : MonoBehaviour
         isEventActive = false;
 
         // Pause event, hide event renderer
-        eventVideo.Pause();
+        eventVideo.Stop();
         eventRenderer.enabled = false;
 
         // Resume idle, show idle renderer
