@@ -8797,8 +8797,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3448641, y: 2.173891, z: 2.256611}
-  m_Center: {x: -0.6446914, y: 1.1131954, z: -0.19926499}
+  m_Size: {x: 1.3448641, y: 2.173891, z: 1.8558569}
+  m_Center: {x: -0.6446914, y: 1.1131954, z: 0.0011117337}
 --- !u!82 &1928925046
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9083,7 +9083,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 1
+  - 0.1
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
@@ -11104,6 +11104,10 @@ PrefabInstance:
     - target: {fileID: 3043408771886973292, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
       propertyPath: m_Name
       value: Crystal Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043408771886973292, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4101188042608843029, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
       propertyPath: m_Enabled

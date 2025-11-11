@@ -42,6 +42,7 @@ public class Costumer : MonoBehaviour
     [SerializeField] private AudioClip drinkingClip;
     [SerializeField] private AudioClip angryClip;
     [SerializeField] private AudioClip orderingClip;
+    [SerializeField] private AudioClip walkingClip;
     [SerializeField] private AudioSource audioSource;
 
     [Header("COLLIDER")]
@@ -71,7 +72,6 @@ public class Costumer : MonoBehaviour
     public void PlayYesSoundAndShakeHead()
     {
         sapoAnimations.PlayNoddingHeadCoroutine();
-        //PlayShakeHeadYes
         SoundManager.Instance.PlaySound(audioSource, yesClip);
     }
 
@@ -118,6 +118,8 @@ public class Costumer : MonoBehaviour
         {
             float delay = 5f;
             StartCoroutine(WalkInRoutine(delay));
+            SoundManager.Instance.PlaySound(audioSource, walkingClip);
+            Debug.Log("Walking sound");
         }
     }
 
