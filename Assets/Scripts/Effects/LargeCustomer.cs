@@ -15,6 +15,7 @@ public class LargeCustomer : PotionEffectCustomer
         if (assigner != null)
         {
             head = assigner.head;
+            head.SetActive(false);
         }
         else
         {
@@ -38,6 +39,8 @@ public class LargeCustomer : PotionEffectCustomer
 
     private IEnumerator ScaleAndMoveHeadCoroutine()
     {
+        head.SetActive(true);
+        
         // Wait for 2 seconds before starting
         float delay = 2f;
         yield return new WaitForSeconds(delay);
