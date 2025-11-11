@@ -8,6 +8,8 @@ public class SapoAnimations : MonoBehaviour
     [Header("TUNING")]
     [SerializeField, Min(0f)] float crossfade = 0.1f;
     [SerializeField] Transform forwardReference;
+    [SerializeField] private AudioClip walkingClip;
+    [SerializeField] private AudioSource audioSource;
 
     // Speeds for manual movement
     [SerializeField] float walkSpeed = 1.6f;
@@ -323,6 +325,7 @@ public class SapoAnimations : MonoBehaviour
     public void PlayNoddingHeadCoroutine() //Call this in Customer
     {
         StartCoroutine(PlayNoddingCo());
+        SoundManager.Instance.PlaySound(audioSource, walkingClip);
     }
 
     private IEnumerator PlayDrinkAnimation(Action after = null)
