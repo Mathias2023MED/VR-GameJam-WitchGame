@@ -18,7 +18,7 @@ public class SapoBackrooms : MonoBehaviour
         {
             sapoAnimations.PlayDropKick(() =>
             {
-                StartRunLoop(10);
+                StartRunLoop(20);
             });
         });
     }
