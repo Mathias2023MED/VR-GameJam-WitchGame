@@ -7,10 +7,10 @@ public class SapoBackrooms : MonoBehaviour
 
     void Start()
     {
-        FightandFligt();
+        StartBackroomsSequence();
     }
 
-    public void FightandFligt()
+    public void StartBackroomsSequence()
     {
         // Terrified -> DropKick -> Run x4 -> Destroy
         sapoAnimations.PlaySneaking(() =>
