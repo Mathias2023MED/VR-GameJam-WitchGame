@@ -1970,7 +1970,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f236cee09cd0264d8e7a81d2676188a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sapoAnimations: {fileID: 0}
+  sapoAnimations: {fileID: 535709186}
+--- !u!114 &535709186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535709183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d82945a5306a8954cb955760aa719163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossfade: 0.1
+  forwardReference: {fileID: 0}
+  walkingClip: {fileID: 0}
+  audioSource: {fileID: 0}
+  walkSpeed: 1.6
 --- !u!4 &560092469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6569847424676824401, guid: a44e1cecff02fdf4a883261fcc831930, type: 3}
@@ -3941,7 +3958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11811bf34132c76438a6bfe7c420df17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sapoBackrooms: {fileID: 535709185}
+  targetBackrooms: {fileID: 535709185}
 --- !u!65 &886244989
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5459,6 +5476,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7451338723314180577, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
       insertIndex: -1
       addedObject: {fileID: 535709185}
+    - targetCorrespondingSourceObject: {fileID: 7451338723314180577, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 535709186}
   m_SourcePrefab: {fileID: 100100000, guid: f6347e404201b8f41a169f0a59d293be, type: 3}
 --- !u!4 &1051809155 stripped
 Transform:

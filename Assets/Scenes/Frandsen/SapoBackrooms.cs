@@ -3,16 +3,17 @@ using UnityEngine;
 
 public class SapoBackrooms : MonoBehaviour
 {
-    public SapoAnimations sapoAnimations;
 
-    void Start()
-    {
-        StartBackroomsSequence();
-    }
+    public SapoAnimations sapoAnimations;
+    private bool hasStarted = false;
+
 
     public void StartBackroomsSequence()
     {
-        // Terrified -> DropKick -> Run x4 -> Destroy
+        if (hasStarted) return; // prevent double-trigger
+        hasStarted = true;
+
+        // Terrified -> DropKick -> Run x10 -> Destroy
         sapoAnimations.PlaySneaking(() =>
         {
             sapoAnimations.PlayDropKick(() =>
