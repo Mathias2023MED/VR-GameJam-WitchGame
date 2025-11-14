@@ -119,7 +119,6 @@ public class Costumer : MonoBehaviour
         {
             float delay = 5f;
             StartCoroutine(WalkInRoutine(delay));
-            SoundManager.Instance.PlaySound(audioSource, walkingClip);
             Debug.Log("Walking sound");
         }
     }
@@ -127,9 +126,9 @@ public class Costumer : MonoBehaviour
     private IEnumerator WalkInRoutine(float delay)
     {
         yield return new WaitForSeconds(delay);
-
         float walkDistance = 4f;
         sapoAnimations.Walk1_Distance(walkDistance, false, EnableSpeechBubble);
+        SoundManager.Instance.PlaySound(audioSource, walkingClip);
     }
 
     private void EnableSpeechBubble() //Enables the correct speechbubble text
