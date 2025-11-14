@@ -27,12 +27,15 @@ public class CrystalBall : MonoBehaviour
         idleVideo.Play();
 
         eventRenderer.enabled = false;
-        eventVideo.Pause();
+        eventVideo.enabled = false;
+        
     }
 
     private void Start()
     {
         StartCoroutine(RandomEventRoutine());
+        eventRenderer.enabled = false;
+        eventVideo.enabled = false;
     }
 
     private IEnumerator RandomEventRoutine()
@@ -63,6 +66,7 @@ public class CrystalBall : MonoBehaviour
 
         // Show event renderer, play event
         eventRenderer.enabled = true;
+        eventVideo.enabled = true;
         eventVideo.Play();
     }
 
