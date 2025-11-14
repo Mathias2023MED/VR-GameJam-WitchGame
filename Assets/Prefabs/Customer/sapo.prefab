@@ -2219,7 +2219,6 @@ GameObject:
   - component: {fileID: 6207912117414582125}
   - component: {fileID: 5495605027381832705}
   - component: {fileID: 786716160942810638}
-  - component: {fileID: 1981568939917614765}
   - component: {fileID: 448083448549775964}
   m_Layer: 0
   m_Name: sapo
@@ -2290,11 +2289,11 @@ MonoBehaviour:
   speechBubbleLOVE: {fileID: 6385148421371711643}
   speechBubbleEnlargement: {fileID: 1425679169143432478}
   isFirstCustomer: 0
-  noClip: {fileID: 8300000, guid: d8f168c198aec44339c7ecb71051c308, type: 3}
-  yesClip: {fileID: 8300000, guid: bbf87ef6362fdf54caf5da62aa1cd5a8, type: 3}
+  noClip: {fileID: 0}
+  yesClip: {fileID: 0}
   drinkingClip: {fileID: 8300000, guid: e82b41c139b00ae42bdfce4233c07a31, type: 3}
-  angryClip: {fileID: 8300000, guid: dab21f288e59e1a498190936fc2fbfda, type: 3}
-  orderingClip: {fileID: 8300000, guid: c0314fab77341a24b90b54c3538c3b60, type: 3}
+  angryClip: {fileID: 0}
+  orderingClip: {fileID: 0}
   walkingClip: {fileID: 8300000, guid: 03c52061bf2c22842a1e4eef04700720, type: 3}
   audioSource: {fileID: 5495605027381832705}
   colliderToToggle: {fileID: 6955515463263623249}
@@ -2464,103 +2463,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.39379823, y: 0.22587529, z: 0.34936705}
   m_Center: {x: 0.0063806474, y: 0.118258074, z: 0.083923385}
---- !u!82 &1981568939917614765
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7451338723314180577}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &448083448549775964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2575,8 +2477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossfade: 0.1
   forwardReference: {fileID: 0}
-  walkingClip: {fileID: 8300000, guid: 03c52061bf2c22842a1e4eef04700720, type: 3}
-  audioSource: {fileID: 1981568939917614765}
+  walkingClip: {fileID: 0}
+  audioSource: {fileID: 0}
   walkSpeed: 1.6
 --- !u!1 &7507266363966879601
 GameObject:

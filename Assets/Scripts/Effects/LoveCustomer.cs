@@ -14,6 +14,7 @@ public class LoveCustomer : PotionEffectCustomer
 
     private IEnumerator ActivateEffectCoroutine()
     {
+        float delay = 2f;
         // Get the ColorChangerEffect on the current customer
         // If deliverySpot is not assigned in Inspector, find it in the scene
         if (deliverySpot == null)
@@ -25,9 +26,12 @@ public class LoveCustomer : PotionEffectCustomer
             sapoAnimation = deliverySpot.currentCustomer.sapoAnimations;
         }
 
+        deliverySpot.currentCustomer.PlayEffectSound();
+
         ColorChangerEffect colorChanger = deliverySpot.currentCustomer.colorChangerEffect;
         if (colorChanger != null)
         {
+            yield return new WaitForSeconds(delay);
             colorChanger.ChangeColor();
         }
         else
@@ -36,14 +40,15 @@ public class LoveCustomer : PotionEffectCustomer
         }
 
         // Wait before triggering the animation
-        float delay = 2f;
-        yield return new WaitForSeconds(delay);
+        float delay2 = 4f;
+        yield return new WaitForSeconds(delay2);
 
         // Play the kick animation
-        deliverySpot.currentCustomer.PlayAngrySound();
+        
         sapoAnimation.PlayHurricaneKick();
         DeactivateEffect();
     }
+
 
     public override void DeactivateEffect()
     {

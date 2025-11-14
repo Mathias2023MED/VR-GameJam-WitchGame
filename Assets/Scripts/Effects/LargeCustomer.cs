@@ -8,6 +8,10 @@ public class LargeCustomer : PotionEffectCustomer
     public DeliverySpot deliverySpot;
     private SapoAnimations sapoAnimation;
 
+    [Header("SOUND")]
+    [SerializeField] private AudioClip reactionClip;
+    [SerializeField] private AudioSource audioSource;
+
     public override void ActivateEffect()
     {
         // Find the Assigner in the scene (make sure you have one)
@@ -39,6 +43,7 @@ public class LargeCustomer : PotionEffectCustomer
 
     private IEnumerator ScaleAndMoveHeadCoroutine()
     {
+        PlayReactionSound();
         head.SetActive(true);
         
         // Wait for 2 seconds before starting
@@ -87,5 +92,10 @@ public class LargeCustomer : PotionEffectCustomer
         // Then switch and send in the new customer
         deliverySpot.SwitchCurrentCostumer();
         deliverySpot.SendNewCostumerIn();
+    }
+
+    private void PlayReactionSound()
+    {
+        SoundManager.Instance.PlaySound(audioSource, reactionClip);
     }
 }

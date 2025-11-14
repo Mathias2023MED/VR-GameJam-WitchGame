@@ -9,18 +9,25 @@ public class SoundManager : MonoBehaviour
         // Singleton pattern
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // Prevent duplicates
+            Destroy(gameObject);
             return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // Keep it between scenes
+        DontDestroyOnLoad(gameObject);
     }
 
     public void PlaySound(AudioSource audioSource, AudioClip clip)
     {
         if (clip != null && audioSource != null)
         {
+            // Stop whatever is currently playing
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+
+            // Play the new sound
             audioSource.PlayOneShot(clip);
         }
         else
@@ -28,6 +35,7 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning("Clip or AudioSource missing on " + gameObject.name);
         }
     }
+
 
     public void StopSound(AudioSource audioSource)
     {

@@ -40,7 +40,7 @@ public class Costumer : MonoBehaviour
     [SerializeField] private AudioClip noClip;
     [SerializeField] private AudioClip yesClip;
     [SerializeField] private AudioClip drinkingClip;
-    [SerializeField] private AudioClip angryClip;
+    [SerializeField] private AudioClip effectClip;
     [SerializeField] private AudioClip orderingClip;
     [SerializeField] private AudioClip walkingClip;
     [SerializeField] private AudioSource audioSource;
@@ -93,6 +93,7 @@ public class Costumer : MonoBehaviour
         float delay2 = 2f; // or whatever delay you want
         yield return new WaitForSeconds(delay2);
         PlayDrinkingSound();
+        yield return new WaitForSeconds(delay2);
     }
 
     private void AttachPotionToHand()
@@ -160,9 +161,9 @@ public class Costumer : MonoBehaviour
         speechBubbleEnlargement.SetActive(false);
     }
 
-    public void PlayAngrySound()
+    public void PlayEffectSound()
     {
-        SoundManager.Instance.PlaySound(audioSource, angryClip);
+        SoundManager.Instance.PlaySound(audioSource, effectClip);
     }
 
     public void PlayDrinkingSound()

@@ -333,6 +333,8 @@ MonoBehaviour:
   head: {fileID: 0}
   assigner: {fileID: 0}
   deliverySpot: {fileID: 0}
+  reactionClip: {fileID: 8300000, guid: a074e6bba3bbd32498805c0e1694f932, type: 3}
+  audioSource: {fileID: 4365501104232216904}
 --- !u!114 &8726842004529957715
 MonoBehaviour:
   m_ObjectHideFlags: 0

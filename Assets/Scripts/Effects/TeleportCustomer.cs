@@ -23,7 +23,7 @@ public class TeleportCustomer : PotionEffectCustomer
     private IEnumerator TeleportRoutine()
     {
         PlayDissapearSound();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.6f);
         DeactivateEffect();
         Destroy(sapo);
     }
