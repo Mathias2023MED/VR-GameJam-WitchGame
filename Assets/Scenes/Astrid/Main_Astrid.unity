@@ -4356,8 +4356,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988716840e4fe014eb1e259a9fb460b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  collisionSounds: []
+  audioSource: {fileID: 911542367}
+  collisionSounds:
+  - {fileID: 8300000, guid: cce350145bbc7f94ba222b8d4888e08d, type: 3}
+  - {fileID: 8300000, guid: d62ed613a2e09ee4485f9b40e12d4bbc, type: 3}
+  - {fileID: 8300000, guid: e8baab08497f98d44ade914bd22dc040, type: 3}
+  - {fileID: 8300000, guid: 3f52fb1de79d54346807d2db728e6af3, type: 3}
   minCollisionVelocity: 0.5
   soundCooldown: 0.3
 --- !u!1 &917380896
