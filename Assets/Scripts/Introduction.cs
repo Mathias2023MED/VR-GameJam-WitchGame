@@ -5,7 +5,6 @@ public class Introduction : MonoBehaviour
 {
     [SerializeField] private GameObject sapo;
     [SerializeField] private GameObject crystalBall;
-    [SerializeField] private GameObject ad;
     [SerializeField] private AudioClip catClip;
     [SerializeField] private AudioSource audioSource;
 
@@ -26,12 +25,11 @@ public class Introduction : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         crystalBall.SetActive(true);
-        
-        ad.SetActive(false);
 
-        float delay2 = 5f;
+        float delay2 = 20f;
         yield return new WaitForSeconds(delay2);
 
         sapo.SetActive(true);
+        Debug.Log("sapo active");
     }
 }

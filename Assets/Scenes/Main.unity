@@ -5078,6 +5078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sapo: {fileID: 1392510292}
   crystalBall: {fileID: 732272062398604082}
+  ad: {fileID: 0}
   catClip: {fileID: 8300000, guid: 455547866c11c524bb3eb122a903612b, type: 3}
   audioSource: {fileID: 911542367}
 --- !u!1001 &1022339192
@@ -11229,6 +11230,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6980475962993606855, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
+      propertyPath: maxInterval
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980475962993606855, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
+      propertyPath: minInterval
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7103809436827864070, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -11241,6 +11250,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8099595236125510922, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 35e87473172102843a1a7ef4b38317f5, type: 3}
     - target: {fileID: 8760963057231785427, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
       propertyPath: m_IsActive
       value: 1

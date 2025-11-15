@@ -33,9 +33,15 @@ public class CrystalBall : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(RandomEventRoutine());
         eventRenderer.enabled = false;
         eventVideo.enabled = false;
+    }
+
+    private IEnumerator Wait()
+    {
+        float holdUp = 60f;
+        yield return new WaitForSeconds(holdUp);
+        StartCoroutine(RandomEventRoutine());
     }
 
     private IEnumerator RandomEventRoutine()
