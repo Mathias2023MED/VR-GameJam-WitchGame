@@ -35,17 +35,20 @@ public class CrystalBall : MonoBehaviour
     {
         eventRenderer.enabled = false;
         eventVideo.enabled = false;
+        StartCoroutine(Wait());
     }
 
     private IEnumerator Wait()
     {
         float holdUp = 60f;
+        Debug.Log("is waiting");
         yield return new WaitForSeconds(holdUp);
         StartCoroutine(RandomEventRoutine());
     }
 
     private IEnumerator RandomEventRoutine()
     {
+        Debug.Log("routine started");
         while (true)
         {
             if (!isEventActive && !isWaiting)
@@ -64,6 +67,7 @@ public class CrystalBall : MonoBehaviour
 
     private void StartEventVideo()
     {
+        Debug.Log("event video started");
         isEventActive = true;
 
         // Pause idle, hide idle renderer
