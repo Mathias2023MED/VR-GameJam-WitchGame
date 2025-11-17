@@ -11223,7 +11223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3780843640335374898, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
       propertyPath: m_Volume
-      value: 0.09
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4758977035225988282, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
       propertyPath: m_IsActive
@@ -11231,15 +11231,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980475962993606855, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
       propertyPath: maxInterval
-      value: 5
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6980475962993606855, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
       propertyPath: minInterval
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7103809436827864070, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951308742283264863, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7951308742283264863, guid: 7ec8ef6a9e647b54595c2fef62451281, type: 3}
       propertyPath: m_Enabled
