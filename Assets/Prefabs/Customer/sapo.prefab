@@ -2219,7 +2219,8 @@ GameObject:
   - component: {fileID: 6207912117414582125}
   - component: {fileID: 5495605027381832705}
   - component: {fileID: 786716160942810638}
-  - component: {fileID: 448083448549775964}
+  - component: {fileID: 4846628862059427247}
+  - component: {fileID: 2980343280908861997}
   m_Layer: 0
   m_Name: sapo
   m_TagString: Costumer
@@ -2280,7 +2281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requestedPotion: {fileID: 11400000, guid: 3b7661627179d421c8e9ffa60188b66e, type: 2}
-  sapoAnimations: {fileID: 448083448549775964}
+  sapoAnimations: {fileID: 0}
   deliverySpot: {fileID: 0}
   attachPoint: {fileID: 6543488242729597023}
   colorChangerEffect: {fileID: 829322835735075242}
@@ -2292,7 +2293,7 @@ MonoBehaviour:
   noClip: {fileID: 0}
   yesClip: {fileID: 0}
   drinkingClip: {fileID: 8300000, guid: e82b41c139b00ae42bdfce4233c07a31, type: 3}
-  angryClip: {fileID: 0}
+  effectClip: {fileID: 0}
   orderingClip: {fileID: 0}
   walkingClip: {fileID: 8300000, guid: 03c52061bf2c22842a1e4eef04700720, type: 3}
   audioSource: {fileID: 5495605027381832705}
@@ -2463,7 +2464,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.39379823, y: 0.22587529, z: 0.34936705}
   m_Center: {x: 0.0063806474, y: 0.118258074, z: 0.083923385}
---- !u!114 &448083448549775964
+--- !u!114 &4846628862059427247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2472,14 +2473,97 @@ MonoBehaviour:
   m_GameObject: {fileID: 7451338723314180577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d82945a5306a8954cb955760aa719163, type: 3}
+  m_Script: {fileID: 11500000, guid: a7ff42dbb73c940eda4b665698a21031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   crossfade: 0.1
   forwardReference: {fileID: 0}
-  walkingClip: {fileID: 0}
-  audioSource: {fileID: 0}
+  walkingClip: {fileID: 8300000, guid: 03c52061bf2c22842a1e4eef04700720, type: 3}
+  audioSource: {fileID: 5495605027381832705}
   walkSpeed: 1.6
+--- !u!114 &2980343280908861997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451338723314180577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c3684b22f00604a97bb68037fcf4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directBinaural: 1
+  interpolation: 0
+  perspectiveCorrection: 0
+  distanceAttenuation: 0
+  distanceAttenuationInput: 0
+  distanceAttenuationValue: 1
+  airAbsorption: 0
+  airAbsorptionInput: 0
+  airAbsorptionLow: 1
+  airAbsorptionMid: 1
+  airAbsorptionHigh: 1
+  directivity: 0
+  directivityInput: 0
+  dipoleWeight: 0
+  dipolePower: 0
+  directivityValue: 1
+  occlusion: 0
+  occlusionInput: 0
+  occlusionType: 0
+  occlusionRadius: 1
+  occlusionSamples: 16
+  occlusionValue: 1
+  transmission: 0
+  transmissionType: 0
+  transmissionInput: 0
+  transmissionLow: 1
+  transmissionMid: 1
+  transmissionHigh: 1
+  maxTransmissionSurfaces: 1
+  directMixLevel: 1
+  reflections: 1
+  reflectionsType: 0
+  useDistanceCurveForReflections: 0
+  currentBakedSource: {fileID: 0}
+  reverbTimeLow: 0
+  reverbTimeMid: 0
+  reverbTimeHigh: 0
+  hybridReverbEQLow: 1
+  hybridReverbEQMid: 1
+  hybridReverbEQHigh: 1
+  hybridReverbDelay: 0
+  applyHRTFToReflections: 1
+  reflectionsMixLevel: 1
+  pathing: 0
+  pathingProbeBatch: {fileID: 0}
+  pathValidation: 1
+  findAlternatePaths: 1
+  pathingEQ:
+  - 1
+  - 1
+  - 1
+  pathingSH:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  applyHRTFToPathing: 0
+  pathingMixLevel: 1
+  normalizePathingEQ: 0
 --- !u!1 &7507266363966879601
 GameObject:
   m_ObjectHideFlags: 0
