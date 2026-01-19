@@ -4,7 +4,7 @@ public class CatThrow : MonoBehaviour
 {
     [Header("Audio")]
     public AudioSource audioSource;        // Drag for AudioSources 
-    public AudioClip[] collisionSounds;    // Add multiple SFX
+    public AudioClip[] collisionSounds;    // A List to Add multiple SFX
 
     [Header("Settings")]
     public float minCollisionVelocity = 0.5f;   // Minimum speed to trigger sound

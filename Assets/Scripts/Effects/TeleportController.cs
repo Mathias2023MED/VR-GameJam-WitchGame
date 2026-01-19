@@ -9,13 +9,13 @@ public class TeleportController : MonoBehaviour
 
     void Start()
     {
-        // Typo fix: SetActive (not SetAcive)
+        
         teleportInteractor.gameObject.SetActive(false);
 
-        // Typo fix: Enable (not Enalbe)
+        
         teleportationActivationAction.action.Enable();
 
-        // Typo fix: performed (not preformed)
+        
         teleportationActivationAction.action.performed += Action_Performed;
         teleportationActivationAction.action.canceled += Action_Canceled;
     }
@@ -39,6 +39,7 @@ public class TeleportController : MonoBehaviour
 
     System.Collections.IEnumerator JumpOneFrame()
     {
+        // Jump one frame, so the teleport can happen before disabling lol
         yield return null;
         teleportInteractor.gameObject.SetActive(false);
 
